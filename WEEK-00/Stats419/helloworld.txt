@@ -1,0 +1,139 @@
+# print("hello world");
+
+# Cntrl-third (wheel mouse) to zoom...
+
+# F8 to run one line of code ...
+# you have to restart the notepad++ after 
+# the update with NppToR
+
+# Cntrl-Z is your friend, so is Cntrl-Y
+# Restarting Notepad++
+# C:\Program Files\Notepad++\autoCompletion
+
+# Window left arrow, right arrow
+# to split a monitor into a left and right side
+
+# Every time you him F8, it will run the next line.
+# If you want the entire file, Cntrl-F8
+
+# Notice: I did not have to save the file.
+
+# Cntrl-S to Save, or Alt-F-Save
+
+# Let's install a package
+
+# Check for updates for the base...
+update.packages();
+
+# Click 'YES' often, and store in personal libary if necessary.
+# This will be an issue if another user looks for the libraries on the machine.
+# Look into AUC
+
+# install.packages("pryr", dependencies=T);
+library(pryr);
+mem_used();
+
+library(ggplot2);
+library(MASS);
+# install.packages("IMTest", dependencies=T);
+library(IMTest);
+
+# Rcpp is a c++ complier... some packages may warn that it needs to be compiled,
+# that is fine ... R's compiler is way more stable in Windoze than it was in the past.
+
+
+myStart = Sys.time();
+Sys.sleep(5); # sleep for 5 seconds
+myEnd = Sys.time();
+
+# Notice F8 works on any highlighted code, even multiple lines.
+
+myDiff = myEnd - myStart;
+myDiff.numeric = as.numeric(myEnd) - as.numeric(myStart);
+myDiff;
+myDiff.numeric;
+
+
+# some programming can be parallel processed...
+# this feature is now a bit more stable in R for Windoze 
+# than it has been...
+library(parallel);
+
+n.cores <- detectCores()
+n.cores
+
+# this is technically threads not cores.
+
+# install.packages("mvnfast", dependencies=T);
+library(mvnfast)
+
+# microbenchmark does not work on all platforms, hence we need this small wrapper 
+microwrapper <- function(..., times = 100L){
+  ok <- "microbenchmark" %in% rownames(installed.packages())
+  if( ok ){ 
+    library("microbenchmark") 
+    microbenchmark(list = match.call(expand.dots = FALSE)$..., times = times)
+  }else{
+    message("microbenchmark package is not installed")
+    return( invisible(NULL) )
+  }
+}
+
+library("mvtnorm")
+library("mvnfast")
+library("MASS")
+# We might also need to turn off BLAS parallelism 
+library("RhpcBLASctl")
+blas_set_num_threads(1)
+
+N <- 10000
+d <- 20
+
+# Creating mean and covariance matrix
+mu <- 1:d
+tmp <- matrix(rnorm(d^2), d, d)
+mcov <- tcrossprod(tmp, tmp)
+
+microwrapper(
+			 rmvn(N, mu, mcov, ncores = 16),
+			 rmvn(N, mu, mcov, ncores = 8),
+			 rmvn(N, mu, mcov, ncores = 4),
+			 rmvn(N, mu, mcov, ncores = 2),
+             rmvn(N, mu, mcov),
+             rmvnorm(N, mu, mcov),
+             mvrnorm(N, mu, mcov))
+			 
+
+# the gain on parallel processing is noticable... but there is a limit
+# the limit it a result of the parent-child threading
+# overhead ...
+
+# now that we have played a bit, let's finish up with
+# implementing
+# https://gist.github.com/yihui/2143971
+# This script will review all of your installed libraries
+# and create an autocomplete file.
+
+# C:\Program Files\Notepad++\autoCompletion#
+# setwd("A:\WSU-play\Stats419");
+# either double up the slashes
+# setwd("C:/WSU-play/Stats419");
+
+# let's see if autooomplete now works...
+
+A = matrix( c(1,2,3,3,4,3,2,1,1), nrow=3, ncol=3);
+A;
+b = c(3,2,1);
+b;
+x = solve(A,b);
+x;
+
+?solve
+
+# using Rgui and Notepadd++ is a great way to
+# get warmed up on a project... once you leave
+# "play" mode, you can always use RStudio.
+
+# I like to save these files as text files, ".txt" and
+# consider this the sandbox to begin to initially explore
+# a problem...
