@@ -1,24 +1,20 @@
 ---
-title: "Datasets"
+title: "Week 03 Assignment"
 author: "Minju Lee"
-email: "minju.lee@wsu.edu"
-SID: "11638071"
-class: "STATS 419"
-Instructor: "Monte J. Shaffer"
-date: "9/4/2020"
-output: pdf_document
-
-           
----
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  pdf_document:
+    citation_package: natbib
+    latex_engine: pdflatex
+    template: ./../latex-templates/homework.tex
+  html_document:
+    df_print: paged
+course: STATS419 Survey of Multivariate Analysis
+course-short: STATS419
+instructor: Monte J. Shaffer
 email: minju.lee@wsu.edu
-
-SID: 11638071
-
-class: STATS 419
-
-Instructor: Monte J. Shaffer
-
-### After spending about 20+ hours on this week's assignments, I was unable to complete this assignments... 
+wsu-id: '11638071'
+---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)

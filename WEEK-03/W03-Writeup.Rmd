@@ -1,10 +1,19 @@
 ---
-title: "Week 03 Assignment"
+title: "Week 03 Assignment 02_datasets"
 author: "Minju Lee"
-date: "9/21/2020"
+date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
-  pdf_document: default
-  html_document: default
+  html_document:
+    df_print: paged
+  pdf_document:
+    citation_package: natbib
+    latex_engine: pdflatex
+    template: ./../latex-templates/homework.tex
+course: STATS419 Survey of Multivariate Analysis
+course-short: STATS419
+instructor: Monte J. Shaffer
+email: minju.lee@wsu.edu
+wsu-id: '11638071'
 ---
 
 ```{r setup, include=FALSE}
@@ -16,6 +25,15 @@ knitr::opts_chunk$set(echo = TRUE)
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+library(devtools);
+my.source = 'github'
+github.path = "https://raw.githubusercontent.com/minju-lee92/WSU_STATS419_FALL2020/";
+source_url(paste0(github.path,"master/functions/libraries.R"));
+source_url(paste0(github.path,"master/functions/functions-imdb.R"));
+
+```
 
 ```{r cars}
 summary(cars)

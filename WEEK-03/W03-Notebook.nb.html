@@ -11,7 +11,7 @@
 
 
 
-<title>R Notebook sandbox</title>
+<title>R Notebook sandbox: Assignment “Datasets” (10 points)</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1756,30 +1756,210 @@ summary {
 
 
 
-<h1 class="title toc-ignore">R Notebook sandbox</h1>
+<h1 class="title toc-ignore">R Notebook sandbox: Assignment “Datasets” (10 points)</h1>
 
 </div>
 
 
 <!-- rnb-text-begin -->
 <p>This is an <a href="http://rmarkdown.rstudio.com">R Markdown</a> Notebook. When you execute code within the notebook, the results appear beneath the code.</p>
+<p><span class="math inline">\(title\)</span> #Easter Egg(+10) <span class="math inline">\(my-var\)</span></p>
 <p>Try executing this chunk by clicking the <em>Run</em> button within the chunk or by placing your cursor inside it and pressing <em>Ctrl+Shift+Enter</em>.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdChjYXJzKVxuYGBgIn0= -->
-<pre class="r"><code>plot(cars)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShkZXZ0b29scykgIyBkZXZ0b29scyBpcyByZXF1aXJlZCBmb3IgZnVuY3Rpb24gc291cmNlX3VybCgpIHRvIHdvcmsuLi5cbm15LnNvdXJjZSA9ICdsb2NhbCdcbmxvY2FsLnBhdGggPSBcIkM6L19naXRfL1dTVV9TVEFUUzQxOV9GQUxMMjAyMC9cIlxubG9jYWwuZGF0YS5wYXRoID0gXCJcIlxuc291cmNlKHBhc3RlMChsb2NhbC5wYXRoLCBcImZ1bmN0aW9ucy9saWJyYXJpZXMuUlwiKSxsb2NhbD1UKVxuc291cmNlKHBhc3RlMChsb2NhbC5wYXRoLCBcImZ1bmN0aW9ucy9mdW5jdGlvbnMtaW1kYi5SXCIpLCBsb2NhbD1UKVxuYGBgIn0= -->
+<pre class="r"><code>library(devtools) # devtools is required for function source_url() to work...
+my.source = &#39;local&#39;
+local.path = &quot;C:/_git_/WSU_STATS419_FALL2020/&quot;
+local.data.path = &quot;&quot;
+source(paste0(local.path, &quot;functions/libraries.R&quot;),local=T)
+source(paste0(local.path, &quot;functions/functions-imdb.R&quot;), local=T)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-plot-begin eyJoZWlnaHQiOjQzMi42MzI5LCJ3aWR0aCI6NzAwLCJzaXplX2JlaGF2aW9yIjowLCJjb25kaXRpb25zIjpbXX0= -->
-<p><img src="data:image/png;base64,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" /></p>
-<!-- rnb-plot-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Add a new chunk by clicking the <em>Insert Chunk</em> button on the toolbar or by pressing <em>Ctrl+Alt+I</em>.</p>
-<p>When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the <em>Preview</em> button or press <em>Ctrl+Shift+K</em> to preview the HTML file).</p>
-<p>The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.</p>
+<div id="matrix" class="section level1">
+<h1>Matrix</h1>
+<p>Create the “rotate matrix” functions as described in lectures. Apply to the example “myMatrix”.</p>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubXlNYXRyaXggPSBtYXRyaXggKGMgKFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDEsMCwyLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAsMywwLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDQsMCw1XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgKSwgbnJvdz0zLFxuYnlyb3cgPSBUKTtcblxuXG50cmFuc3Bvc2VNYXRyaXggPSBmdW5jdGlvbihtYXQpXG4gIHtcbiAgdChtYXQpO1xuICB9XG5cbnRyYW5zcG9zZU1hdHJpeChteU1hdHJpeClcblxuI0kgbmVlZCB0byByZXZlcmUgdGhlIHJvd3MgYmVmb3IgYXBwbHlpbmcgdHJhbnNwb3NlXG5cbnJvdGF0ZU1hdHJpeDkwID0gZnVuY3Rpb24obWF0KVxuICB7XG4gIHQobWF0W25yb3cobXlNYXRyaXgpOjEsXSlcbiAgfVxuXG5yb3RhdGVNYXRyaXg5MChteU1hdHJpeClcblxucm90YXRlTWF0cml4MTgwID0gZnVuY3Rpb24obWF0KVxuICB7XG4gIHQocm90YXRlTWF0cml4OTAobWF0KVtucm93KHJvdGF0ZU1hdHJpeDkwKG1hdCkpOjEsXSlcbiAgfVxuXG5yb3RhdGVNYXRyaXgxODAobXlNYXRyaXgpXG5cbnJvdGF0ZU1hdHJpeDI3MCA9IGZ1bmN0aW9uKG1hdClcbiAge1xuICB0KHJvdGF0ZU1hdHJpeDE4MChtYXQpW25yb3cocm90YXRlTWF0cml4MTgwKG1hdCkpOjEsXSlcbiAgfVxuXG5yb3RhdGVNYXRyaXgyNzAobXlNYXRyaXgpXG5cbmBgYCJ9 -->
+<pre class="r"><code>myMatrix = matrix (c (
+                            1,0,2,
+                            0,3,0,
+                            4,0,5
+                            ), nrow=3,
+byrow = T);
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2sgc2FuZGJveCINCm91dHB1dDoNCiAgaHRtbF9kb2N1bWVudDoNCiAgICBkZl9wcmludDogcGFnZWQNCi0tLQ0KDQpUaGlzIGlzIGFuIFtSIE1hcmtkb3duXShodHRwOi8vcm1hcmtkb3duLnJzdHVkaW8uY29tKSBOb3RlYm9vay4gV2hlbiB5b3UgZXhlY3V0ZSBjb2RlIHdpdGhpbiB0aGUgbm90ZWJvb2ssIHRoZSByZXN1bHRzIGFwcGVhciBiZW5lYXRoIHRoZSBjb2RlLiANCg0KVHJ5IGV4ZWN1dGluZyB0aGlzIGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqUnVuKiBidXR0b24gd2l0aGluIHRoZSBjaHVuayBvciBieSBwbGFjaW5nIHlvdXIgY3Vyc29yIGluc2lkZSBpdCBhbmQgcHJlc3NpbmcgKkN0cmwrU2hpZnQrRW50ZXIqLiANCg0KYGBge3J9DQpwbG90KGNhcnMpDQpgYGANCg0KQWRkIGEgbmV3IGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqSW5zZXJ0IENodW5rKiBidXR0b24gb24gdGhlIHRvb2xiYXIgb3IgYnkgcHJlc3NpbmcgKkN0cmwrQWx0K0kqLg0KDQpXaGVuIHlvdSBzYXZlIHRoZSBub3RlYm9vaywgYW4gSFRNTCBmaWxlIGNvbnRhaW5pbmcgdGhlIGNvZGUgYW5kIG91dHB1dCB3aWxsIGJlIHNhdmVkIGFsb25nc2lkZSBpdCAoY2xpY2sgdGhlICpQcmV2aWV3KiBidXR0b24gb3IgcHJlc3MgKkN0cmwrU2hpZnQrSyogdG8gcHJldmlldyB0aGUgSFRNTCBmaWxlKS4NCg0KVGhlIHByZXZpZXcgc2hvd3MgeW91IGEgcmVuZGVyZWQgSFRNTCBjb3B5IG9mIHRoZSBjb250ZW50cyBvZiB0aGUgZWRpdG9yLiBDb25zZXF1ZW50bHksIHVubGlrZSAqS25pdCosICpQcmV2aWV3KiBkb2VzIG5vdCBydW4gYW55IFIgY29kZSBjaHVua3MuIEluc3RlYWQsIHRoZSBvdXRwdXQgb2YgdGhlIGNodW5rIHdoZW4gaXQgd2FzIGxhc3QgcnVuIGluIHRoZSBlZGl0b3IgaXMgZGlzcGxheWVkLg0K</div>
+
+transposeMatrix = function(mat)
+  {
+  t(mat);
+  }
+
+transposeMatrix(myMatrix)
+
+#I need to revere the rows befor applying transpose
+
+rotateMatrix90 = function(mat)
+  {
+  t(mat[nrow(myMatrix):1,])
+  }
+
+rotateMatrix90(myMatrix)
+
+rotateMatrix180 = function(mat)
+  {
+  t(rotateMatrix90(mat)[nrow(rotateMatrix90(mat)):1,])
+  }
+
+rotateMatrix180(myMatrix)
+
+rotateMatrix270 = function(mat)
+  {
+  t(rotateMatrix180(mat)[nrow(rotateMatrix180(mat)):1,])
+  }
+
+rotateMatrix270(myMatrix)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="iris" class="section level1">
+<h1>IRIS</h1>
+<p>Recreate the graphic for the IRIS Data Set using R. Same titles, same scales, same colors. See: <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set#/media/File:Iris_dataset_scatterplot.svg" class="uri">https://en.wikipedia.org/wiki/Iris_flower_data_set#/media/File:Iris_dataset_scatterplot.svg</a></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2dldHRpbmcgdGhlIGRhdGEgYW5kIGludmVzdGlnYXRlIHRoZSBkYXRhXG5kYXRhKGlyaXMpXG4jZGltKGlyaXMpXG4jYXR0cmlidXRlcyhpcmlzKVxuI3N1bW1hcnkoaXJpcylcblxuI2NyZWF0ZSB0aGUgZ3JhcGhcbiMgVGhpcyBjb2RlIGNhbiBiZSBmb3VuZCBhdCBodHRwczovL2NvbW1vbnMud2lraW1lZGlhLm9yZy93aWtpL0ZpbGU6SXJpc19kYXRhc2V0X3NjYXR0ZXJwbG90LnN2Z1xuXG5wYWlycyhpcmlzWzE6NF0sbWFpbj1cIklyaXMgRGF0YSAocmVkPXNldG9zYSxncmVlbj12ZXJzaWNvbG9yLGJsdWU9dmlyZ2luaWNhKVwiLCBwY2g9MjEsXG5iZz1jKFwicmVkXCIsXCJncmVlbjNcIixcImJsdWVcIilbdW5jbGFzcyhpcmlzJFNwZWNpZXMpXSlcbmBgYCJ9 -->
+<pre class="r"><code>#getting the data and investigate the data
+data(iris)
+#dim(iris)
+#attributes(iris)
+#summary(iris)
+
+#create the graph
+# This code can be found at https://commons.wikimedia.org/wiki/File:Iris_dataset_scatterplot.svg
+
+pairs(iris[1:4],main=&quot;Iris Data (red=setosa,green=versicolor,blue=virginica)&quot;, pch=21,
+bg=c(&quot;red&quot;,&quot;green3&quot;,&quot;blue&quot;)[unclass(iris$Species)])</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="personality" class="section level1">
+<h1>Personality</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyByZWFkIGluIHRoZSByYXcgZGF0YVxucGVyc19yYXcgPC0gcmVhZC50YWJsZShcInBlcnNvbmFsaXR5LXJhdy50eHRcIiwgc2VwPVwifFwiLCBoZWFkZXI9VFJVRSlcbiNwZXJzX3Jhd1xuXG4jIHJlbW92ZSBWMDAgY29sdW1uXG5wZXJzX25ldyA8LSBzdWJzZXQocGVyc19yYXcsIHNlbGVjdCA9IC1WMDApXG4jcGVyc19uZXdcblxuIyBjcmVhdGUgdHdvIG5ldyBjb2x1bW5zIGZvciB5ZWFyIGFuZCB3ZWVrXG5saWJyYXJ5KGRwbHlyKVxubGlicmFyeShsdWJyaWRhdGUpXG5cbnBlcnNfbmV3JGRhdGVfdGVzdCA8LSBtZHlfaG0ocGVyc19uZXckZGF0ZV90ZXN0KVxucGVyc19uZXckeWVhciA8LSB5ZWFyKHBlcnNfbmV3JGRhdGVfdGVzdClcbnBlcnNfbmV3JHdlZWsgPC0gZm9ybWF0KHBlcnNfbmV3JGRhdGVfdGVzdCwgXCIlbS8lZFwiKVxuXG4jIHNvcnQgdGhlIGRhdGEgXG5wZXJzX3NvcnQgPC0gYXJyYW5nZShwZXJzX25ldywgZGVzYyh5ZWFyKSwgZGVzYyh3ZWVrKSlcblxuIyByZW1vdmUgZHVwbGljYXRlc1xubGVuZ3RoKHVuaXF1ZShwZXJzX3NvcnQkbWQ1X2VtYWlsKSlcblxucGVyc19jbGVhbiA8LSBwZXJzX3NvcnQgJT4lIGRpc3RpbmN0KHBlcnNfc29ydCRtZDVfZW1haWwsIC5rZWVwX2FsbD1UUlVFKVxuI3BlcnNfY2xlYW5cblxubXMgPC0gZmlsdGVyKHBlcnNfY2xlYW4sIG1kNV9lbWFpbCA9PSdiNjJjNzNjZGFmNTllMGExM2RlNDk1Yjg0MDMwNzM0ZScpXG5cbm1zIDwtIGFzLm1hdHJpeChtcylcbm1zXG4jIHNhdmUgY2xlYW5lZCBkYXRhXG5cbiMgd3JpdGUudGFibGUocGVyc19jbGVhbiwgXCJwZXJzb25hbGl0eS1jbGVhbi50eHRcIiwgc2VwPVwifFwiLHJvdy5uYW1lcyA9IEZBTFNFKVxuXG5gYGAifQ== -->
+<pre class="r"><code># read in the raw data
+pers_raw &lt;- read.table(&quot;personality-raw.txt&quot;, sep=&quot;|&quot;, header=TRUE)
+#pers_raw
+
+# remove V00 column
+pers_new &lt;- subset(pers_raw, select = -V00)
+#pers_new
+
+# create two new columns for year and week
+library(dplyr)
+library(lubridate)
+
+pers_new$date_test &lt;- mdy_hm(pers_new$date_test)
+pers_new$year &lt;- year(pers_new$date_test)
+pers_new$week &lt;- format(pers_new$date_test, &quot;%m/%d&quot;)
+
+# sort the data 
+pers_sort &lt;- arrange(pers_new, desc(year), desc(week))
+
+# remove duplicates
+length(unique(pers_sort$md5_email))
+
+pers_clean &lt;- pers_sort %&gt;% distinct(pers_sort$md5_email, .keep_all=TRUE)
+#pers_clean
+
+ms &lt;- filter(pers_clean, md5_email ==&#39;b62c73cdaf59e0a13de495b84030734e&#39;)
+
+ms &lt;- as.matrix(ms)
+ms
+# save cleaned data
+
+# write.table(pers_clean, &quot;personality-clean.txt&quot;, sep=&quot;|&quot;,row.names = FALSE)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="variance-and-z-scores" class="section level1">
+<h1>Variance and Z-scores</h1>
+<div id="variance" class="section level2">
+<h2>Variance</h2>
+<div id="naive" class="section level3">
+<h3>Naive</h3>
+<div id="howww" class="section level4">
+<h4>howww</h4>
+</div>
+</div>
+<div id="traditional-two-pass" class="section level3">
+<h3>Traditional Two Pass</h3>
+</div>
+</div>
+<div id="z-scores" class="section level2">
+<h2>Z-Scores</h2>
+</div>
+</div>
+<div id="will-smith" class="section level1">
+<h1>Will Smith</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuICBubWlkID0gXCJubTAwMDAyMjZcIjtcbiBcdHdpbGwgPSBncmFiRmlsbXNGb3JQZXJzb24obm1pZCk7XG4gXHRwbG90KHdpbGwkbW92aWVzLjUwWyxjKDEsNiw3OjEwKV0pO1xuICBcdGJveHBsb3Qod2lsbCRtb3ZpZXMuNTAkbWlsbGlvbnMpO1xuXHRcdHdpZHggPSAgd2hpY2gubWF4KHdpbGwkbW92aWVzLjUwJG1pbGxpb25zKTtcblx0d2lsbCRtb3ZpZXMuNTBbd2lkeCxdO1xuXHRcdHN1bW1hcnkod2lsbCRtb3ZpZXMuNTAkeWVhcik7ICAjIGJhZCBib3lzIGZvciBsaWZlIC4uLiBkaWQgZGF0YSBjaGFuZ2U/XG5gYGAifQ== -->
+<pre class="r"><code>  nmid = &quot;nm0000226&quot;;
+    will = grabFilmsForPerson(nmid);
+    plot(will$movies.50[,c(1,6,7:10)]);
+    boxplot(will$movies.50$millions);
+        widx =  which.max(will$movies.50$millions);
+    will$movies.50[widx,];
+        summary(will$movies.50$year);  # bad boys for life ... did data change?</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="denzel-washington" class="section level1">
+<h1>Denzel Washington</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuICAgbm1pZCA9IFwibm0wMDAwMjQzXCI7XG4gXHRkZW56ZWwgPSBncmFiRmlsbXNGb3JQZXJzb24obm1pZCk7XG4gXHRwbG90KGRlbnplbCRtb3ZpZXMuNTBbLGMoMSw2LDc6MTApXSk7XG4gIFx0Ym94cGxvdChkZW56ZWwkbW92aWVzLjUwJG1pbGxpb25zKTtcblx0XHRkaWR4ID0gIHdoaWNoLm1heChkZW56ZWwkbW92aWVzLjUwJG1pbGxpb25zKTtcblx0ZGVuemVsJG1vdmllcy41MFtkaWR4LF07XG5cdFx0c3VtbWFyeShkZW56ZWwkbW92aWVzLjUwJHllYXIpO1xuXHRcbmBgYCJ9 -->
+<pre class="r"><code>   nmid = &quot;nm0000243&quot;;
+    denzel = grabFilmsForPerson(nmid);
+    plot(denzel$movies.50[,c(1,6,7:10)]);
+    boxplot(denzel$movies.50$millions);
+        didx =  which.max(denzel$movies.50$millions);
+    denzel$movies.50[didx,];
+        summary(denzel$movies.50$year);
+    </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="boxplot-of-top-50-movies-using-raw-dollars" class="section level1">
+<h1>BoxPlot of top 50 movies using Raw Dollars</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXHRwYXIobWZyb3c9YygxLDIpKTtcblx0Ym94cGxvdCh3aWxsJG1vdmllcy41MCRtaWxsaW9ucywgbWFpbj13aWxsJG5hbWUsIHlsaW09YygwLDM2MCksIHlsYWI9XCJSYXcgTWlsbGlvbnNcIiApO1xuXHRib3hwbG90KGRlbnplbCRtb3ZpZXMuNTAkbWlsbGlvbnMsIG1haW49ZGVuemVsJG5hbWUsIHlsaW09YygwLDM2MCksIHlsYWI9XCJSYXcgTWlsbGlvbnNcIiApO1xuXHRcblx0cGFyKG1mcm93PWMoMSwxKSk7XG5cdFxuXHQjIGh0dHBzOi8vd3d3LmluMjAxM2RvbGxhcnMuY29tL3VzL2luZmxhdGlvbi8yMDAwP2VuZFllYXI9MTk4MiZhbW91bnQ9MTAwXG5cdCMgY3JlYXRlIHZhcmlhYmxlICRtaWxsaW9ucy4yMDAwIHRvIGNvbnZlcnQgYWxsIG1vbmV5IHRvIDIwMDAgZG9sbGFycyAuLi4gYmFzZWQgb24geWVhciBcblx0XG5gYGAifQ== -->
+<pre class="r"><code>    par(mfrow=c(1,2));
+    boxplot(will$movies.50$millions, main=will$name, ylim=c(0,360), ylab=&quot;Raw Millions&quot; );
+    boxplot(denzel$movies.50$millions, main=denzel$name, ylim=c(0,360), ylab=&quot;Raw Millions&quot; );
+    
+    par(mfrow=c(1,1));
+    
+    # https://www.in2013dollars.com/us/inflation/2000?endYear=1982&amp;amount=100
+    # create variable $millions.2000 to convert all money to 2000 dollars ... based on year 
+    </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+</div>
+
+<div id="rmd-source-code">LS0tDQp0aXRsZTogJ1IgTm90ZWJvb2sgc2FuZGJveDogQXNzaWdubWVudCAiRGF0YXNldHMiICgxMCBwb2ludHMpJw0Kb3V0cHV0Og0KICBodG1sX2RvY3VtZW50Og0KICAgIGRmX3ByaW50OiBwYWdlZA0KICAgIHRvYzogdHJ1ZQ0KICAgIHRvY19mbG9hdDogdHJ1ZQ0KICAgIHRvY19kZXB0aDogNA0KICAgIGZpZ19jYXB0aW9uOiB0cnVlDQogICAgbnVtYmVyX3NlY3Rpb25zOiB0cnVlDQpteS12YXI6ICJtb250ZSIgI2h0dHBzOi8vYm9va2Rvd24ub3JnL3lpaHVpL3JtYXJrZG93bi9odG1sLWRvY3VtZW50Lmh0bWwNCi0tLQ0KDQpUaGlzIGlzIGFuIFtSIE1hcmtkb3duXShodHRwOi8vcm1hcmtkb3duLnJzdHVkaW8uY29tKSBOb3RlYm9vay4gV2hlbiB5b3UgZXhlY3V0ZSBjb2RlIHdpdGhpbiB0aGUgbm90ZWJvb2ssIHRoZSByZXN1bHRzIGFwcGVhciBiZW5lYXRoIHRoZSBjb2RlLiANCg0KJHRpdGxlJCAjRWFzdGVyIEVnZygrMTApDQokbXktdmFyJA0KDQpUcnkgZXhlY3V0aW5nIHRoaXMgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpSdW4qIGJ1dHRvbiB3aXRoaW4gdGhlIGNodW5rIG9yIGJ5IHBsYWNpbmcgeW91ciBjdXJzb3IgaW5zaWRlIGl0IGFuZCBwcmVzc2luZyAqQ3RybCtTaGlmdCtFbnRlciouIA0KDQpgYGB7cixteWNodW5rLWNvbW1vbi1pbmNsdWRlLCBtZXNzYWdlPUZBTFNFfQ0KbGlicmFyeShkZXZ0b29scykgIyBkZXZ0b29scyBpcyByZXF1aXJlZCBmb3IgZnVuY3Rpb24gc291cmNlX3VybCgpIHRvIHdvcmsuLi4NCm15LnNvdXJjZSA9ICdsb2NhbCcNCmxvY2FsLnBhdGggPSAiQzovX2dpdF8vV1NVX1NUQVRTNDE5X0ZBTEwyMDIwLyINCmxvY2FsLmRhdGEucGF0aCA9ICIiDQpzb3VyY2UocGFzdGUwKGxvY2FsLnBhdGgsICJmdW5jdGlvbnMvbGlicmFyaWVzLlIiKSxsb2NhbD1UKQ0Kc291cmNlKHBhc3RlMChsb2NhbC5wYXRoLCAiZnVuY3Rpb25zL2Z1bmN0aW9ucy1pbWRiLlIiKSwgbG9jYWw9VCkNCmBgYA0KDQojIE1hdHJpeCANCg0KQ3JlYXRlIHRoZSAicm90YXRlIG1hdHJpeCIgZnVuY3Rpb25zIGFzIGRlc2NyaWJlZCBpbiBsZWN0dXJlcy4gIEFwcGx5IHRvIHRoZSBleGFtcGxlICJteU1hdHJpeCIuDQpgYGB7ciwgbXljaHVuay1tYXRyaXgtaW5jbHVkZSwgbWVzc2FnZT1GQUxTRX0NCm15TWF0cml4ID0gbWF0cml4IChjICgNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAxLDAsMiwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAwLDMsMCwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICA0LDAsNQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICksIG5yb3c9MywNCmJ5cm93ID0gVCk7DQoNCg0KdHJhbnNwb3NlTWF0cml4ID0gZnVuY3Rpb24obWF0KQ0KICB7DQogIHQobWF0KTsNCiAgfQ0KDQp0cmFuc3Bvc2VNYXRyaXgobXlNYXRyaXgpDQoNCiNJIG5lZWQgdG8gcmV2ZXJlIHRoZSByb3dzIGJlZm9yIGFwcGx5aW5nIHRyYW5zcG9zZQ0KDQpyb3RhdGVNYXRyaXg5MCA9IGZ1bmN0aW9uKG1hdCkNCiAgew0KICB0KG1hdFtucm93KG15TWF0cml4KToxLF0pDQogIH0NCg0Kcm90YXRlTWF0cml4OTAobXlNYXRyaXgpDQoNCnJvdGF0ZU1hdHJpeDE4MCA9IGZ1bmN0aW9uKG1hdCkNCiAgew0KICB0KHJvdGF0ZU1hdHJpeDkwKG1hdClbbnJvdyhyb3RhdGVNYXRyaXg5MChtYXQpKToxLF0pDQogIH0NCg0Kcm90YXRlTWF0cml4MTgwKG15TWF0cml4KQ0KDQpyb3RhdGVNYXRyaXgyNzAgPSBmdW5jdGlvbihtYXQpDQogIHsNCiAgdChyb3RhdGVNYXRyaXgxODAobWF0KVtucm93KHJvdGF0ZU1hdHJpeDE4MChtYXQpKToxLF0pDQogIH0NCg0Kcm90YXRlTWF0cml4MjcwKG15TWF0cml4KQ0KDQpgYGANCg0KIyBJUklTDQoNClJlY3JlYXRlIHRoZSBncmFwaGljIGZvciB0aGUgSVJJUyBEYXRhIFNldCB1c2luZyBSLiAgU2FtZSB0aXRsZXMsIHNhbWUgc2NhbGVzLCBzYW1lIGNvbG9ycy4gU2VlOiBodHRwczovL2VuLndpa2lwZWRpYS5vcmcvd2lraS9JcmlzX2Zsb3dlcl9kYXRhX3NldCMvbWVkaWEvRmlsZTpJcmlzX2RhdGFzZXRfc2NhdHRlcnBsb3Quc3ZnDQpgYGB7ciwgbXljaHVuay1pcmlzLWluY2x1ZGUsIG1lc3NhZ2U9RkFMU0V9DQojZ2V0dGluZyB0aGUgZGF0YSBhbmQgaW52ZXN0aWdhdGUgdGhlIGRhdGENCmRhdGEoaXJpcykNCiNkaW0oaXJpcykNCiNhdHRyaWJ1dGVzKGlyaXMpDQojc3VtbWFyeShpcmlzKQ0KDQojY3JlYXRlIHRoZSBncmFwaA0KIyBUaGlzIGNvZGUgY2FuIGJlIGZvdW5kIGF0IGh0dHBzOi8vY29tbW9ucy53aWtpbWVkaWEub3JnL3dpa2kvRmlsZTpJcmlzX2RhdGFzZXRfc2NhdHRlcnBsb3Quc3ZnDQoNCnBhaXJzKGlyaXNbMTo0XSxtYWluPSJJcmlzIERhdGEgKHJlZD1zZXRvc2EsZ3JlZW49dmVyc2ljb2xvcixibHVlPXZpcmdpbmljYSkiLCBwY2g9MjEsDQpiZz1jKCJyZWQiLCJncmVlbjMiLCJibHVlIilbdW5jbGFzcyhpcmlzJFNwZWNpZXMpXSkNCmBgYA0KDQojIFBlcnNvbmFsaXR5DQpgYGB7ciwgbXljaHVuay1wZXJzb25hbGl0eS1pbmNsdWRlLCBtZXNzYWdlPUZBTFNFfQ0KIyByZWFkIGluIHRoZSByYXcgZGF0YQ0KcGVyc19yYXcgPC0gcmVhZC50YWJsZSgicGVyc29uYWxpdHktcmF3LnR4dCIsIHNlcD0ifCIsIGhlYWRlcj1UUlVFKQ0KI3BlcnNfcmF3DQoNCiMgcmVtb3ZlIFYwMCBjb2x1bW4NCnBlcnNfbmV3IDwtIHN1YnNldChwZXJzX3Jhdywgc2VsZWN0ID0gLVYwMCkNCiNwZXJzX25ldw0KDQojIGNyZWF0ZSB0d28gbmV3IGNvbHVtbnMgZm9yIHllYXIgYW5kIHdlZWsNCmxpYnJhcnkoZHBseXIpDQpsaWJyYXJ5KGx1YnJpZGF0ZSkNCg0KcGVyc19uZXckZGF0ZV90ZXN0IDwtIG1keV9obShwZXJzX25ldyRkYXRlX3Rlc3QpDQpwZXJzX25ldyR5ZWFyIDwtIHllYXIocGVyc19uZXckZGF0ZV90ZXN0KQ0KcGVyc19uZXckd2VlayA8LSBmb3JtYXQocGVyc19uZXckZGF0ZV90ZXN0LCAiJW0vJWQiKQ0KDQojIHNvcnQgdGhlIGRhdGEgDQpwZXJzX3NvcnQgPC0gYXJyYW5nZShwZXJzX25ldywgZGVzYyh5ZWFyKSwgZGVzYyh3ZWVrKSkNCg0KIyByZW1vdmUgZHVwbGljYXRlcw0KbGVuZ3RoKHVuaXF1ZShwZXJzX3NvcnQkbWQ1X2VtYWlsKSkNCg0KcGVyc19jbGVhbiA8LSBwZXJzX3NvcnQgJT4lIGRpc3RpbmN0KHBlcnNfc29ydCRtZDVfZW1haWwsIC5rZWVwX2FsbD1UUlVFKQ0KI3BlcnNfY2xlYW4NCg0KbXMgPC0gZmlsdGVyKHBlcnNfY2xlYW4sIG1kNV9lbWFpbCA9PSdiNjJjNzNjZGFmNTllMGExM2RlNDk1Yjg0MDMwNzM0ZScpDQoNCm1zIDwtIGFzLm1hdHJpeChtcykNCm1zDQojIHNhdmUgY2xlYW5lZCBkYXRhDQoNCiMgd3JpdGUudGFibGUocGVyc19jbGVhbiwgInBlcnNvbmFsaXR5LWNsZWFuLnR4dCIsIHNlcD0ifCIscm93Lm5hbWVzID0gRkFMU0UpDQoNCmBgYA0KDQojIFZhcmlhbmNlIGFuZCBaLXNjb3Jlcw0KDQojIyBWYXJpYW5jZQ0KIyMjIE5haXZlDQojIyMjIGhvd3d3DQojIyMgVHJhZGl0aW9uYWwgVHdvIFBhc3MNCg0KIyMgWi1TY29yZXMNCg0KIyBXaWxsIFNtaXRoDQpgYGB7ciwgbXljaHVuay1pbWRiLWluY2x1ZGUsIGZpZy5jYXAgPSBjKCJXaWxsIFNtaXRoIHNjYXR0ZXJwbG90OiBJTURCKDIwMjApIiwgIldpbGwgU21vdGggYm94cGxvdCByYXcgbWlsbGlvbnM6IElNREIoMjAyMCkiKSwgbWVzc2FnZT1GQUxTRX0NCiAgbm1pZCA9ICJubTAwMDAyMjYiOw0KIAl3aWxsID0gZ3JhYkZpbG1zRm9yUGVyc29uKG5taWQpOw0KIAlwbG90KHdpbGwkbW92aWVzLjUwWyxjKDEsNiw3OjEwKV0pOw0KICAJYm94cGxvdCh3aWxsJG1vdmllcy41MCRtaWxsaW9ucyk7DQoJCXdpZHggPSAgd2hpY2gubWF4KHdpbGwkbW92aWVzLjUwJG1pbGxpb25zKTsNCgl3aWxsJG1vdmllcy41MFt3aWR4LF07DQoJCXN1bW1hcnkod2lsbCRtb3ZpZXMuNTAkeWVhcik7ICAjIGJhZCBib3lzIGZvciBsaWZlIC4uLiBkaWQgZGF0YSBjaGFuZ2U/DQpgYGANCg0KIyBEZW56ZWwgV2FzaGluZ3Rvbg0KYGBge3IsIG15Y2h1bmstZGVuemVsLCBtZXNzYWdlPUZBTFNFfQ0KICAgbm1pZCA9ICJubTAwMDAyNDMiOw0KIAlkZW56ZWwgPSBncmFiRmlsbXNGb3JQZXJzb24obm1pZCk7DQogCXBsb3QoZGVuemVsJG1vdmllcy41MFssYygxLDYsNzoxMCldKTsNCiAgCWJveHBsb3QoZGVuemVsJG1vdmllcy41MCRtaWxsaW9ucyk7DQoJCWRpZHggPSAgd2hpY2gubWF4KGRlbnplbCRtb3ZpZXMuNTAkbWlsbGlvbnMpOw0KCWRlbnplbCRtb3ZpZXMuNTBbZGlkeCxdOw0KCQlzdW1tYXJ5KGRlbnplbCRtb3ZpZXMuNTAkeWVhcik7DQoJDQpgYGANCg0KIyBCb3hQbG90IG9mIHRvcCA1MCBtb3ZpZXMgdXNpbmcgUmF3IERvbGxhcnMNCg0KYGBge3IsIG15Y2h1bmstYm94cGxvdC1yYXd9DQoJcGFyKG1mcm93PWMoMSwyKSk7DQoJYm94cGxvdCh3aWxsJG1vdmllcy41MCRtaWxsaW9ucywgbWFpbj13aWxsJG5hbWUsIHlsaW09YygwLDM2MCksIHlsYWI9IlJhdyBNaWxsaW9ucyIgKTsNCglib3hwbG90KGRlbnplbCRtb3ZpZXMuNTAkbWlsbGlvbnMsIG1haW49ZGVuemVsJG5hbWUsIHlsaW09YygwLDM2MCksIHlsYWI9IlJhdyBNaWxsaW9ucyIgKTsNCgkNCglwYXIobWZyb3c9YygxLDEpKTsNCgkNCgkjIGh0dHBzOi8vd3d3LmluMjAxM2RvbGxhcnMuY29tL3VzL2luZmxhdGlvbi8yMDAwP2VuZFllYXI9MTk4MiZhbW91bnQ9MTAwDQoJIyBjcmVhdGUgdmFyaWFibGUgJG1pbGxpb25zLjIwMDAgdG8gY29udmVydCBhbGwgbW9uZXkgdG8gMjAwMCBkb2xsYXJzIC4uLiBiYXNlZCBvbiB5ZWFyIA0KCQ0KYGBgDQoNCg==</div>
 
 
 
