@@ -16,10 +16,23 @@ knitr::opts_chunk$set(echo = TRUE);
 knitr::opts_chunk$set(warning = FALSE);
 knitr::opts_chunk$set(message = FALSE);
 
+source("functions-dataframe.R")
 ## this should knit, but I am running some IMDB stuff
 ## so I wasn't able to verify a final Knit.
 ## please let me know in the Discussion Board if you
 ## find any errors, and I will fix
+```
+
+```{r}
+library(devtools);
+
+#detach(package:humanVerseWSU);  # if currently in use
+
+install_github("MonteShaffer/humanVerseWSU/humanVerseWSU");  # This requires Rtools to be installed (https://cran.r-project.org/bin/windows/Rtools/)
+
+library(humanVerseWSU);
+
+#?removeAllColumnsBut  # if you have the latest version, this new function will be available to you
 ```
 
 # Correlation

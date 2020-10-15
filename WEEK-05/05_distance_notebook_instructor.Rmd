@@ -197,6 +197,8 @@ In this RNotebook, write brief responses to the questions:
 
 ####  *Question 3:*  Which distance metric seems to be most conservative (overstating distance:  Manhattan, Euclidean, Haversine)?
 
+Euclidean distance, since it is a one unique value that does not change.
+
 ####  *Question 4:*  Which Spherical Ellipsoid Distance is most accurate (Haversine, Meeus, or Geo)?  How can you verify that?
 
 # Store Locator
