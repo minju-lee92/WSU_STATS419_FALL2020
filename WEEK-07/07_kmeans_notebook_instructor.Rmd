@@ -48,7 +48,7 @@ As we try to aggregate data, we need to ask:  are we aggregating the rows or the
 
 ```{r, chunck-load-protein}
 packageVersion("humanVerseWSU");  # ‘0.1.4’  [SHOULD BE THIS]
-packageVersion("imdb");
+#packageVersion("imdb");
 
 library(humanVerseWSU); 
 # You need R tools for this to work:  https://cran.r-project.org/bin/windows/Rtools/
@@ -67,11 +67,13 @@ createDirRecursive(path.graphics);
 
 
 
-example.datasets.path = "C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/sample_latex_files/Multivariate-2009/datasets/";
+example.datasets.path = "C:/Users/13608/Dropbox/WSU-419/Fall 2020/__student_access__/sample_latex_files/Multivariate-2009/datasets/"
 
-protein.file2 = paste0(example.datasets.path,"pipe-format/protein.txt");
-protein = read.csv(protein.file2, header=TRUE, quote="", sep="|");
-protein;
+
+protein.file2 = paste0(example.datasets.path,"pipe-format/protein.txt")
+
+protein = read.csv(protein.file2, header=TRUE, quote="", sep="|")
+protein
 
 cols = colnames(protein);
 rows = protein$Country;

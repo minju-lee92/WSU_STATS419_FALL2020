@@ -49,7 +49,7 @@ library(humanVerseWSU);
 # Choose (3) None to minimize headaches ....
 # library(humanVerseWSU);
 
-example.datasets.path = "C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/sample_latex_files/Multivariate-2009/datasets/";
+example.datasets.path = "C:/Users/13608/Dropbox/WSU-419/Fall 2020/__student_access__/sample_latex_files/Multivariate-2009/datasets/";
 
 # https://www.codebus.net/d-2oZ.html
 protein.file = paste0(example.datasets.path,"protein.txt");
