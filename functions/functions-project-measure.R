@@ -7,19 +7,20 @@
 # converts inches to cm
 convert.inchestocm = function(df)
   {
-  myUnits = tolower(df$units);
+  measure <-df
+  myUnits = tolower(measure$units);
   myUnits[myUnits=="inches"] = "in";
   myUnits[myUnits=="inch"] = "in";
   myUnits[myUnits=="\"in\""] = "in";
-  df$my.units = myUnits;
+  measure$my.units = myUnits;
   
-  nrow = nrow(df);
-  ncol = ncol(df);
+  nrow = nrow(measure);
+  ncol = ncol(measure);
   skip = c("minutes", "age", "quality");
   ## converting everything to cm
   for(r in 1:nrow)
     {
-      row = df[r,];
+      row = measure[r,];
       mynames = names(row);
       if(row$my.units == "in")
       {
@@ -33,14 +34,14 @@ convert.inchestocm = function(df)
             if(is.numeric(myval))
             {
               newval = myval * 2.54; # 2.54 cm = 1 in
-              df[r,c] = newval;
+              measure[r,c] = newval;
               #print(paste0(" --> ",newval));
             }
           }
         }
       }
     }
-  df
+  measure
   }
 
 
