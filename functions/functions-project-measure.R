@@ -40,7 +40,9 @@ convert.inchestocm = function(df)
         }
       }
     }
+  df
   }
+
 
 #merge the data with right and left measure into one average value
 
