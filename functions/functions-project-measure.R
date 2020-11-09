@@ -7,6 +7,12 @@
 # converts inches to cm
 convert.inchestocm = function(df)
   {
+  myUnits = tolower(df$units);
+  myUnits[myUnits=="inches"] = "in";
+  myUnits[myUnits=="inch"] = "in";
+  myUnits[myUnits=="\"in\""] = "in";
+  df$my.units = myUnits;
+  
   nrow = nrow(df);
   ncol = ncol(df);
   skip = c("minutes", "age", "quality");
@@ -97,11 +103,6 @@ prepareMeasureData = function(df)
 {
   measure <-df
   # clean up the variable names
-  myUnits = tolower(measure$units);
-  myUnits[myUnits=="inches"] = "in";
-  myUnits[myUnits=="inch"] = "in";
-  myUnits[myUnits=="\"in\""] = "in";
-  measure$my.units = myUnits;
   myEthnicity = tolower(measure$ethnicity);
   myEthnicity[myEthnicity=="white"] = "w";
   myEthnicity[myEthnicity=="caucasian"] = "w";
