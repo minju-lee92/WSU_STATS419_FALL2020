@@ -49,23 +49,24 @@ convert.inchestocm = function(df)
 
 merge.left.right = function(df,getOne)
   {
-  n.rows = dim(df)[1];
+  measure <-df
+  n.rows = dim(measure)[1];
   for(one in getOne)
     {
-      df[one] = NA;
+      measure[one] = NA;
     }
     
   for(i in 1:n.rows)
     {  
-      df.row = df[i,];
+      measure.row = measure[i,];
       for(one in getOne)
       {
-        nidx = getIndexOfDataFrameColumns(df, one);
+        nidx = getIndexOfDataFrameColumns(measure, one);
         
         myleft = paste0(one,".left");
-        lidx = getIndexOfDataFrameColumns(df.row, myleft);
+        lidx = getIndexOfDataFrameColumns(measure.row, myleft);
         myright = paste0(one,".right");
-        ridx = getIndexOfDataFrameColumns(df.row, myright);
+        ridx = getIndexOfDataFrameColumns(measure.row, myright);
         
         # print(paste0(
         #   "left: ",myleft," --> ",lidx,
@@ -74,14 +75,16 @@ merge.left.right = function(df,getOne)
         # );
         
         row.m = mean(
-          c(as.numeric(unlist(df.row[lidx])),
-            as.numeric(unlist(df.row[ridx]))),
+          c(as.numeric(unlist(measure.row[lidx])),
+            as.numeric(unlist(measure.row[ridx]))),
           na.rm=TRUE);
         
-        df[i,nidx] =  row.m;
+        measure[i,nidx] =  row.m;
       }
     }
+  measure
   }
+
 
 # scale the variables by scaling variable
 
