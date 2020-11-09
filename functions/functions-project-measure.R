@@ -62,7 +62,6 @@ merge.left.right = function(df,getOne)
       for(one in getOne)
       {
         nidx = getIndexOfDataFrameColumns(measure, one);
-        
         myleft = paste0(one,".left");
         lidx = getIndexOfDataFrameColumns(measure.row, myleft);
         myright = paste0(one,".right");
@@ -214,4 +213,5 @@ prepareMeasureData = function(df)
   # save final.measure rds
   saveRDS(final.df,"final.measure.rds");
   utils::write.table(final.df, file="final.measure.txt", quote=FALSE, col.names=TRUE, row.names=FALSE, sep="|");
+  measure
 }
