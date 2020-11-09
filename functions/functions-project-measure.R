@@ -5,13 +5,15 @@
 ##### helper functions #####
 
 # converts inches to cm
-convert.inchestocm = function()
+convert.inchestocm = function(df)
   {
+  nrow = nrow(df);
+  ncol = ncol(df);
   skip = c("minutes", "age", "quality");
-  ## converting everything gto cm
+  ## converting everything to cm
   for(r in 1:nrow)
     {
-      row = measure[r,];
+      row = df[r,];
       mynames = names(row);
       if(row$my.units == "in")
       {
@@ -21,12 +23,12 @@ convert.inchestocm = function()
           if(!is.element(myname, skip))
           {
             myval = unlist(row[c]);
-            print(paste0("r: ",r, " c: ", c," ... old: ",myval, "  ", is.numeric(myval), "   "));
+            # print(paste0("r: ",r, " c: ", c," ... old: ",myval, "  ", is.numeric(myval), "   "));
             if(is.numeric(myval))
             {
               newval = myval * 2.54; # 2.54 cm = 1 in
-              measure[r,c] = newval;
-              print(paste0(" --> ",newval));
+              df[r,c] = newval;
+              #print(paste0(" --> ",newval));
             }
           }
         }
@@ -36,38 +38,38 @@ convert.inchestocm = function()
 
 #merge the data with right and left measure into one average value
 
-merge.left.right = function(measure,getOne)
+merge.left.right = function(df,getOne)
   {
-  n.rows = dim(measure)[1];
+  n.rows = dim(df)[1];
   for(one in getOne)
     {
-      measure[one] = NA;
+      df[one] = NA;
     }
     
   for(i in 1:n.rows)
     {  
-      measure.row = measure[i,];
+      df.row = df[i,];
       for(one in getOne)
       {
-        nidx = getIndexOfDataFrameColumns(measure, one);
+        nidx = getIndexOfDataFrameColumns(df, one);
         
         myleft = paste0(one,".left");
-        lidx = getIndexOfDataFrameColumns(measure.row, myleft);
+        lidx = getIndexOfDataFrameColumns(df.row, myleft);
         myright = paste0(one,".right");
-        ridx = getIndexOfDataFrameColumns(measure.row, myright);
+        ridx = getIndexOfDataFrameColumns(df.row, myright);
         
-        print(paste0(
-          "left: ",myleft," --> ",lidx,
-          " right: ",myright," --> ",ridx
-        )
-        );
+        # print(paste0(
+        #   "left: ",myleft," --> ",lidx,
+        #   " right: ",myright," --> ",ridx
+        # )
+        # );
         
         row.m = mean(
-          c(as.numeric(unlist(measure.row[lidx])),
-            as.numeric(unlist(measure.row[ridx]))),
+          c(as.numeric(unlist(df.row[lidx])),
+            as.numeric(unlist(df.row[ridx]))),
           na.rm=TRUE);
         
-        measure[i,nidx] =  row.m;
+        df[i,nidx] =  row.m;
       }
     }
   }
@@ -94,8 +96,6 @@ build.scale.variables = function(df, colnum, new.colname, scalevar )
 prepareMeasureData = function(df)
 {
   measure <-df
-  nrow = nrow(measure);
-  ncol = ncol(measure);
   # clean up the variable names
   myUnits = tolower(measure$units);
   myUnits[myUnits=="inches"] = "in";
