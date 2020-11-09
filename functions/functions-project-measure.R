@@ -90,18 +90,19 @@ merge.left.right = function(df,getOne)
 build.scale.variables = function(df, colnum, new.colname, scalevar )
 {
   n=1
+  new.df <-df
   for(name in new.colname)
   {
-    df[name] = NA;
+    new.df[name] = NA;
   }
   
   for(i in colnum)
   {
     scaled.i<-df[,i]/scalevar
-    df[new.colname[n]]<-scaled.i
+    new.df[new.colname[n]]<-scaled.i
     n = n+1
   }
-  df
+  new.df
 }
 
 prepareMeasureData = function(df)
