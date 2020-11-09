@@ -98,8 +98,7 @@ build.scale.variables = function(df, colnum, new.colname, scalevar )
   
   for(i in colnum)
   {
-    scaled.i<-df[,i]/scalevar
-    new.df[new.colname[n]]<-scaled.i
+    new.df[new.colname[n]]<-df[,i]/scalevar
     n = n+1
   }
   new.df
