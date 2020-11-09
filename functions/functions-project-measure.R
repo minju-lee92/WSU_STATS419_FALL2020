@@ -213,5 +213,5 @@ prepareMeasureData = function(df)
   # save final.measure rds
   saveRDS(final.df,"final.measure.rds");
   utils::write.table(final.df, file="final.measure.txt", quote=FALSE, col.names=TRUE, row.names=FALSE, sep="|");
-  measure
+  final.df
 }
