@@ -100,20 +100,19 @@
 
 
 
-\title{\textbf{\textcolor{WSU.crimson}{A boring (academic) title or a
-clever title?}} \newline \textbf{\textcolor{WSU.gray}{A secondary
-title}}  }
+\title{\textbf{\textcolor{WSU.crimson}{Analysis of Body measurements and
+proportions between male and female}}  }
  
 
 %  
 
 % \author{ \Large true \hfill \normalsize \emph{} }
-\author{\Large YOUR NAME
-HERE\vspace{0.05in} \newline\normalsize\emph{Washington State
+\author{\Large Minju
+Lee\vspace{0.05in} \newline\normalsize\emph{Washington State
 University}  }
 
 
-\date{November 07, 2020}
+\date{November 15, 2020}
 \setcounter{secnumdepth}{3}
 
 \usepackage{titlesec}
@@ -286,12 +285,12 @@ University}  }
 \makeatother
 \hypersetup{breaklinks=true,
             bookmarks=true,
-            pdfauthor={YOUR NAME HERE (Washington State University)},
-             pdfkeywords = {multiple comparisons to control;
-multivariate chi-square distribution; nonlinear growth curves; Richard's
-curve; simulated critical points},  
-            pdftitle={A boring (academic) title or a clever title?: A
-secondary title},
+            pdfauthor={Minju Lee (Washington State University)},
+             pdfkeywords = {boxplots; multivariate chi-square
+distribution; nonlinear growth curves; Richard's curve; simulated
+critical points},  
+            pdftitle={Analysis of Body measurements and proportions
+between male and female},
             colorlinks=true,
             citecolor=blue,
             urlcolor=blue,
@@ -316,8 +315,8 @@ secondary title},
 
 
 \pagestyle{fancy}   
-\lhead{\textcolor{WSU.crimson}{\textbf{ A boring (academic) title or a
-clever title? }}}
+\lhead{\textcolor{WSU.crimson}{\textbf{ Analysis of Body measurements
+and proportions between male and female }}}
 \chead{}
 \rhead{\textcolor{WSU.gray}{\textbf{  Page\ \thepage\ of\ \protect\pageref{LastPage} }}}
 \lfoot{}
@@ -343,8 +342,8 @@ clever title? }}}
 {
    \vskip 13.5pt\relax \normalsize\fontsize{11}{12} 
    
-\textbf{\authorfont YOUR NAME HERE} \hskip 15pt \emph{\small Washington
-State University}   
+\textbf{\authorfont Minju Lee} \hskip 15pt \emph{\small Washington State
+University}   
 
 }
 
@@ -379,9 +378,9 @@ You can include references such as this one to the Appendices section
 \ref{sec:appendix} if necessary.
 
 
-\vskip 8.5pt \noindent \textbf{\underline{Keywords}:} multiple
-comparisons to control; multivariate chi-square distribution; nonlinear
-growth curves; Richard's curve; simulated critical points \par
+\vskip 8.5pt \noindent \textbf{\underline{Keywords}:} boxplots;
+multivariate chi-square distribution; nonlinear growth curves; Richard's
+curve; simulated critical points \par
 
     
 
@@ -391,7 +390,7 @@ growth curves; Richard's curve; simulated critical points \par
     
     \hbox{\vrule height .2pt width 39.14pc}
     \vskip 5pt 
-    \hfill \textbf{\textcolor{WSU.gray}{ November 07, 2020 } }
+    \hfill \textbf{\textcolor{WSU.gray}{ November 15, 2020 } }
     \vskip 5pt 
     
 \end{abstract}
@@ -408,37 +407,197 @@ growth curves; Richard's curve; simulated critical points \par
 \section{Introduction}
 \label{sec:intro}
 
-Write something here.
+\noindent The global mean height of women is about four and a half
+inches, or 12 centimeters shorter than that of men. Globally, the ratio
+is 1.07, meaning that on average, men are about 7\% taller than women.
+Across the world, this relative difference between the sexes can vary
+from only 2-3\% to over 12\% \citep{owidhumanheight:2013}. It is
+well-established knowledge that men are taller than women on average
+throughout the globe. This study will further examine the anatomical
+differences between men and women. More specifically, in the context of
+standing height, leg length, wingspan, hand length, foot length, and
+head height.
 
-{[}ONE GRAPHIC{]}
+\begin{figure}[!ht]
+    \hrule
+    \caption{ \textbf{Height distribution between male and female} }
+    \begin{center}
+        \scalebox{1.00}{    \includegraphics[trim = 0 0 0 0,clip,width=0.65\textwidth]{pdfs/kernel_density-1.pdf} }
+    \end{center}
+    \label{fig:height-dist}
+    \hrule
+\end{figure}
 
-{[}TWO GRAPHICS AS ONE{]}
+\noindent Figure \ref{fig:height-dist} visualizes the height
+distributions of males and females in the sample data. The red line
+indicates the mean value of the female height sample, and the blue line
+indicates the mean value of the male height sample. The difference
+between the average height is about 13.7cm, which is 1.3cm greater than
+the global mean difference of 12cm, according to
+\citep{owidhumanheight:2013}. In our sample data, men are about 8.4\%
+taller than the female on average. The result verifies our sample data
+is within the norm of global height difference.
 
-Write something here.
-
-\section{Research Question:  What is my primary question}
+\section{Research Question: Male and female comparison of body measurements and proportions }
 \label{sec:rq}
 
-\subsection{What is my secondary question}
+\subsection{How are male and female differ in terms of body measurements}
 \label{sec:rq2}
 
-\subsection{What is my other secondary question}
+\begin{figure}[!ht]
+    \hrule
+    \caption{ \textbf{boxplots of male and female measurements} }
+    \begin{center}
+        \scalebox{1.00}{    \includegraphics[trim = 0 0 0 0,clip,width=0.80\textwidth]{pdfs/measure_box_plots-1.pdf} }
+    \end{center}
+    \label{fig:measure.mf}
+    \hrule
+\end{figure}
+
+\begin{figure}[!ht]
+    \hrule
+    \caption{ \textbf{boxplots of white/asian male and female body measurements} }
+    \begin{center}
+        \scalebox{1.00}{    \includegraphics[trim = 0 0 0 0,clip,width=0.80\textwidth]{pdfs/measure_boxplot_amfwmf-1.pdf} }
+    \end{center}
+    \label{fig:measure.amfwmf}
+    \hrule
+\end{figure}
+
+\noindent The sample data measurement differs between males and females.
+Figure \ref{fig:measure.mf} reveal the distribution of each variable
+between men and women. All variables median value lie outside of the box
+of opposite sex box plots. That is, there is likely to be a difference
+between the two genders. Observation of Interquartile ranges(the box)
+shows a similar dispersion between males and females. The overall spread
+of the boxplots reveals men vary more in head height and foot length in
+comparison to women. Some of the outliers in head height, hand length,
+and foot length are likely due to a measurement error. It is very
+unlikely that the normal human head height and foot length exceed 30cm.
+Extreme outliers will be removed for the hypothesis
+testing.\vspace{0.25in}
+
+\noindent Further investigating the measurement between male and female
+with another factor variable ethnicity. In our sample, we are only
+comparing Asians and whites. Figure \ref{fig:measure.amfwmf} displays
+boxplots of Asian male and female measurements on the top row and white
+male and female measurements on the bottom row. The boxplots are closer
+together and overlap more in Asians than whites. This indicates there is
+less difference between genders in Asians than whites. It is interesting
+to observe leg length between Asian males and females, they seem to have
+the same median value although Asian male's median height value is about
+10cm taller. Do Asian women have longer leg lengths relative to height
+than Asian men? Note the distribution of Asian males varies greater than
+of Asian females across every measurement variables. The distribution of
+white males and females is very similar to the average distribution
+between males and females. However, the average measurement values in
+whites are slightly higher than the average sample data.\vspace{0.25in}
+
+\subsection{How are male and female differ in terms of body proportions}
 \label{sec:rq3}
+
+\begin{figure}[!ht]
+    \hrule
+    \caption{ \textbf{boxplots of male and female body proportions} }
+    \begin{center}
+        \scalebox{1.00}{    \includegraphics[trim = 0 0 0 0,clip,width=0.80\textwidth]{pdfs/proportion_box_plots-1.pdf} }
+    \end{center}
+    \label{fig:proportion.mf}
+    \hrule
+\end{figure}
+
+\noindent In Figure \ref{fig:proportion.mf} The proportion of boxplots
+between male and female sample data reveal the distribution of body
+proportions relative to height. It is clear to see the distributions are
+very similar to each other. Body proportion between males and females
+doesn't seem to differ much. On average, the arm span is about the same
+as the height of a person. The median head height proportion is about
+0.13, which is about 7.7 heads will fit into a person's standing
+height.\vspace{0.25in}
+
+\begin{figure}[!ht]
+    \hrule
+    \caption{ \textbf{boxplots of white/asian male and female body proportions} }
+    \begin{center}
+        \scalebox{1.00}{    \includegraphics[trim = 0 0 0 0,clip,width=0.80\textwidth]{pdfs/proportion_box_plots_amfwmf-1.pdf} }
+    \end{center}
+    \label{fig:prportion.amfwmf}
+    \hrule
+\end{figure}
+
+\noindent Figure \ref{fig:proportion.amfwmf} breaks down the male-female
+proportion boxplots between Asian and white. Again, the boxplots overlap
+with each other. However, the Asian male/female boxplots median values
+differ slightly. Asian male boxplots show longer arm span and hand
+length, and shorter leg length compared to Asian female proportions. In
+the next section, the study reviews the significance of the difference
+in body measurements and the proportion between genders.\vspace{0.25in}
 
 \section{Data Description}
 \label{sec:data}
 
-Very brief introduction to the data, how it was collected, and so on.
-Remember that everything is covered (who, what, when, where, why, how,
-so what, and so on). Reference the section in the Appendix with greater
-detail about the data provenance. This section should be about two
-paragraphs, and the Appendix should have more information.
+\noindent Data was collected by each classmate. Each classmate created
+handouts for data collection and collected 10 individuals measurements.
+The original data initially contained 428 observations. After the data
+cleaning process, the observation reduced to 190 individuals. Some of
+the measurements measured right and left side of the body have been
+merged into one averaged value. All the measurement units were converted
+to centimeters.\vspace{0.25in}
+
+\noindent Sample data constraints individuals at age 18 or above. The
+measurements contain individuals' height, leg length, arm span, head
+height, hand length, and foot length. The sample data also contains
+proportions of each measurement relative to height. Other variables used
+in the sample data include gender, sex, and age.\vspace{0.25in}
+
+\noindent Reference the section in the Appendix with greater detail
+about the data provenance \ref{sec:appendix}.
 
 \subsection{Summary of Sample}
 \label{sec:data-sample}
 
+\noindent Figure\ref{fig:sample} shows the sample data counts grouped by
+gender and ethnicity. A total of 167 observations are in sample data
+which contains 83 females and 84 males. About 70\% of the sample data is
+white and about 30\% Asian.
+
+\begin{figure}[!ht]
+    \hrule
+    \caption{ \textbf{sample data grouping by gender and ethnicity} }
+    \begin{center}
+        \scalebox{1.00}{    \includegraphics[trim = 0 0 0 0,clip,width=0.85\textwidth]{pdfs/sample.pdf} }
+    \end{center}
+    \label{fig:sample}
+    \hrule
+\end{figure}
+
+\noindent Figure\ref{fig:age-dist} histogram shows the density of the
+sample data in the different age groups. About 45\% of the participants
+are aged between 20 and 30.
+
+\begin{figure}[!ht]
+    \hrule
+    \caption{ \textbf{sample data age distribution} }
+    \begin{center}
+        \scalebox{1.00}{    \includegraphics[trim = 0 0 0 0,clip,width=0.85\textwidth]{pdfs/sample_proportion-1.pdf} }
+    \end{center}
+    \label{fig:age-dist}
+    \hrule
+\end{figure}
+
 \subsection{Summary Statistics of Data}
 \label{sec:data-summary}
+
+See table \ref{table:male-correlation} and
+\ref{table:female-correlation}.
+
+\input{tables/male-correlation-table}
+
+\newpage
+
+\input{tables/female-correlation-table}
+
+\newpage
 
 \section{Key Findings}
 \label{sec:findings}
@@ -544,12 +703,6 @@ Statistics has contributed much to data analysis.  In the future it can, and in 
 \end{quote}
 
 \newpage
-
-\input{tables/example-correlation-table}
-
-\newpage
-
-\newpage
 \section{APPENDICES}
 \label{sec:appendix}
 
@@ -613,14 +766,8 @@ Statistics has contributed much to data analysis.  In the future it can, and in 
 \subsection{Preparing the Report Workspace as a subsection}
 \label{sec:appendix-setup}
 
-\subsubsection{Preparing the Report Workspace as a subsubsection}
+\subsubsection{prepare sample data}
 \label{sec:appendix-setup2}
-
-\paragraph{Preparing the Report Workspace as a paragraph}
-\label{sec:appendix-setup3}
-
-\subparagraph{Preparing the Report Workspace as a subparagrah}
-\label{sec:appendix-setup4}
 
 Below is the necessary functions and libraries required to run the code
 referenced in this document.
@@ -628,36 +775,1017 @@ referenced in this document.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(devtools);       }\CommentTok{\# required for source\_url}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Loading required package: usethis
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{path.humanVerseWSU =}\StringTok{ "https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/"}
 \KeywordTok{source\_url}\NormalTok{( }\KeywordTok{paste0}\NormalTok{(path.humanVerseWSU,}\StringTok{"master/misc/functions{-}project{-}measure.R"}\NormalTok{) );}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## SHA-1 hash of file is 091aa1c443f262dce181395047d037a756331a65
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: survival
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: Formula
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: ggplot2
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'Hmisc'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     format.pval, units
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{source\_url}\NormalTok{( }\KeywordTok{paste0}\NormalTok{(path.humanVerseWSU,}\StringTok{"master/humanVerseWSU/R/functions{-}dataframe.R"}\NormalTok{) );}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## SHA-1 hash of file is e1fdfd5e02a4d25ef4a57cfd79df4bba1222788b
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{source\_url}\NormalTok{( }\KeywordTok{paste0}\NormalTok{(path.humanVerseWSU,}\StringTok{"master/humanVerseWSU/R/functions{-}EDA.R"}\NormalTok{) );}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## SHA-1 hash of file is 9a397c6d1f50caa6caad70bf01c17242731350b9
+\end{verbatim}
+
+\begin{verbatim}
+## Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'psych'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:Hmisc':
+## 
+##     describe
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:ggplot2':
+## 
+##     %+%, alpha
+\end{verbatim}
 
 Below is the code to load the data and prepare it for analysis.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{path.project =}\StringTok{ "C:/\_git\_/WSU\_STATS419\_FALL2020/project{-}measure/"}\NormalTok{;}
-
-\NormalTok{path.to.secret =}\StringTok{ "C:/Users/13608/Dropbox/WSU{-}419/Fall 2020/\_\_student\_access\_\_/\_SECRET\_/"}\NormalTok{;}
+\NormalTok{path.to.secret =}\StringTok{ "C:/Users/13608/Dropbox/WSU{-}419/Fall 2020/\_\_student\_access\_\_/\_SECRET\_/"}
 
 \NormalTok{measure =}\StringTok{ }\NormalTok{utils}\OperatorTok{::}\KeywordTok{read.csv}\NormalTok{( }\KeywordTok{paste0}\NormalTok{(path.to.secret, }\StringTok{"measure{-}students.txt"}\NormalTok{), }\DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{quote=}\StringTok{""}\NormalTok{, }\DataTypeTok{sep=}\StringTok{"|"}\NormalTok{);}
+\NormalTok{getOne =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"hand.length"}\NormalTok{, }\StringTok{"hand.width"}\NormalTok{, }\StringTok{"hand.elbow"}\NormalTok{, }\StringTok{"elbow.armpit"}\NormalTok{, }\StringTok{"arm.reach"}\NormalTok{, }\StringTok{"foot.length"}\NormalTok{, }\StringTok{"floor.kneepit"}\NormalTok{, }\StringTok{"floor.hip"}\NormalTok{, }\StringTok{"floor.armpit"}\NormalTok{);}
 
-\CommentTok{\#path.github = "https://raw.githubusercontent.com/this{-}IS{-}YOUR{-}PATH{-}TO{-}GITHUB/";}
-\CommentTok{\#source\_url( paste0(path.github,"master/functions/functions{-}project{-}measure.R") );}
-
-\CommentTok{\# this is your function}
-\CommentTok{\# put in the same "units"}
-\CommentTok{\# merge left/right}
-\CommentTok{\# build proportion data}
-\CommentTok{\# and so on ... }
-\CommentTok{\# measure.df = prepareMeasureData(measure);}
+\CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\NormalTok{path.github =}\StringTok{ "https://raw.githubusercontent.com/minju{-}lee92/WSU\_STATS419\_FALL2020/"}\NormalTok{;}
+\KeywordTok{source\_url}\NormalTok{( }\KeywordTok{paste0}\NormalTok{(path.github,}\StringTok{"master/functions/functions{-}project{-}measure.R"}\NormalTok{) );}
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+## SHA-1 hash of file is 5aa82ee87a0a62bfc9b04ccc942d44c0cc3ed092
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# this is your function}
+\CommentTok{\# covert unit into cm}
+\NormalTok{measureAscm \textless{}{-}}\KeywordTok{convert.inchestocm}\NormalTok{(measure)}
+\CommentTok{\# build merged left/right value cols}
+\NormalTok{merged.df \textless{}{-}}\KeywordTok{merge.left.right}\NormalTok{(measureAscm, getOne)}
+\CommentTok{\# remove nas, duplicates, create categorical variables... etc }
+\NormalTok{cleaned.df =}\StringTok{ }\KeywordTok{prepareMeasureData}\NormalTok{(merged.df)}
+
+\CommentTok{\# create scaled variables using height}
+\NormalTok{colnum =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3}\OperatorTok{:}\DecValTok{7}\NormalTok{,}\DecValTok{20}\OperatorTok{:}\DecValTok{28}\NormalTok{)}
+\NormalTok{new.colname =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"p.height"}\NormalTok{, }\StringTok{"p.head.h"}\NormalTok{, }\StringTok{"p.head.c"}\NormalTok{, }\StringTok{"p.arm.span"}\NormalTok{, }\StringTok{"p.floor.navel"}\NormalTok{,}\StringTok{"p.hand.length"}\NormalTok{,}\StringTok{"p.hand.width"}\NormalTok{,}\StringTok{"p.hand.elbow"}\NormalTok{,}\StringTok{"p.elbow.armpit"}\NormalTok{,}\StringTok{"p.arm.reach"}\NormalTok{,}\StringTok{"p.foot.length"}\NormalTok{,}\StringTok{"p.floor.kneepit"}\NormalTok{, }\StringTok{"p.floor.hip"}\NormalTok{, }\StringTok{"p.floor.armpit"}\NormalTok{)}
+
+\NormalTok{v1.df =}\KeywordTok{build.scale.variables}\NormalTok{(cleaned.df, colnum, new.colname, cleaned.df}\OperatorTok{$}\NormalTok{height)}
+
+\CommentTok{\# final sample data for the analysis}
+\NormalTok{sample.df \textless{}{-}v1.df[,}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{20}\NormalTok{,}\DecValTok{25}\NormalTok{,}\DecValTok{27}\NormalTok{,}\DecValTok{13}\NormalTok{,}\DecValTok{29}\OperatorTok{:}\DecValTok{31}\NormalTok{,}\DecValTok{36}\NormalTok{,}\DecValTok{37}\NormalTok{,}\DecValTok{39}\NormalTok{,}\DecValTok{41}\NormalTok{,}\DecValTok{46}\NormalTok{,}\DecValTok{48}\NormalTok{)]}
+\NormalTok{sample.data \textless{}{-}}\StringTok{ }\NormalTok{sample.df[sample.df}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{!=}\StringTok{\textquotesingle{}o\textquotesingle{}}\OperatorTok{\&}\StringTok{ }\NormalTok{sample.df}\OperatorTok{$}\NormalTok{my.ethnicity}\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\OperatorTok{|}\NormalTok{sample.df}\OperatorTok{$}\NormalTok{my.ethnicity}\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{,]}
+
+\CommentTok{\# age over 18}
+\NormalTok{sample.data \textless{}{-}}\StringTok{ }\NormalTok{sample.data[sample.data}\OperatorTok{$}\NormalTok{age }\OperatorTok{\textgreater{}=}\DecValTok{18}\NormalTok{,]}
+\KeywordTok{summary}\NormalTok{(sample.data)}
+\CommentTok{\# getting rid of outliers.}
+\NormalTok{sample.data \textless{}{-}}\StringTok{ }\NormalTok{sample.data[sample.data}\OperatorTok{$}\NormalTok{height }\OperatorTok{\textgreater{}=}\StringTok{ }\DecValTok{145} \OperatorTok{\&}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{arm.span}\OperatorTok{\textgreater{}}\DecValTok{100} \OperatorTok{\&}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{hand.length}\OperatorTok{\textgreater{}}\DecValTok{10} \OperatorTok{\&}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{hand.length}\OperatorTok{\textless{}}\DecValTok{30} \OperatorTok{\&}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{foot.length}\OperatorTok{\textgreater{}}\DecValTok{19} \OperatorTok{\&}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{floor.hip}\OperatorTok{\textgreater{}}\DecValTok{50} \OperatorTok{\&}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{head.height}\OperatorTok{\textless{}}\DecValTok{30}\NormalTok{,]}
+
+\KeywordTok{saveRDS}\NormalTok{(sample.data,}\StringTok{"sample.data.rds"}\NormalTok{);}
+\NormalTok{    utils}\OperatorTok{::}\KeywordTok{write.table}\NormalTok{(sample.data, }\DataTypeTok{file=}\StringTok{"sample.data.txt"}\NormalTok{, }\DataTypeTok{quote=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{col.names=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{row.names=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{sep=}\StringTok{"|"}\NormalTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{generate summary of sample}
+\label{sec:appendix-setup2}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:Hmisc':
+## 
+##     src, summarize
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sample.data \textless{}{-}}\StringTok{ }\KeywordTok{na.omit}\NormalTok{(sample.data)}
+\NormalTok{dist.sample \textless{}{-}}\StringTok{ }\NormalTok{sample.data }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{group\_by}\NormalTok{(my.gender, my.ethnicity) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` regrouping output by 'my.gender' (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(gridExtra)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'gridExtra'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     combine
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pdf}\NormalTok{(}\StringTok{"pdfs/sample.pdf"}\NormalTok{, }\DataTypeTok{height=}\DecValTok{2}\NormalTok{, }\DataTypeTok{width=}\DecValTok{3}\NormalTok{)}
+\KeywordTok{grid.table}\NormalTok{(dist.sample)}
+\KeywordTok{dev.off}\NormalTok{()}
+
+
+\KeywordTok{hist}\NormalTok{(sample.data}\OperatorTok{$}\NormalTok{age, }\DataTypeTok{breaks=}\KeywordTok{seq}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{100}\NormalTok{,}\DecValTok{10}\NormalTok{), }\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FloatTok{0.05}\NormalTok{), }\DataTypeTok{freq=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dim}\NormalTok{(sample.data)}
+\KeywordTok{str}\NormalTok{(sample.data)}
+\NormalTok{summary.sample \textless{}{-}}\KeywordTok{summary}\NormalTok{(sample.data[,}\KeywordTok{c}\NormalTok{(}\DecValTok{13}\OperatorTok{:}\DecValTok{18}\NormalTok{)])}
+\KeywordTok{library}\NormalTok{(gridExtra)}
+\KeywordTok{pdf}\NormalTok{(}\StringTok{"pdfs/summary{-}sample.pdf"}\NormalTok{, }\DataTypeTok{height=}\DecValTok{3}\NormalTok{, }\DataTypeTok{width=}\DecValTok{10}\NormalTok{)}
+\KeywordTok{grid.table}\NormalTok{(summary.sample)}
+\KeywordTok{dev.off}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{generate summary statistic tables}
+\label{sec:appendix-setup2}
+
 Below is the code to generate the summary statistics and save them as a
-table that you see in Section \ref{}.
+table that you see in Section \ref{table:correlation}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{path.project =}\StringTok{ "C:/\_git\_/WSU\_STATS419\_FALL2020/project{-}measure/"}\NormalTok{;}
+\NormalTok{path.tables =}\StringTok{ }\KeywordTok{paste0}\NormalTok{(path.project,}\StringTok{"tables/"}\NormalTok{);}
+  \KeywordTok{createDirRecursive}\NormalTok{(path.tables);}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{file.correlation =}\StringTok{ }\KeywordTok{paste0}\NormalTok{(path.tables,}\StringTok{"correlation{-}table.tex"}\NormalTok{)}
+\NormalTok{myData =}\StringTok{ }\KeywordTok{as.matrix}\NormalTok{(sample.data[,}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\OperatorTok{:}\DecValTok{8}\NormalTok{)])  }\CommentTok{\# numeric values only, only what will appear in table}
+\CommentTok{\# https://www.overleaf.com/read/srzhrcryjpwn}
+\CommentTok{\# keepaspectratio of include graphics }
+\CommentTok{\# could scale \textbackslash{}input if still too big ...}
+\CommentTok{\# https://tex.stackexchange.com/questions/13460/scalebox{-}knowing{-}how{-}much{-}it{-}scales\#13487}
+\KeywordTok{buildLatexCorrelationTable}\NormalTok{(myData, }
+  \DataTypeTok{rotateTable =} \OtherTok{FALSE}\NormalTok{,}
+  \DataTypeTok{width.table =} \FloatTok{0.80}\NormalTok{, }\CommentTok{\# best for given data ... 0.95 when rotateTable = FALSE}
+                      \CommentTok{\# 0.60 when rotateTable = TRUE}
+  \DataTypeTok{myCaption =} \StringTok{"Overall Descriptive Statistics and Correlation Analysis"}\NormalTok{,}
+  \DataTypeTok{myFile =}\NormalTok{ file.correlation,}
+  \DataTypeTok{myNames =} \KeywordTok{colnames}\NormalTok{(myData),}
+  \DataTypeTok{showOnes =} \StringTok{"left"}\NormalTok{)}
+\KeywordTok{Sys.sleep}\NormalTok{(}\DecValTok{2}\NormalTok{) }\CommentTok{\# in case Knit{-}PDF doesn\textquotesingle{}t like that I just created the file...}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{file.correlation =}\StringTok{ }\KeywordTok{paste0}\NormalTok{(path.tables,}\StringTok{"male{-}correlation{-}table.tex"}\NormalTok{)}
+
+\NormalTok{male\_sample.data \textless{}{-}}\StringTok{ }\NormalTok{sample.data[sample.data}\OperatorTok{$}\NormalTok{my.gender}\OperatorTok{==}\StringTok{\textquotesingle{}m\textquotesingle{}}\NormalTok{,]}
+\NormalTok{myData =}\StringTok{ }\KeywordTok{as.matrix}\NormalTok{(male\_sample.data[,}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\OperatorTok{:}\DecValTok{8}\NormalTok{)])  }\CommentTok{\# numeric values only, only what will appear in table}
+\CommentTok{\# https://www.overleaf.com/read/srzhrcryjpwn}
+\CommentTok{\# keepaspectratio of include graphics }
+\CommentTok{\# could scale \textbackslash{}input if still too big ...}
+\CommentTok{\# https://tex.stackexchange.com/questions/13460/scalebox{-}knowing{-}how{-}much{-}it{-}scales\#13487}
+\KeywordTok{buildLatexCorrelationTable}\NormalTok{(myData, }
+  \DataTypeTok{myLabel =} \StringTok{"table:male{-}correlation"}\NormalTok{,}
+  \DataTypeTok{rotateTable =} \OtherTok{FALSE}\NormalTok{,}
+  \DataTypeTok{width.table =} \FloatTok{0.80}\NormalTok{, }\CommentTok{\# best for given data ... 0.95 when rotateTable = FALSE}
+                      \CommentTok{\# 0.60 when rotateTable = TRUE}
+  \DataTypeTok{myCaption =} \StringTok{"Descriptive Statistics and Correlation Analysis in male"}\NormalTok{,}
+  \DataTypeTok{myFile =}\NormalTok{ file.correlation,}
+  \DataTypeTok{myNames =} \KeywordTok{colnames}\NormalTok{(myData),}
+  \DataTypeTok{width.names =} \StringTok{"15mm"}\NormalTok{,}
+  \DataTypeTok{space.M.SD =} \StringTok{"0.1mm"}\NormalTok{,}
+  \DataTypeTok{space.SD.corr =} \StringTok{"0.5mm"}\NormalTok{,}
+  \DataTypeTok{space.between =} \StringTok{"0.1mm"}\NormalTok{,}
+  \DataTypeTok{showOnes =} \StringTok{"center"}\NormalTok{)}
+\KeywordTok{Sys.sleep}\NormalTok{(}\DecValTok{2}\NormalTok{) }\CommentTok{\# in case Knit{-}PDF doesn\textquotesingle{}t like that I just created the file...}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{file.correlation =}\StringTok{ }\KeywordTok{paste0}\NormalTok{(path.tables,}\StringTok{"female{-}correlation{-}table.tex"}\NormalTok{)}
+
+\NormalTok{female\_sample.data \textless{}{-}}\StringTok{ }\NormalTok{sample.data[sample.data}\OperatorTok{$}\NormalTok{my.gender}\OperatorTok{==}\StringTok{\textquotesingle{}f\textquotesingle{}}\NormalTok{,]}
+\NormalTok{myData =}\StringTok{ }\KeywordTok{as.matrix}\NormalTok{(female\_sample.data[,}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\OperatorTok{:}\DecValTok{8}\NormalTok{)])  }\CommentTok{\# numeric values only, only what will appear in table}
+\CommentTok{\# https://www.overleaf.com/read/srzhrcryjpwn}
+\CommentTok{\# keepaspectratio of include graphics }
+\CommentTok{\# could scale \textbackslash{}input if still too big ...}
+\CommentTok{\# https://tex.stackexchange.com/questions/13460/scalebox{-}knowing{-}how{-}much{-}it{-}scales\#13487}
+\KeywordTok{buildLatexCorrelationTable}\NormalTok{(myData,}
+  \DataTypeTok{myLabel =} \StringTok{"table:female{-}correlation"}\NormalTok{,                         }
+  \DataTypeTok{rotateTable =} \OtherTok{FALSE}\NormalTok{,}
+  \DataTypeTok{width.table =} \FloatTok{0.80}\NormalTok{, }\CommentTok{\# best for given data ... 0.95 when rotateTable = FALSE}
+                      \CommentTok{\# 0.60 when rotateTable = TRUE}
+  \DataTypeTok{myCaption =} \StringTok{"Descriptive Statistics and Correlation Analysis in female"}\NormalTok{,}
+  \DataTypeTok{myFile =}\NormalTok{ file.correlation,}
+  \DataTypeTok{myNames =} \KeywordTok{colnames}\NormalTok{(myData),}
+  \DataTypeTok{width.names =} \StringTok{"15mm"}\NormalTok{,}
+  \DataTypeTok{space.M.SD =} \StringTok{"0.1mm"}\NormalTok{,}
+  \DataTypeTok{space.SD.corr =} \StringTok{"0.5mm"}\NormalTok{,}
+  \DataTypeTok{space.between =} \StringTok{"0.1mm"}\NormalTok{,}
+  \DataTypeTok{showOnes =} \StringTok{"center"}\NormalTok{)}
+\KeywordTok{Sys.sleep}\NormalTok{(}\DecValTok{2}\NormalTok{) }\CommentTok{\# in case Knit{-}PDF doesn\textquotesingle{}t like that I just created the file...}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{generate summary statistic figures}
+\label{sec:appendix-setup2}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{height.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{height[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\NormalTok{]}
+\NormalTok{height.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{height[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\NormalTok{]}
+\NormalTok{arm.span.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{arm.span[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\NormalTok{]}
+\NormalTok{arm.span.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{arm.span[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\NormalTok{]}
+\NormalTok{floor.hip.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{floor.hip[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\NormalTok{]}
+\NormalTok{floor.hip.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{floor.hip[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\NormalTok{]}
+\NormalTok{head.height.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{head.height[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\NormalTok{]}
+\NormalTok{head.height.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{head.height[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\NormalTok{]}
+\NormalTok{hand.length.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{hand.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\NormalTok{]}
+\NormalTok{hand.length.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{hand.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\NormalTok{]}
+\NormalTok{foot.length.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{foot.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\NormalTok{]}
+\NormalTok{foot.length.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{foot.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\NormalTok{]}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{))}
+
+\KeywordTok{boxplot}\NormalTok{(height.m, height.f,}
+        \DataTypeTok{main =} \StringTok{"height"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"male vs female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\DecValTok{140}\NormalTok{,}\DecValTok{220}\NormalTok{),}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(arm.span.m, arm.span.f,}
+        \DataTypeTok{main =} \StringTok{"arm span"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"male vs female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\DecValTok{140}\NormalTok{,}\DecValTok{220}\NormalTok{),}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(floor.hip.m, floor.hip.f,}
+        \DataTypeTok{main =} \StringTok{"leg length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"male vs female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\DecValTok{80}\NormalTok{,}\DecValTok{160}\NormalTok{),}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(head.height.m, head.height.f,}
+        \DataTypeTok{main =} \StringTok{"head height"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"male vs female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\DecValTok{16}\NormalTok{,}\DecValTok{35}\NormalTok{),}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(hand.length.m, hand.length.f,}
+        \DataTypeTok{main =} \StringTok{"hand length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"male vs female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\DecValTok{16}\NormalTok{,}\DecValTok{35}\NormalTok{),}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(foot.length.m, foot.length.f,}
+        \DataTypeTok{main =} \StringTok{"foot length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"male vs female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\DecValTok{16}\NormalTok{,}\DecValTok{35}\NormalTok{),}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Would certain ethnicity change the measurements between male and female?}
+\NormalTok{a.height.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{height[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}} \OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+\NormalTok{a.height.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{height[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+
+\NormalTok{a.arm.span.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{arm.span[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+\NormalTok{a.arm.span.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{arm.span[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+
+\NormalTok{a.floor.hip.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{floor.hip[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+\NormalTok{a.floor.hip.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{floor.hip[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+\NormalTok{a.head.height.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{head.height[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+\NormalTok{a.head.height.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{head.height[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+\NormalTok{a.hand.length.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{hand.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+\NormalTok{a.hand.length.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{hand.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+\NormalTok{a.foot.length.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{foot.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+\NormalTok{a.foot.length.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{foot.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+
+\NormalTok{w.height.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{height[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}} \OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+\NormalTok{w.height.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{height[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+
+\NormalTok{w.arm.span.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{arm.span[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+\NormalTok{w.arm.span.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{arm.span[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+
+\NormalTok{w.floor.hip.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{floor.hip[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+\NormalTok{w.floor.hip.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{floor.hip[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+\NormalTok{w.head.height.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{head.height[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+\NormalTok{w.head.height.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{head.height[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+\NormalTok{w.hand.length.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{hand.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+\NormalTok{w.hand.length.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{hand.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+\NormalTok{w.foot.length.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{foot.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+\NormalTok{w.foot.length.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{foot.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{6}\NormalTok{))}
+\KeywordTok{boxplot}\NormalTok{(a.height.m, a.height.f,}
+        \DataTypeTok{main =} \StringTok{"height"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"am vs af"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in bxp(list(stats = structure(c(157.5, 162, 169, 172.86, 177.5, : some
+## notches went outside hinges ('box'): maybe set notch=FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(a.arm.span.m, a.arm.span.f,}
+        \DataTypeTok{main =} \StringTok{"arm span"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"am vs af"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in bxp(list(stats = structure(c(160, 165.5, 174.5, 177.8, 181.5, : some
+## notches went outside hinges ('box'): maybe set notch=FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(a.floor.hip.m, a.floor.hip.f, }
+        \DataTypeTok{main =} \StringTok{"leg length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"am vs af"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(a.head.height.m, a.head.height.f,}
+        \DataTypeTok{main =} \StringTok{"head height"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"am vs af"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in bxp(list(stats = structure(c(18.5, 20.795, 22.75, 24, 28, 19, : some
+## notches went outside hinges ('box'): maybe set notch=FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(a.hand.length.m, a.hand.length.f,}
+        \DataTypeTok{main =} \StringTok{"hand length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"am vs af"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(a.foot.length.m, a.foot.length.f,}
+        \DataTypeTok{main =} \StringTok{"foot length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"am vs af"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in bxp(list(stats = structure(c(22.5, 23.875, 25.375, 26.25, 26.67, :
+## some notches went outside hinges ('box'): maybe set notch=FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(w.height.m, w.height.f,}
+        \DataTypeTok{main =} \StringTok{"height"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"wm vs wf"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(w.arm.span.m, w.arm.span.f,}
+        \DataTypeTok{main =} \StringTok{"arm span"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"wm vs wf"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(w.floor.hip.m, w.floor.hip.f, }
+        \DataTypeTok{main =} \StringTok{"leg length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"wm vs wf"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(w.head.height.m, w.head.height.f,}
+        \DataTypeTok{main =} \StringTok{"head height"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"wm vs wf"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(w.hand.length.m, w.hand.length.f,}
+        \DataTypeTok{main =} \StringTok{"hand length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"wm vs wf"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(w.foot.length.m, w.foot.length.f,}
+        \DataTypeTok{main =} \StringTok{"foot length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"wm vs wf"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{))}
+\KeywordTok{boxplot}\NormalTok{(w.height.m, a.height.f,}
+        \DataTypeTok{main =} \StringTok{"height"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"white male vs asian female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(w.arm.span.m, a.arm.span.f,}
+        \DataTypeTok{main =} \StringTok{"arm span"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"white male vs asian female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(w.floor.hip.m, a.floor.hip.f, }
+        \DataTypeTok{main =} \StringTok{"leg length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"white male vs asian female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(w.head.height.m, a.head.height.f,}
+        \DataTypeTok{main =} \StringTok{"head height"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"white male vs asian female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(w.hand.length.m, a.hand.length.f,}
+        \DataTypeTok{main =} \StringTok{"hand length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"white male vs asian female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(w.foot.length.m, a.foot.length.f,}
+        \DataTypeTok{main =} \StringTok{"foot length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"white male vs asian female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{))}
+\KeywordTok{boxplot}\NormalTok{(a.height.m, w.height.f,}
+        \DataTypeTok{main =} \StringTok{"height"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"asian male vs white female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in bxp(list(stats = structure(c(157.5, 162, 169, 172.86, 177.5, : some
+## notches went outside hinges ('box'): maybe set notch=FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(a.arm.span.m, w.arm.span.f,}
+        \DataTypeTok{main =} \StringTok{"arm span"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"asian male vs white female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in bxp(list(stats = structure(c(160, 165.5, 174.5, 177.8, 181.5, : some
+## notches went outside hinges ('box'): maybe set notch=FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(a.floor.hip.m, w.floor.hip.f, }
+        \DataTypeTok{main =} \StringTok{"leg length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"asian male vs white female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(a.head.height.m, w.head.height.f,}
+        \DataTypeTok{main =} \StringTok{"head height"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"asian male vs white female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in bxp(list(stats = structure(c(18.5, 20.795, 22.75, 24, 28, 18, : some
+## notches went outside hinges ('box'): maybe set notch=FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(a.hand.length.m, w.hand.length.f,}
+        \DataTypeTok{main =} \StringTok{"hand length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"asian male vs white female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(a.foot.length.m, w.foot.length.f,}
+        \DataTypeTok{main =} \StringTok{"foot length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"asian male vs white female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"unit(cm)"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in bxp(list(stats = structure(c(22.5, 23.875, 25.375, 26.25, 26.67, :
+## some notches went outside hinges ('box'): maybe set notch=FALSE
+\end{verbatim}
+
+What is the best to way to represent proportions of measurments? .
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p.arm.span.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.arm.span[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\NormalTok{]}
+\NormalTok{p.arm.span.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.arm.span[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\NormalTok{]}
+\NormalTok{p.floor.hip.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.floor.hip[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\NormalTok{]}
+\NormalTok{p.floor.hip.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.floor.hip[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\NormalTok{]}
+
+\NormalTok{p.head.h.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.head.h[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\NormalTok{]}
+\NormalTok{p.head.h.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.head.h[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\NormalTok{]}
+\NormalTok{p.hand.length.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.hand.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\NormalTok{]}
+\NormalTok{p.hand.length.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.hand.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\NormalTok{]}
+\NormalTok{p.foot.length.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.foot.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\NormalTok{]}
+\NormalTok{p.foot.length.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.foot.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\NormalTok{]}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{))}
+\KeywordTok{boxplot}\NormalTok{(p.arm.span.m, p.arm.span.f,}
+        \DataTypeTok{main =} \StringTok{"arm span"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"male vs female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"proportion"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(p.floor.hip.m, p.floor.hip.m, }
+        \DataTypeTok{main =} \StringTok{"leg length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"male vs female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"proportion"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(p.head.h.m, p.head.h.f,}
+        \DataTypeTok{main =} \StringTok{"head height"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"male vs female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"proportion"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(p.hand.length.m, p.hand.length.f,}
+        \DataTypeTok{main =} \StringTok{"hand length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"male vs female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"proportion"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(p.foot.length.m, p.foot.length.f,}
+        \DataTypeTok{main =} \StringTok{"foot length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"male vs female"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"proportion"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ap.arm.span.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.arm.span[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+\NormalTok{ap.arm.span.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.arm.span[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+\NormalTok{ap.floor.hip.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.floor.hip[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+\NormalTok{ap.floor.hip.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.floor.hip[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+
+\NormalTok{ap.head.h.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.head.h[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+\NormalTok{ap.head.h.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.head.h[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+\NormalTok{ap.hand.length.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.hand.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+\NormalTok{ap.hand.length.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.hand.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+\NormalTok{ap.foot.length.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.foot.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+\NormalTok{ap.foot.length.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.foot.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
+
+\NormalTok{wp.arm.span.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.arm.span[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+\NormalTok{wp.arm.span.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.arm.span[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+\NormalTok{wp.floor.hip.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.floor.hip[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+\NormalTok{wp.floor.hip.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.floor.hip[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+
+\NormalTok{wp.head.h.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.head.h[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+\NormalTok{wp.head.h.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.head.h[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+\NormalTok{wp.hand.length.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.hand.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+\NormalTok{wp.hand.length.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.hand.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+\NormalTok{wp.foot.length.m \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.foot.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}m\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+\NormalTok{wp.foot.length.f \textless{}{-}}\StringTok{ }\NormalTok{sample.data}\OperatorTok{$}\NormalTok{p.foot.length[sample.data}\OperatorTok{$}\NormalTok{my.gender }\OperatorTok{==}\StringTok{ \textquotesingle{}f\textquotesingle{}}\OperatorTok{\&}\NormalTok{sample.data}\OperatorTok{$}\NormalTok{my.ethnicity }\OperatorTok{==}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{))}
+\KeywordTok{boxplot}\NormalTok{(ap.arm.span.m, ap.arm.span.f,}
+        \DataTypeTok{main =} \StringTok{"arm span"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"am vs af"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"proportion"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(ap.floor.hip.m, ap.floor.hip.f,}
+        \DataTypeTok{main =} \StringTok{"leg length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"am vs af"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"proportion"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in bxp(list(stats = structure(c(0.477941176470588, 0.526795735129068, :
+## some notches went outside hinges ('box'): maybe set notch=FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(ap.head.h.m, ap.head.h.f,}
+        \DataTypeTok{main =} \StringTok{"head height"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"am vs af"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"proportion"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in bxp(list(stats = structure(c(0.108823529411765, 0.121212121212121, :
+## some notches went outside hinges ('box'): maybe set notch=FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(ap.hand.length.m, ap.hand.length.f,}
+        \DataTypeTok{main =} \StringTok{"hand length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"am vs af"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"proportion"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in bxp(list(stats = structure(c(0.102601156069364, 0.107252706993406, :
+## some notches went outside hinges ('box'): maybe set notch=FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(ap.foot.length.m, ap.foot.length.f,}
+        \DataTypeTok{main =} \StringTok{"foot length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"am vs af"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"proportion"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in bxp(list(stats = structure(c(0.141509433962264, 0.146318342151675, :
+## some notches went outside hinges ('box'): maybe set notch=FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(wp.arm.span.m, wp.arm.span.f,}
+        \DataTypeTok{main =} \StringTok{"arm span"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"wm vs wf"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"proportion"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(wp.floor.hip.m, wp.floor.hip.f,}
+        \DataTypeTok{main =} \StringTok{"leg length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"wm vs wf"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"proportion"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(wp.head.h.m, wp.head.h.f,}
+        \DataTypeTok{main =} \StringTok{"head height"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"wm vs wf"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"proportion"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(wp.hand.length.m, wp.hand.length.f,}
+        \DataTypeTok{main =} \StringTok{"hand length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"wm vs wf"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"proportion"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(wp.foot.length.m, wp.foot.length.f,}
+        \DataTypeTok{main =} \StringTok{"foot length"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"wm vs wf"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"proportion"}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"orange"}\NormalTok{, }\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{),}
+        \DataTypeTok{border =} \StringTok{"brown"}\NormalTok{,}
+        \DataTypeTok{notch =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{comb\textless{}{-}}\KeywordTok{c}\NormalTok{(}\StringTok{\textquotesingle{}af\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}am\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}wf\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}wm\textquotesingle{}}\NormalTok{)}
+\NormalTok{comb \textless{}{-}}\KeywordTok{as.factor}\NormalTok{(comb)}
+\NormalTok{mean\textless{}{-}}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{)}
+\NormalTok{height \textless{}{-}}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(comb, mean)}
+\NormalTok{mean\textless{}{-}}\KeywordTok{c}\NormalTok{(}\KeywordTok{mean}\NormalTok{(ap.head.h.f), }\KeywordTok{mean}\NormalTok{(ap.head.h.m), }\KeywordTok{mean}\NormalTok{(wp.head.h.f), }\KeywordTok{mean}\NormalTok{(wp.head.h.m))}
+\NormalTok{head\_height \textless{}{-}}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(comb, mean)}
+\NormalTok{mean\textless{}{-}}\KeywordTok{c}\NormalTok{(}\KeywordTok{mean}\NormalTok{(ap.arm.span.f), }\KeywordTok{mean}\NormalTok{(ap.arm.span.m), }\KeywordTok{mean}\NormalTok{(wp.arm.span.f), }\KeywordTok{mean}\NormalTok{(wp.arm.span.m))}
+\NormalTok{arm\_span \textless{}{-}}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(comb, mean)}
+\NormalTok{mean\textless{}{-}}\KeywordTok{c}\NormalTok{(}\KeywordTok{mean}\NormalTok{(ap.floor.hip.f), }\KeywordTok{mean}\NormalTok{(ap.floor.hip.m), }\KeywordTok{mean}\NormalTok{(wp.floor.hip.f), }\KeywordTok{mean}\NormalTok{(wp.floor.hip.m))}
+\NormalTok{leg\_length \textless{}{-}}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(comb, mean)}
+\NormalTok{mean\textless{}{-}}\KeywordTok{c}\NormalTok{(}\KeywordTok{mean}\NormalTok{(ap.hand.length.f), }\KeywordTok{mean}\NormalTok{(ap.hand.length.m), }\KeywordTok{mean}\NormalTok{(wp.hand.length.f), }\KeywordTok{mean}\NormalTok{(wp.hand.length.m))}
+\NormalTok{hand\_length \textless{}{-}}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(comb, mean)}
+\NormalTok{mean\textless{}{-}}\KeywordTok{c}\NormalTok{(}\KeywordTok{mean}\NormalTok{(ap.foot.length.f), }\KeywordTok{mean}\NormalTok{(ap.foot.length.m), }\KeywordTok{mean}\NormalTok{(wp.foot.length.f), }\KeywordTok{mean}\NormalTok{(wp.foot.length.m))}
+\NormalTok{foot\_length \textless{}{-}}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(comb, mean)}
+
+
+\NormalTok{head\_height}\OperatorTok{$}\NormalTok{name \textless{}{-}}\StringTok{\textquotesingle{}head\_height\textquotesingle{}}
+\NormalTok{arm\_span}\OperatorTok{$}\NormalTok{name \textless{}{-}}\StringTok{\textquotesingle{}arm\_span\textquotesingle{}}
+\NormalTok{leg\_length}\OperatorTok{$}\NormalTok{name \textless{}{-}}\StringTok{\textquotesingle{}leg\_length\textquotesingle{}}
+\NormalTok{hand\_length}\OperatorTok{$}\NormalTok{name \textless{}{-}}\StringTok{\textquotesingle{}hand\_length\textquotesingle{}}
+\NormalTok{foot\_length}\OperatorTok{$}\NormalTok{name \textless{}{-}}\StringTok{ \textquotesingle{}foot\_length\textquotesingle{}}
+
+\NormalTok{d \textless{}{-}}\StringTok{ }\KeywordTok{rbind}\NormalTok{(head\_height, arm\_span, leg\_length, hand\_length, foot\_length)}
+\NormalTok{p \textless{}{-}}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(d, }\KeywordTok{aes}\NormalTok{(comb, mean, }\DataTypeTok{fill=}\NormalTok{name))}\OperatorTok{+}
+\StringTok{      }\KeywordTok{geom\_bar}\NormalTok{(}\DataTypeTok{position =} \StringTok{\textquotesingle{}dodge\textquotesingle{}}\NormalTok{, }\DataTypeTok{stat=}\StringTok{\textquotesingle{}identity\textquotesingle{}}\NormalTok{)}\OperatorTok{+}
+\StringTok{      }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Aisn/white male and female"}\NormalTok{)}\OperatorTok{+}
+\StringTok{      }\KeywordTok{ylab}\NormalTok{(}\StringTok{"proportion as a function of height"}\NormalTok{)}
+\NormalTok{p}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Two{-}way ANOVA with interaction effect}
+\NormalTok{res.aov2 \textless{}{-}}\StringTok{ }\KeywordTok{aov}\NormalTok{(height }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{my.gender }\OperatorTok{*}\StringTok{ }\NormalTok{my.ethnicity, }\DataTypeTok{data =}\NormalTok{ sample.data)}
+\KeywordTok{summary}\NormalTok{(res.aov2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{two.way \textless{}{-}}\StringTok{ }\KeywordTok{aov}\NormalTok{(height }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{my.gender }\OperatorTok{*}\StringTok{ }\NormalTok{my.ethnicity, }\DataTypeTok{data =}\NormalTok{ sample.data)}
+
+\KeywordTok{summary}\NormalTok{(two.way)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{t.test}\NormalTok{(height.m, height.f,}
+       \DataTypeTok{alternative =} \StringTok{"greater"}\NormalTok{,}
+       \DataTypeTok{mu =} \DecValTok{0}\NormalTok{, }\DataTypeTok{paired =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{var.equal =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{t.test}\NormalTok{(a.height.m, w.height.f,}
+       \DataTypeTok{alternative =} \StringTok{"greater"}\NormalTok{,}
+       \DataTypeTok{mu =} \DecValTok{0}\NormalTok{, }\DataTypeTok{paired =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{var.equal =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{t.test}\NormalTok{(a.floor.hip.m, a.floor.hip.f,}
+       \DataTypeTok{alternative =} \StringTok{"greater"}\NormalTok{,}
+       \DataTypeTok{mu =} \DecValTok{0}\NormalTok{, }\DataTypeTok{paired =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{var.equal =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{library}\NormalTok{(plyr)}
+\KeywordTok{library}\NormalTok{(dplyr)}
+
+\NormalTok{csample.data \textless{}{-}}\StringTok{ }\KeywordTok{ddply}\NormalTok{(sample.data, }\StringTok{"my.gender"}\NormalTok{, summarise, }\DataTypeTok{height.mean=}\KeywordTok{mean}\NormalTok{(height))}
+\NormalTok{csample.data \textless{}{-}}\StringTok{ }\KeywordTok{na.omit}\NormalTok{(csample.data)}
+\NormalTok{csample.data}
+\CommentTok{\# Density plots with semi{-}transparent fill}
+\KeywordTok{ggplot}\NormalTok{(sample.data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{height, }\DataTypeTok{fill=}\NormalTok{my.gender)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom\_density}\NormalTok{(}\DataTypeTok{alpha=}\NormalTok{.}\DecValTok{3}\NormalTok{) }\OperatorTok{+}
+\StringTok{        }\KeywordTok{geom\_vline}\NormalTok{(}\DataTypeTok{data=}\NormalTok{csample.data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{xintercept=}\NormalTok{height.mean,  }\DataTypeTok{colour=}\NormalTok{my.gender), }\DataTypeTok{linetype=}\StringTok{"dashed"}\NormalTok{, }\DataTypeTok{size=}\DecValTok{1}\NormalTok{) }\OperatorTok{+}
+\StringTok{        }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"height(cm)"}\NormalTok{,}
+             \DataTypeTok{title =} \StringTok{"Kernel density estimate of height"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{asample.data \textless{}{-}}\StringTok{ }\KeywordTok{ddply}\NormalTok{(sample.data, }\StringTok{"my.gender"}\NormalTok{, summarise, }\DataTypeTok{arm.span.mean=}\KeywordTok{mean}\NormalTok{(arm.span))}
+\NormalTok{asample.data \textless{}{-}}\StringTok{ }\KeywordTok{na.omit}\NormalTok{(asample.data)}
+
+\KeywordTok{ggplot}\NormalTok{(sample.data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{arm.span, }\DataTypeTok{fill=}\NormalTok{my.gender)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom\_density}\NormalTok{(}\DataTypeTok{alpha=}\NormalTok{.}\DecValTok{3}\NormalTok{) }\OperatorTok{+}
+\StringTok{        }\KeywordTok{geom\_vline}\NormalTok{(}\DataTypeTok{data=}\NormalTok{asample.data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{xintercept=}\NormalTok{arm.span.mean,  }\DataTypeTok{colour=}\NormalTok{my.gender), }\DataTypeTok{linetype=}\StringTok{"dashed"}\NormalTok{, }\DataTypeTok{size=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(sample.data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{floor.hip, }\DataTypeTok{fill=}\NormalTok{my.gender)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom\_density}\NormalTok{(}\DataTypeTok{alpha=}\NormalTok{.}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(sample.data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{head.height, }\DataTypeTok{fill=}\NormalTok{my.gender)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom\_density}\NormalTok{(}\DataTypeTok{alpha=}\NormalTok{.}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(sample.data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{hand.length, }\DataTypeTok{fill=}\NormalTok{my.gender)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom\_density}\NormalTok{(}\DataTypeTok{alpha=}\NormalTok{.}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(sample.data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{foot.length, }\DataTypeTok{fill=}\NormalTok{my.gender)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom\_density}\NormalTok{(}\DataTypeTok{alpha=}\NormalTok{.}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# cols = colnames(sample.data[,{-}c(1:2)]);}
+\CommentTok{\# rows = sample.data$my.gender;}
+\CommentTok{\# }
+\CommentTok{\# df = removeColumnsFromDataFrame(sample.data, "my.gender");}
+\CommentTok{\# df.t = transposeMatrix(df);}
+\CommentTok{\# colnames(df.t) = rows;}
+\CommentTok{\# }
+\CommentTok{\# sample.t = as.data.frame(df.t);}
+\CommentTok{\# sample.t;}
+\CommentTok{\# }
+\CommentTok{\# X = removeColumnsFromDataFrame(sample.data,"my.gender");}
+\CommentTok{\# X}
+\CommentTok{\# X.kmeans = kmeans(X, 3);  \# default algorithm}
+\CommentTok{\# stars(X.kmeans$centers, len = 0.5, key.loc = c(4, 3),}
+\CommentTok{\#         main = "Algorithm: DEFAULT [Hartigan{-}Wong] \textbackslash{}n Stars of KMEANS=3", draw.segments = TRUE);}
+\CommentTok{\# print(X.kmeans)}
+\end{Highlighting}
+\end{Shaded}
+
 
 
 

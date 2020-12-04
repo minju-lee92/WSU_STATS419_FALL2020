@@ -12,13 +12,13 @@ output:
   html_document:
     df_print: paged
     
-title: "A boring (academic) title or a clever title?"
-subtitle: "A secondary title"
+title: "Analysis of Body measurements and proportions between male and female"
+subtitle: " "
 author: 
-- name: "YOUR NAME HERE"
+- name: "Minju Lee"
   affiliation: "Washington State University"
 keywords: |
-    multiple comparisons to control; multivariate chi-square distribution; nonlinear growth curves; Richard's curve; simulated critical points
+    boxplots; multivariate chi-square distribution; nonlinear growth curves; Richard's curve; simulated critical points
 abstract: |
   In this article we compare the \emph{empirical characteristic function} \citep{Tukey:1977, Becker:1988} to a \emph{moment-generating-functional form} to compute the proportion of hypotheses $m$ that are rejected under the null hypothesis. \vspace{0.25in}
 
@@ -36,48 +36,142 @@ date: "`r format(Sys.time(), '%B %d, %Y')`"
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, fig.show = 'hide', results = 'hide' )
 ```
 
 \section{Introduction}
 \label{sec:intro}
 
-Write something here.
+\noindent The global mean height of women is about four and a half inches, or 12 centimeters shorter than that of men.
+Globally, the ratio is 1.07, meaning that on average, men are about 7% taller than women. Across the world, this relative difference between the sexes can vary from only 2-3% to over 12% \citep{owidhumanheight:2013}. It is well-established knowledge that men are taller than women on average throughout the globe. This study will further examine the anatomical differences between men and women. More specifically, in the context of standing height, leg length, wingspan, hand length, foot length, and head height. 
 
-[ONE GRAPHIC]
+\begin{figure}[!ht]
+	\hrule
+	\caption{ \textbf{Height distribution between male and female} }
+	\begin{center}
+	    \scalebox{1.00}{	\includegraphics[trim = 0 0 0 0,clip,width=0.65\textwidth]{pdfs/kernel_density-1.pdf} }
+	\end{center}
+	\label{fig:height-dist}
+	\hrule
+\end{figure}
+
+\noindent Figure \ref{fig:height-dist} visualizes the height distributions of males and females in the sample data. The red line indicates the mean value of the female height sample, and the blue line indicates the mean value of the male height sample. The difference between the average height is about 13.7cm, which is 1.3cm greater than the global mean difference of 12cm, according to \citep{owidhumanheight:2013}. In our sample data, men are about 8.4%  taller than the female on average. The result verifies our sample data is within the norm of global height difference.
 
 
-
-[TWO GRAPHICS AS ONE]
-
-
-Write something here.
-
-
-\section{Research Question:  What is my primary question}
+\section{Research Question: Male and female comparison of body measurements and proportions }
 \label{sec:rq}
 
 
-\subsection{What is my secondary question}
+\subsection{How are male and female differ in terms of body measurements}
 \label{sec:rq2}
 
+\begin{figure}[!ht]
+	\hrule
+	\caption{ \textbf{boxplots of male and female measurements} }
+	\begin{center}
+	    \scalebox{1.00}{	\includegraphics[trim = 0 0 0 0,clip,width=0.80\textwidth]{pdfs/measure_box_plots-1.pdf} }
+	\end{center}
+	\label{fig:measure.mf}
+	\hrule
+\end{figure}
 
-\subsection{What is my other secondary question}
+\begin{figure}[!ht]
+	\hrule
+	\caption{ \textbf{boxplots of white/asian male and female body measurements} }
+	\begin{center}
+	    \scalebox{1.00}{	\includegraphics[trim = 0 0 0 0,clip,width=0.80\textwidth]{pdfs/measure_boxplot_amfwmf-1.pdf} }
+	\end{center}
+	\label{fig:measure.amfwmf}
+	\hrule
+\end{figure}
+
+\noindent The sample data measurement differs between males and females. Figure \ref{fig:measure.mf} reveal the distribution of each variable between men and women. All variables median value lie outside of the box of opposite sex box plots. That is, there is likely to be a difference between the two genders. Observation of Interquartile ranges(the box) shows a similar dispersion between males and females. The overall spread of the boxplots reveals men vary more in head height and foot length in comparison to women. Some of the outliers in head height, hand length, and foot length are likely due to a measurement error. It is very unlikely that the normal human head height and foot length exceed 30cm. Extreme outliers will be removed for the hypothesis testing.\vspace{0.25in}
+
+\noindent Further investigating the measurement between male and female with another factor variable ethnicity. In our sample, we are only comparing Asians and whites. Figure \ref{fig:measure.amfwmf} displays boxplots of  Asian male and female measurements on the top row and white male and female measurements on the bottom row. The boxplots are closer together and overlap more in Asians than whites. This indicates there is less difference between genders in Asians than whites. It is interesting to observe leg length between Asian males and females, they seem to have the same median value although Asian male’s median height value is about 10cm taller. Do Asian women have longer leg lengths relative to height than Asian men? Note the distribution of Asian males varies greater than of Asian females across every measurement variables. The distribution of white males and females is very similar to the average distribution between males and females. However, the average measurement values in whites are slightly higher than the average sample data.\vspace{0.25in}
+
+\subsection{How are male and female differ in terms of body proportions}
 \label{sec:rq3}
 
+\begin{figure}[!ht]
+	\hrule
+	\caption{ \textbf{boxplots of male and female body proportions} }
+	\begin{center}
+	    \scalebox{1.00}{	\includegraphics[trim = 0 0 0 0,clip,width=0.80\textwidth]{pdfs/proportion_box_plots-1.pdf} }
+	\end{center}
+	\label{fig:proportion.mf}
+	\hrule
+\end{figure}
 
+\noindent In Figure \ref{fig:proportion.mf} The proportion of boxplots between male and female sample data reveal the distribution of body proportions relative to height. It is clear to see the distributions are very similar to each other. Body proportion between males and females doesn't seem to differ much. On average, the arm span is about the same as the height of a person. The median head height proportion is about 0.13, which is about 7.7 heads will fit into a person's standing height.\vspace{0.25in}
+
+\begin{figure}[!ht]
+	\hrule
+	\caption{ \textbf{boxplots of white/asian male and female body proportions} }
+	\begin{center}
+	    \scalebox{1.00}{	\includegraphics[trim = 0 0 0 0,clip,width=0.80\textwidth]{pdfs/proportion_box_plots_amfwmf-1.pdf} }
+	\end{center}
+	\label{fig:prportion.amfwmf}
+	\hrule
+\end{figure}
+
+\noindent Figure \ref{fig:proportion.amfwmf} breaks down the male-female proportion boxplots between Asian and white. Again, the boxplots overlap with each other. However, the Asian male/female boxplots median values differ slightly. Asian male boxplots show longer arm span and hand length, and shorter leg length compared to Asian female proportions. In the next section, the study reviews the significance of the difference in body measurements and the proportion between genders.\vspace{0.25in}
 
 \section{Data Description}
 \label{sec:data}
 
-Very brief introduction to the data, how it was collected, and so on.  Remember that everything is covered (who, what, when, where, why, how, so what, and so on).  Reference the section in the Appendix with greater detail about the data provenance.  This section should be about two paragraphs, and the Appendix should have more information.
+\noindent Data was collected by each classmate. Each classmate created handouts for data collection and collected 10 individuals measurements. The original data initially contained 428 observations. After the data cleaning process, the observation reduced to 190 individuals.
+Some of the measurements measured right and left side of the body have been merged into one averaged value. All the measurement units were converted to centimeters.\vspace{0.25in}
+
+\noindent Sample data constraints individuals at age 18 or above. The measurements contain individuals’ height, leg length, arm span, head height, hand length, and foot length. The sample data also contains proportions of each measurement relative to height. Other variables used in the sample data include gender, sex, and age.\vspace{0.25in}
+
+\noindent Reference the section in the Appendix with greater detail about the data provenance \ref{sec:appendix}.
 
 \subsection{Summary of Sample}
 \label{sec:data-sample}
 
 
+\noindent Figure\ref{fig:sample} shows the sample data counts grouped by gender and ethnicity.
+A total of 167 observations are in sample data which contains 83 females and 84 males.
+About 70% of the sample data is white and about 30% Asian.
+
+\begin{figure}[!ht]
+	\hrule
+	\caption{ \textbf{sample data grouping by gender and ethnicity} }
+	\begin{center}
+	    \scalebox{1.00}{	\includegraphics[trim = 0 0 0 0,clip,width=0.85\textwidth]{pdfs/sample.pdf} }
+	\end{center}
+	\label{fig:sample}
+	\hrule
+\end{figure}
+
+\noindent Figure\ref{fig:age-dist} histogram shows the density of the sample data in the different age groups.
+About 45% of the participants are aged between 20 and 30. 
+
+
+\begin{figure}[!ht]
+	\hrule
+	\caption{ \textbf{sample data age distribution} }
+	\begin{center}
+	    \scalebox{1.00}{	\includegraphics[trim = 0 0 0 0,clip,width=0.85\textwidth]{pdfs/sample_proportion-1.pdf} }
+	\end{center}
+	\label{fig:age-dist}
+	\hrule
+\end{figure}
+
+
 \subsection{Summary Statistics of Data}
 \label{sec:data-summary}
+
+\noindent 
+
+See table \ref{table:male-correlation} and \ref{table:female-correlation}
+\newpage
+
+\input{tables/male-correlation-table}  
+
+\input{tables/female-correlation-table} 
+
+
 
 
 \section{Key Findings}
@@ -207,32 +301,6 @@ Statistics has contributed much to data analysis.  In the future it can, and in 
 
 
 
-\newpage
-
-\input{tables/example-correlation-table} 
-
-\newpage
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -310,57 +378,711 @@ Statistics has contributed much to data analysis.  In the future it can, and in 
 \subsection{Preparing the Report Workspace as a subsection}
 \label{sec:appendix-setup}
 
-\subsubsection{Preparing the Report Workspace as a subsubsection}
+\subsubsection{prepare sample data}
 \label{sec:appendix-setup2}
-
-\paragraph{Preparing the Report Workspace as a paragraph}
-\label{sec:appendix-setup3}
-
-\subparagraph{Preparing the Report Workspace as a subparagrah}
-\label{sec:appendix-setup4}
 
 Below is the necessary functions and libraries required to run the code referenced in this document.
 
-```{r,appendix-setup,message=FALSE}
+```{r,appendix-setup}
 library(devtools);       # required for source_url
 
 path.humanVerseWSU = "https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/"
 source_url( paste0(path.humanVerseWSU,"master/misc/functions-project-measure.R") );
-
+source_url( paste0(path.humanVerseWSU,"master/humanVerseWSU/R/functions-dataframe.R") );
+source_url( paste0(path.humanVerseWSU,"master/humanVerseWSU/R/functions-EDA.R") );
 ```
 
 Below is the code to load the data and prepare it for analysis.
 
-```{r,appendix-secret,message=FALSE}
+```{r,appendix-secret}
 
 path.project = "C:/_git_/WSU_STATS419_FALL2020/project-measure/";
-
-path.to.secret = "C:/Users/13608/Dropbox/WSU-419/Fall 2020/__student_access__/_SECRET_/";
+path.to.secret = "C:/Users/13608/Dropbox/WSU-419/Fall 2020/__student_access__/_SECRET_/"
 
 measure = utils::read.csv( paste0(path.to.secret, "measure-students.txt"), header=TRUE, quote="", sep="|");
+getOne = c("hand.length", "hand.width", "hand.elbow", "elbow.armpit", "arm.reach", "foot.length", "floor.kneepit", "floor.hip", "floor.armpit");
 
-#path.github = "https://raw.githubusercontent.com/this-IS-YOUR-PATH-TO-GITHUB/";
-#source_url( paste0(path.github,"master/functions/functions-project-measure.R") );
+###############################################################################################
+path.github = "https://raw.githubusercontent.com/minju-lee92/WSU_STATS419_FALL2020/";
+source_url( paste0(path.github,"master/functions/functions-project-measure.R") );
 
 # this is your function
-# put in the same "units"
-# merge left/right
-# build proportion data
-# and so on ... 
-# measure.df = prepareMeasureData(measure);
+# covert unit into cm
+measureAscm <-convert.inchestocm(measure)
+# build merged left/right value cols
+merged.df <-merge.left.right(measureAscm, getOne)
+# remove nas, duplicates, create categorical variables... etc 
+cleaned.df = prepareMeasureData(merged.df)
 
+# create scaled variables using height
+colnum = c(3:7,20:28)
+new.colname = c("p.height", "p.head.h", "p.head.c", "p.arm.span", "p.floor.navel","p.hand.length","p.hand.width","p.hand.elbow","p.elbow.armpit","p.arm.reach","p.foot.length","p.floor.kneepit", "p.floor.hip", "p.floor.armpit")
+
+v1.df =build.scale.variables(cleaned.df, colnum, new.colname, cleaned.df$height)
+
+# final sample data for the analysis
+sample.df <-v1.df[,c(1:4,6,20,25,27,13,29:31,36,37,39,41,46,48)]
+sample.data <- sample.df[sample.df$my.gender !='o'& sample.df$my.ethnicity=='a'|sample.df$my.ethnicity=='w',]
+
+# age over 18
+sample.data <- sample.data[sample.data$age >=18,]
+summary(sample.data)
+# getting rid of outliers.
+sample.data <- sample.data[sample.data$height >= 145 & sample.data$arm.span>100 & sample.data$hand.length>10 & sample.data$hand.length<30 & sample.data$foot.length>19 & sample.data$floor.hip>50 & sample.data$head.height<30,]
+
+saveRDS(sample.data,"sample.data.rds");
+	utils::write.table(sample.data, file="sample.data.txt", quote=FALSE, col.names=TRUE, row.names=FALSE, sep="|");
+```
+\subsubsection{generate summary of sample}
+\label{sec:appendix-setup2}
+```{r sample_proportion}
+library(dplyr)
+
+sample.data <- na.omit(sample.data)
+dist.sample <- sample.data %>% group_by(my.gender, my.ethnicity) %>% dplyr::summarise(count = n())
+
+library(gridExtra)
+pdf("pdfs/sample.pdf", height=2, width=3)
+grid.table(dist.sample)
+dev.off()
+
+
+hist(sample.data$age, breaks=seq(10,100,10), ylim=c(0,0.05), freq=FALSE)
+
+dim(sample.data)
+str(sample.data)
+summary.sample <-summary(sample.data[,c(13:18)])
+library(gridExtra)
+pdf("pdfs/summary-sample.pdf", height=3, width=10)
+grid.table(summary.sample)
+dev.off()
+```
+
+\subsubsection{generate summary statistic tables}
+\label{sec:appendix-setup2}
+
+Below is the code to generate the summary statistics and save them as a table that you see in Section \ref{table:correlation}.
+```{r,appendix-summary}
+path.project = "C:/_git_/WSU_STATS419_FALL2020/project-measure/";
+path.tables = paste0(path.project,"tables/");
+  createDirRecursive(path.tables);
 ```
 
 
-Below is the code to generate the summary statistics and save them as a table that you see in Section \ref{}.
+```{r, build_corrtable}
+file.correlation = paste0(path.tables,"correlation-table.tex")
+myData = as.matrix(sample.data[,c(3:8)])  # numeric values only, only what will appear in table
+# https://www.overleaf.com/read/srzhrcryjpwn
+# keepaspectratio of include graphics 
+# could scale \input if still too big ...
+# https://tex.stackexchange.com/questions/13460/scalebox-knowing-how-much-it-scales#13487
+buildLatexCorrelationTable(myData, 
+  rotateTable = FALSE,
+  width.table = 0.80, # best for given data ... 0.95 when rotateTable = FALSE
+                      # 0.60 when rotateTable = TRUE
+  myCaption = "Overall Descriptive Statistics and Correlation Analysis",
+  myFile = file.correlation,
+  myNames = colnames(myData),
+  showOnes = "left")
+Sys.sleep(2) # in case Knit-PDF doesn't like that I just created the file...
+```
 
-```{r,appendix-summary,message=FALSE}
+```{r,build_corrtable_m}
+file.correlation = paste0(path.tables,"male-correlation-table.tex")
 
+male_sample.data <- sample.data[sample.data$my.gender=='m',]
+myData = as.matrix(male_sample.data[,c(3:8)])  # numeric values only, only what will appear in table
+# https://www.overleaf.com/read/srzhrcryjpwn
+# keepaspectratio of include graphics 
+# could scale \input if still too big ...
+# https://tex.stackexchange.com/questions/13460/scalebox-knowing-how-much-it-scales#13487
+buildLatexCorrelationTable(myData, 
+  myLabel = "table:male-correlation",
+  rotateTable = FALSE,
+  width.table = 0.80, # best for given data ... 0.95 when rotateTable = FALSE
+                      # 0.60 when rotateTable = TRUE
+  myCaption = "Descriptive Statistics and Correlation Analysis in male",
+  myFile = file.correlation,
+  myNames = colnames(myData),
+  width.names = "15mm",
+  space.M.SD = "0.1mm",
+  space.SD.corr = "0.5mm",
+  space.between = "0.1mm",
+  showOnes = "center")
+Sys.sleep(2) # in case Knit-PDF doesn't like that I just created the file...
+```
+
+```{r,build_corrtable_f}
+file.correlation = paste0(path.tables,"female-correlation-table.tex")
+
+female_sample.data <- sample.data[sample.data$my.gender=='f',]
+myData = as.matrix(female_sample.data[,c(3:8)])  # numeric values only, only what will appear in table
+# https://www.overleaf.com/read/srzhrcryjpwn
+# keepaspectratio of include graphics 
+# could scale \input if still too big ...
+# https://tex.stackexchange.com/questions/13460/scalebox-knowing-how-much-it-scales#13487
+buildLatexCorrelationTable(myData,
+  myLabel = "table:female-correlation",                         
+  rotateTable = FALSE,
+  width.table = 0.80, # best for given data ... 0.95 when rotateTable = FALSE
+                      # 0.60 when rotateTable = TRUE
+  myCaption = "Descriptive Statistics and Correlation Analysis in female",
+  myFile = file.correlation,
+  myNames = colnames(myData),
+  width.names = "15mm",
+  space.M.SD = "0.1mm",
+  space.SD.corr = "0.5mm",
+  space.between = "0.1mm",
+  showOnes = "center")
+Sys.sleep(2) # in case Knit-PDF doesn't like that I just created the file...
+```
+
+\subsubsection{generate summary statistic figures}
+\label{sec:appendix-setup2}
+
+```{r, measure_boxplot_mf}
+
+height.m <- sample.data$height[sample.data$my.gender == 'm']
+height.f <- sample.data$height[sample.data$my.gender == 'f']
+arm.span.m <- sample.data$arm.span[sample.data$my.gender == 'm']
+arm.span.f <- sample.data$arm.span[sample.data$my.gender == 'f']
+floor.hip.m <- sample.data$floor.hip[sample.data$my.gender == 'm']
+floor.hip.f <- sample.data$floor.hip[sample.data$my.gender == 'f']
+head.height.m <- sample.data$head.height[sample.data$my.gender == 'm']
+head.height.f <- sample.data$head.height[sample.data$my.gender == 'f']
+hand.length.m <- sample.data$hand.length[sample.data$my.gender == 'm']
+hand.length.f <- sample.data$hand.length[sample.data$my.gender == 'f']
+foot.length.m <- sample.data$foot.length[sample.data$my.gender == 'm']
+foot.length.f <- sample.data$foot.length[sample.data$my.gender == 'f']
+
+par(mfrow = c(2,3))
+
+boxplot(height.m, height.f,
+        main = "height",
+        xlab = "male vs female",
+        ylab = "unit(cm)",
+        ylim = c(140,220),
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(arm.span.m, arm.span.f,
+        main = "arm span",
+        xlab = "male vs female",
+        ylab = "unit(cm)",
+        ylim = c(140,220),
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(floor.hip.m, floor.hip.f,
+        main = "leg length",
+        xlab = "male vs female",
+        ylab = "unit(cm)",
+        ylim = c(80,160),
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(head.height.m, head.height.f,
+        main = "head height",
+        xlab = "male vs female",
+        ylab = "unit(cm)",
+        ylim = c(16,35),
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(hand.length.m, hand.length.f,
+        main = "hand length",
+        xlab = "male vs female",
+        ylab = "unit(cm)",
+        ylim = c(16,35),
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(foot.length.m, foot.length.f,
+        main = "foot length",
+        xlab = "male vs female",
+        ylab = "unit(cm)",
+        ylim = c(16,35),
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
 
 ```
 
+```{r, measure_boxplot_amfwmf}
+# Would certain ethnicity change the measurements between male and female?
+a.height.m <- sample.data$height[sample.data$my.gender == 'm' &sample.data$my.ethnicity =='a']
+a.height.f <- sample.data$height[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='a']
+
+a.arm.span.m <- sample.data$arm.span[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='a']
+a.arm.span.f <- sample.data$arm.span[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='a']
+
+a.floor.hip.m <- sample.data$floor.hip[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='a']
+a.floor.hip.f <- sample.data$floor.hip[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='a']
+a.head.height.m <- sample.data$head.height[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='a']
+a.head.height.f <- sample.data$head.height[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='a']
+a.hand.length.m <- sample.data$hand.length[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='a']
+a.hand.length.f <- sample.data$hand.length[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='a']
+a.foot.length.m <- sample.data$foot.length[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='a']
+a.foot.length.f <- sample.data$foot.length[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='a']
+
+w.height.m <- sample.data$height[sample.data$my.gender == 'm' &sample.data$my.ethnicity =='w']
+w.height.f <- sample.data$height[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='w']
+
+w.arm.span.m <- sample.data$arm.span[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='w']
+w.arm.span.f <- sample.data$arm.span[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='w']
+
+w.floor.hip.m <- sample.data$floor.hip[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='w']
+w.floor.hip.f <- sample.data$floor.hip[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='w']
+w.head.height.m <- sample.data$head.height[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='w']
+w.head.height.f <- sample.data$head.height[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='w']
+w.hand.length.m <- sample.data$hand.length[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='w']
+w.hand.length.f <- sample.data$hand.length[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='w']
+w.foot.length.m <- sample.data$foot.length[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='w']
+w.foot.length.f <- sample.data$foot.length[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='w']
+
+par(mfrow = c(2,6))
+boxplot(a.height.m, a.height.f,
+        main = "height",
+        xlab = "am vs af",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(a.arm.span.m, a.arm.span.f,
+        main = "arm span",
+        xlab = "am vs af",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(a.floor.hip.m, a.floor.hip.f, 
+        main = "leg length",
+        xlab = "am vs af",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(a.head.height.m, a.head.height.f,
+        main = "head height",
+        xlab = "am vs af",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(a.hand.length.m, a.hand.length.f,
+        main = "hand length",
+        xlab = "am vs af",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(a.foot.length.m, a.foot.length.f,
+        main = "foot length",
+        xlab = "am vs af",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+
+boxplot(w.height.m, w.height.f,
+        main = "height",
+        xlab = "wm vs wf",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(w.arm.span.m, w.arm.span.f,
+        main = "arm span",
+        xlab = "wm vs wf",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(w.floor.hip.m, w.floor.hip.f, 
+        main = "leg length",
+        xlab = "wm vs wf",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(w.head.height.m, w.head.height.f,
+        main = "head height",
+        xlab = "wm vs wf",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(w.hand.length.m, w.hand.length.f,
+        main = "hand length",
+        xlab = "wm vs wf",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(w.foot.length.m, w.foot.length.f,
+        main = "foot length",
+        xlab = "wm vs wf",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+
+```
+
+```{r measure_boxplot_wmaf}
+par(mfrow = c(2,3))
+boxplot(w.height.m, a.height.f,
+        main = "height",
+        xlab = "white male vs asian female",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(w.arm.span.m, a.arm.span.f,
+        main = "arm span",
+        xlab = "white male vs asian female",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(w.floor.hip.m, a.floor.hip.f, 
+        main = "leg length",
+        xlab = "white male vs asian female",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(w.head.height.m, a.head.height.f,
+        main = "head height",
+        xlab = "white male vs asian female",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(w.hand.length.m, a.hand.length.f,
+        main = "hand length",
+        xlab = "white male vs asian female",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(w.foot.length.m, a.foot.length.f,
+        main = "foot length",
+        xlab = "white male vs asian female",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+```
+
+```{r measure_boxplot_amwf}
+par(mfrow = c(2,3))
+boxplot(a.height.m, w.height.f,
+        main = "height",
+        xlab = "asian male vs white female",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(a.arm.span.m, w.arm.span.f,
+        main = "arm span",
+        xlab = "asian male vs white female",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(a.floor.hip.m, w.floor.hip.f, 
+        main = "leg length",
+        xlab = "asian male vs white female",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(a.head.height.m, w.head.height.f,
+        main = "head height",
+        xlab = "asian male vs white female",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(a.hand.length.m, w.hand.length.f,
+        main = "hand length",
+        xlab = "asian male vs white female",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(a.foot.length.m, w.foot.length.f,
+        main = "foot length",
+        xlab = "asian male vs white female",
+        ylab = "unit(cm)",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+```
+
+What is the best to way to represent proportions of measurments? .
 
 
+```{r, proportion_box_plots}
+
+p.arm.span.m <- sample.data$p.arm.span[sample.data$my.gender == 'm']
+p.arm.span.f <- sample.data$p.arm.span[sample.data$my.gender == 'f']
+p.floor.hip.m <- sample.data$p.floor.hip[sample.data$my.gender == 'm']
+p.floor.hip.f <- sample.data$p.floor.hip[sample.data$my.gender == 'f']
+
+p.head.h.m <- sample.data$p.head.h[sample.data$my.gender == 'm']
+p.head.h.f <- sample.data$p.head.h[sample.data$my.gender == 'f']
+p.hand.length.m <- sample.data$p.hand.length[sample.data$my.gender == 'm']
+p.hand.length.f <- sample.data$p.hand.length[sample.data$my.gender == 'f']
+p.foot.length.m <- sample.data$p.foot.length[sample.data$my.gender == 'm']
+p.foot.length.f <- sample.data$p.foot.length[sample.data$my.gender == 'f']
+
+par(mfrow = c(2,3))
+boxplot(p.arm.span.m, p.arm.span.f,
+        main = "arm span",
+        xlab = "male vs female",
+        ylab = "proportion",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(p.floor.hip.m, p.floor.hip.m, 
+        main = "leg length",
+        xlab = "male vs female",
+        ylab = "proportion",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(p.head.h.m, p.head.h.f,
+        main = "head height",
+        xlab = "male vs female",
+        ylab = "proportion",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(p.hand.length.m, p.hand.length.f,
+        main = "hand length",
+        xlab = "male vs female",
+        ylab = "proportion",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(p.foot.length.m, p.foot.length.f,
+        main = "foot length",
+        xlab = "male vs female",
+        ylab = "proportion",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+```
+
+
+```{r, proportion_box_plots_amfwmf}
+
+ap.arm.span.m <- sample.data$p.arm.span[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='a']
+ap.arm.span.f <- sample.data$p.arm.span[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='a']
+ap.floor.hip.m <- sample.data$p.floor.hip[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='a']
+ap.floor.hip.f <- sample.data$p.floor.hip[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='a']
+
+ap.head.h.m <- sample.data$p.head.h[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='a']
+ap.head.h.f <- sample.data$p.head.h[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='a']
+ap.hand.length.m <- sample.data$p.hand.length[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='a']
+ap.hand.length.f <- sample.data$p.hand.length[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='a']
+ap.foot.length.m <- sample.data$p.foot.length[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='a']
+ap.foot.length.f <- sample.data$p.foot.length[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='a']
+
+wp.arm.span.m <- sample.data$p.arm.span[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='w']
+wp.arm.span.f <- sample.data$p.arm.span[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='w']
+wp.floor.hip.m <- sample.data$p.floor.hip[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='w']
+wp.floor.hip.f <- sample.data$p.floor.hip[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='w']
+
+wp.head.h.m <- sample.data$p.head.h[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='w']
+wp.head.h.f <- sample.data$p.head.h[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='w']
+wp.hand.length.m <- sample.data$p.hand.length[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='w']
+wp.hand.length.f <- sample.data$p.hand.length[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='w']
+wp.foot.length.m <- sample.data$p.foot.length[sample.data$my.gender == 'm'&sample.data$my.ethnicity =='w']
+wp.foot.length.f <- sample.data$p.foot.length[sample.data$my.gender == 'f'&sample.data$my.ethnicity =='w']
+
+par(mfrow = c(2,5))
+boxplot(ap.arm.span.m, ap.arm.span.f,
+        main = "arm span",
+        xlab = "am vs af",
+        ylab = "proportion",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(ap.floor.hip.m, ap.floor.hip.f,
+        main = "leg length",
+        xlab = "am vs af",
+        ylab = "proportion",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(ap.head.h.m, ap.head.h.f,
+        main = "head height",
+        xlab = "am vs af",
+        ylab = "proportion",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(ap.hand.length.m, ap.hand.length.f,
+        main = "hand length",
+        xlab = "am vs af",
+        ylab = "proportion",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(ap.foot.length.m, ap.foot.length.f,
+        main = "foot length",
+        xlab = "am vs af",
+        ylab = "proportion",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(wp.arm.span.m, wp.arm.span.f,
+        main = "arm span",
+        xlab = "wm vs wf",
+        ylab = "proportion",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(wp.floor.hip.m, wp.floor.hip.f,
+        main = "leg length",
+        xlab = "wm vs wf",
+        ylab = "proportion",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(wp.head.h.m, wp.head.h.f,
+        main = "head height",
+        xlab = "wm vs wf",
+        ylab = "proportion",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(wp.hand.length.m, wp.hand.length.f,
+        main = "hand length",
+        xlab = "wm vs wf",
+        ylab = "proportion",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+boxplot(wp.foot.length.m, wp.foot.length.f,
+        main = "foot length",
+        xlab = "wm vs wf",
+        ylab = "proportion",
+        col = c("orange", 'red'),
+        border = "brown",
+        notch = TRUE)
+
+```
+
+```{r avg_proportion_comp}
+comb<-c('af','am','wf','wm')
+comb <-as.factor(comb)
+mean<-c(1,1,1,1)
+height <- data.frame(comb, mean)
+mean<-c(mean(ap.head.h.f), mean(ap.head.h.m), mean(wp.head.h.f), mean(wp.head.h.m))
+head_height <- data.frame(comb, mean)
+mean<-c(mean(ap.arm.span.f), mean(ap.arm.span.m), mean(wp.arm.span.f), mean(wp.arm.span.m))
+arm_span <- data.frame(comb, mean)
+mean<-c(mean(ap.floor.hip.f), mean(ap.floor.hip.m), mean(wp.floor.hip.f), mean(wp.floor.hip.m))
+leg_length <- data.frame(comb, mean)
+mean<-c(mean(ap.hand.length.f), mean(ap.hand.length.m), mean(wp.hand.length.f), mean(wp.hand.length.m))
+hand_length <- data.frame(comb, mean)
+mean<-c(mean(ap.foot.length.f), mean(ap.foot.length.m), mean(wp.foot.length.f), mean(wp.foot.length.m))
+foot_length <- data.frame(comb, mean)
+
+
+head_height$name <-'head_height'
+arm_span$name <-'arm_span'
+leg_length$name <-'leg_length'
+hand_length$name <-'hand_length'
+foot_length$name <- 'foot_length'
+
+d <- rbind(head_height, arm_span, leg_length, hand_length, foot_length)
+p <- ggplot(d, aes(comb, mean, fill=name))+
+      geom_bar(position = 'dodge', stat='identity')+
+      xlab("Aisn/white male and female")+
+      ylab("proportion as a function of height")
+p
+```
+
+
+```{r statistical analysis}
+# Two-way ANOVA with interaction effect
+res.aov2 <- aov(height ~ my.gender * my.ethnicity, data = sample.data)
+summary(res.aov2)
+```
+
+```{r statistical analysis2}
+two.way <- aov(height ~ my.gender * my.ethnicity, data = sample.data)
+
+summary(two.way)
+```
+
+```{r}
+t.test(height.m, height.f,
+       alternative = "greater",
+       mu = 0, paired = FALSE, var.equal = FALSE)
+```
+```{r}
+t.test(a.height.m, w.height.f,
+       alternative = "greater",
+       mu = 0, paired = FALSE, var.equal = FALSE)
+```
+```{r}
+t.test(a.floor.hip.m, a.floor.hip.f,
+       alternative = "greater",
+       mu = 0, paired = FALSE, var.equal = FALSE)
+```
+
+
+```{r kernel_density, message=FALSE}
+library(ggplot2)
+library(plyr)
+library(dplyr)
+
+csample.data <- ddply(sample.data, "my.gender", summarise, height.mean=mean(height))
+csample.data <- na.omit(csample.data)
+csample.data
+# Density plots with semi-transparent fill
+ggplot(sample.data, aes(x=height, fill=my.gender)) + geom_density(alpha=.3) +
+        geom_vline(data=csample.data, aes(xintercept=height.mean,  colour=my.gender), linetype="dashed", size=1) +
+        labs(x = "height(cm)",
+             title = "Kernel density estimate of height")
+
+
+asample.data <- ddply(sample.data, "my.gender", summarise, arm.span.mean=mean(arm.span))
+asample.data <- na.omit(asample.data)
+
+ggplot(sample.data, aes(x=arm.span, fill=my.gender)) + geom_density(alpha=.3) +
+        geom_vline(data=asample.data, aes(xintercept=arm.span.mean,  colour=my.gender), linetype="dashed", size=1)
+
+ggplot(sample.data, aes(x=floor.hip, fill=my.gender)) + geom_density(alpha=.3)
+ggplot(sample.data, aes(x=head.height, fill=my.gender)) + geom_density(alpha=.3)
+ggplot(sample.data, aes(x=hand.length, fill=my.gender)) + geom_density(alpha=.3)
+ggplot(sample.data, aes(x=foot.length, fill=my.gender)) + geom_density(alpha=.3)
+```
+
+```{r k-means,message=FALSE}
+# cols = colnames(sample.data[,-c(1:2)]);
+# rows = sample.data$my.gender;
+# 
+# df = removeColumnsFromDataFrame(sample.data, "my.gender");
+# df.t = transposeMatrix(df);
+# colnames(df.t) = rows;
+# 
+# sample.t = as.data.frame(df.t);
+# sample.t;
+# 
+# X = removeColumnsFromDataFrame(sample.data,"my.gender");
+# X
+# X.kmeans = kmeans(X, 3);  # default algorithm
+# stars(X.kmeans$centers, len = 0.5, key.loc = c(4, 3),
+#         main = "Algorithm: DEFAULT [Hartigan-Wong] \n Stars of KMEANS=3", draw.segments = TRUE);
+# print(X.kmeans)
+```
 
 
 

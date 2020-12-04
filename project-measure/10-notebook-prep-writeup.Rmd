@@ -60,112 +60,38 @@ path.project = "C:/_git_/WSU_STATS419_FALL2020/project-measure/";
 path.to.secret = "C:/Users/13608/Dropbox/WSU-419/Fall 2020/__student_access__/_SECRET_/"
 
 measure = utils::read.csv( paste0(path.to.secret, "measure-students.txt"), header=TRUE, quote="", sep="|");
-getOne = c("hand.length", "hand.width", "hand.elbow", "elbow.armpit", "arm.reach", "foot.length", "floor.kneepit", "floor.hip", "floor.armpit");
-
-###############################################################################################
-path.github = "https://raw.githubusercontent.com/this-IS-YOUR-PATH-TO-GITHUB/";
-source_url( paste0(path.github,"master/functions/functions-project-measure.R") );
-
-# this is your function
-# put in the same "units"   //DONE
-# merge left/right          //DONE
-# build proportion data     //DONE  
-#  
-#measure.df = prepareMeasureData(measure);
-```
-
-```{r data_summary}
-sum(is.na(measure))
 summary(measure)
 ```
-```{r data_cleaning}
-#set some of the attributes as factor
-measure$data_collector = factor(measure$data_collector);
-measure$person_id = factor(measure$person_id);
-measure$writing = factor(tolower(measure$writing));
-measure$writing[measure$writing=="\"right\""]= "right"
-measure$eye = factor(tolower(measure$eye));
-measure$eye[measure$eye=="\"right\""]= "right"
-measure$eye[measure$eye=="\"left\""]= "left"
-measure$eye[measure$eye=="equal"|measure$eye=="\"both\""]= "both"
-measure$eye_color = factor(tolower(measure$eye_color));
-measure$eye_color[measure$eye_color=="\"brown\""]= "brown"
-measure$eye_color[measure$eye_color=="\"blue\""]= "blue"
-measure$eye_color[measure$eye_color=="blue/green"]= "blue-green"
-measure$ethnicity = factor(tolower(measure$ethnicity));
-measure$ethnicity[measure$ethnicity=="asain" |measure$ethnicity =="\"asian\""]= "asian"
-measure$ethnicity[measure$ethnicity=="caucasain"|measure$ethnicity=="caucasian"|measure$ethnicity=="\"caucasian\""]= "white"
-measure$gender = factor(tolower(measure$gender));
-measure$gender[measure$gender=="f" | measure$gender=="\"female\""] = "female";
-measure$gender[measure$gender=="m" | measure$gender=="\"male\""] = "male";
 
 
+```{r covert_unit}
 
-measure$swinging = factor(tolower(measure$swinging));
-measure$swinging[measure$swinging=="\"right\""| measure$swinging=="rigth"] = "right";
-measure$swinging[measure$swinging=="\"left\""| measure$swinging=="leftt"| measure$swinging == "let"] = "left";
-measure$side = factor(tolower(measure$side));
+# source functions-project-measure.R from my github repository
+path.github = "https://raw.githubusercontent.com/minju-lee92/WSU_STATS419_FALL2020/"
+source_url( paste0(path.github,"master/functions/functions-project-measure.R") )
 
-measure$units = factor(tolower(measure$units));
-measure$units[measure$units=="inches"|measure$units=="inch"|measure$units=="\"in\""] = "in";
-# remember conv_units ...
-
-
-measure
+# covert inches to cm
+measureAscm <-convert.inchestocm(measure)
 ```
 
-```{r box_plots}
-
-```
 
 #### Data collapsing
 
-Some people have data for a person's "left" and "right" side of the body. I have prepared code for you to collapse that data so (we assume) each side of the body is equal.  This is one option.  You can choose to keep the overall data and address NA's (missing values) if your research question is tied to body symmetry.
-
-In the notebook on correlation in week 6, the section `1.2.3.3 Measure` has some code on to "getOne" measurement from the left or right.  If one is NA, it returns the other. If they both are available, it returns the mean.
+Some people have data for a person's "left" and "right" side of the body. The function merge.left.right() takes measurement from the left or right, if one is NA it returns the other. If they both are available, it returns the mean.
 
 ```{r data_collapsing}
-getOne = c("hand.length", "hand.width", "hand.elbow", "elbow.armpit", "arm.reach", "foot.length", "floor.kneepit", "floor.hip", "floor.armpit");
-n.rows = dim(measure)[1];
+# build merged left/right value cols
+getOne = c("hand.length", "hand.width", "hand.elbow", "elbow.armpit", "arm.reach", "foot.length", "floor.kneepit", "floor.hip", "floor.armpit")
+merged.df <-merge.left.right(measureAscm, getOne)
+```
 
-
-for(one in getOne)
-  {
-  measure[one] = NA;
-  }
-  
-for(i in 1:n.rows)
-  {  
-  measure.row = measure[i,];
-  for(one in getOne)
-    {
-    nidx = getIndexOfDataFrameColumns(measure, one);
-    
-    myleft = paste0(one,".left");
-      lidx = getIndexOfDataFrameColumns(measure.row, myleft);
-    myright = paste0(one,".right");
-      ridx = getIndexOfDataFrameColumns(measure.row, myright);
-    
-      print(paste0(
-                  "left: ",myleft," --> ",lidx,
-                  " right: ",myright," --> ",ridx
-                  )
-            );
-      
-      row.m = mean(
-            c(as.numeric(unlist(measure.row[lidx])),
-            as.numeric(unlist(measure.row[ridx]))),
-            na.rm=TRUE);
-      
-    measure[i,nidx] =  row.m;
-    }
-}
-
-measure
+#### Data cleaning
+```{r data_cleaning}
+# remove NAs, duplicates, create categorical variables... etc 
+cleaned.df = prepareMeasureData(merged.df)
 ```
 
 #### Data creation
-
 There may be a few data features you may want to create.  I have the "arm span" and information about the "armpits" which would enable you to compute the internal "chest width" (from armpit to armpit).  There may be other data you can create in a similar fashion.
 
 #### Data proportions
@@ -184,6 +110,20 @@ There are lots of possibilities, all depends on your interests.
 
 - Galileo Galilei, the famous Italian polymath, literally sold his body parts when he died (quite the entrepreneur).  He had extremely long fingers.  In the museum in Firenze, they have on display a few of the fingers recovered.  Yes, I have seen them <https://www.museogalileo.it/it/>.  Most people miss this museum because they are too busy admiring David's proportions at the nearby Academia Gallery <https://en.wikipedia.org/wiki/David_(Michelangelo)>.
 
+```{r}
+# create scaled variables using height
+colnum = c(3:7,20:28)
+new.colname = c("height/height", "head.h/height", "head.c/height", "arm.span/height", "floor.navel/height","hand.length/height","hand.width.height","hand.elbow/height","elbow.armpit/height","arm.reach/height","foot.length/height","floor.kneepit/height", "floor.hip/height", "floor.armpit/height")
+
+v1.df =build.scale.variables(cleaned.df, colnum, new.colname, cleaned.df$height)
+
+#create scaled variables using head.height
+colnum2 = c(3:7,20:28)
+new.colname2 = c("height/head.height", "head.h/head.height", "head.c/head.height", "arm.span/head.height", "floor.navel/head.height","hand.length/head.height","hand.width/head.height","hand.elbow/head.height","elbow.armpit/head.height","arm.reach/head.height","foot.length/head.height","floor.kneepit/head.height", "floor.hip/head.height", "floor.armpit/head.height")
+
+v2.df =build.scale.variables(v1.df, colnum2, new.colname2, v1.df$head.height)
+v2.df
+```
 
 #### Data selection
 
@@ -199,16 +139,163 @@ The summary statistics on the sample "covariates" and on the overall data are de
 
 <http://www.mshaffer.com/arizona/videos/exercise/111.mp4>
 
+```{r data_selection}
+sample.df <-v2.df[,c(1:4,6,20,25,27,13,29:31,36,37,39,41,46,48)]
+sample.data <- sample.df[sample.df$my.gender !='o'& sample.df$my.ethnicity=='a'|sample.df$my.ethnicity=='w',]
+sample.data
+# # height, head.height, arm.span, floor.hip, foot.length, hand.length
+# sample.data <- v2.df[,c(1:4, 6 ,13,20,25,27 ,29:31, 36,37,39,41, 46,47)]
+# # age over 18
+# sample.data <- sample.data[sample.data$age >=18 & sample.data$my.gender !='o',]
+# summary(sample.data)
+# # getting rid of outliers.
+# # <- sample.data[sample.data$arm.span>100&sample.data$hand.length<50&sample.data$floor.hip>50,]
+# boxplot(sample.data[,c(3:5,7:9)])$out
+# sample.data <- sample.data[-which(is.na(sample.data$data_collector)), ]
+# sample.data
+```
+```{r,setup-test-correlation,message=FALSE}
+path.project = "C:/_git_/WSU_STATS419_FALL2020/project-measure/";
+path.tables = paste0(path.project,"tables/");
+  createDirRecursive(path.tables);
+```
+
+
+```{r,test-correlation,message=FALSE}
+file.correlation = paste0(path.tables,"correlation-table.tex");
+myData = as.matrix(sample.data[,c(3:5,7:9)]);  # numeric values only, only what will appear in table
+# https://www.overleaf.com/read/srzhrcryjpwn
+# keepaspectratio of include graphics 
+# could scale \input if still too big ...
+# https://tex.stackexchange.com/questions/13460/scalebox-knowing-how-much-it-scales#13487
+buildLatexCorrelationTable(myData, 
+  rotateTable = TRUE,
+  width.table = 0.80, # best for given data ... 0.95 when rotateTable = FALSE
+                      # 0.60 when rotateTable = TRUE
+  myCaption = "Descriptive Statistics and Correlation Analysis",
+  myFile = file.correlation,
+  myNames = colnames(myData),
+  showOnes = "right")
+Sys.sleep(2); # in case Knit-PDF doesn't like that I just created the file...
+```
+
+\newpage
+
+\input{tables/correlation-table} 
+
+\newpage
+
+```{r corr}
+sample.cor <- cor(na.omit(sample.data[,c(3:16)]))
+library(corrgram)
+corPlot(sample.cor)
+```
+
+```{r box_plots}
+
+height.m <- sample.data$height[sample.data$my.gender == 'm']
+height.f <- sample.data$height[sample.data$my.gender == 'f']
+
+boxplot(height.m, height.f,
+main = "Boxplot of height comparision by gender",
+names=c("male", "female"),
+xlab = "Height(cm)",
+col = c("orange", 'red'),
+border = "brown",
+notch = TRUE)
+
+##############################
+boxplot(height~my.ethnicity,
+data = sample.data,
+main = "Boxplot of height comparision by ethnicity",
+xlab = "Height(cm)",
+col = "orange",
+border = "brown",
+notch = TRUE)
+
+#############################
+filtered.measure <-sample.data[sample.data$my.ethnicity=='a' | sample.data$my.ethnicity=='w',]
+filtered.measure$my.ethnicity <-factor(filtered.measure$my.ethnicity)
+
+boxplot(height~my.ethnicity,
+data = filtered.measure,
+main = "Boxplot of height comparison by ethnicity",
+names=c("asian","white"),
+xlab = "Height(cm)",
+col = "orange",
+border = "brown",
+notch = TRUE)
+
+boxplot(floor.hip~my.ethnicity,
+data = filtered.measure,
+main = "Boxplot of leg length comparision by ethnicity",
+names=c("asian","white"),
+xlab = "Height(cm)",
+col = "orange",
+border = "brown",
+notch = TRUE)
+
+a.height.m <- filtered.measure$height[filtered.measure$my.gender == 'm' & filtered.measure$my.ethnicity =='a']
+a.height.f <- filtered.measure$height[filtered.measure$my.gender == 'f'& filtered.measure$my.ethnicity =='a']
+w.height.m <- filtered.measure$height[filtered.measure$my.gender == 'm'& filtered.measure$my.ethnicity =='w']
+w.height.f <- filtered.measure$height[filtered.measure$my.gender == 'f'& filtered.measure$my.ethnicity =='w']
+
+boxplot(a.height.m, a.height.f, w.height.m, w.height.f,
+main = "Boxplot of height comparision by gender",
+at=c(1,2,4,5),
+names=c("asian male", "asian female", "white male", "white female"),
+xlab = "Height(cm)",
+col = c("orange", 'red'),
+border = "brown",
+notch = TRUE)
+
+a.leg.m <- filtered.measure$floor.hip[filtered.measure$my.gender == 'm' & filtered.measure$my.ethnicity =='a']
+a.leg.f <- filtered.measure$floor.hip[filtered.measure$my.gender == 'f'& filtered.measure$my.ethnicity =='a']
+w.leg.m <- filtered.measure$floor.hip[filtered.measure$my.gender == 'm'& filtered.measure$my.ethnicity =='w']
+w.leg.f <- filtered.measure$floor.hip[filtered.measure$my.gender == 'f'& filtered.measure$my.ethnicity =='w']
+
+boxplot(a.leg.m, a.leg.f, w.leg.m, w.leg.f,
+main = "Boxplot of leg length comparision by gender",
+at=c(1,2,4,5),
+names=c("asian male", "asian female", "white male", "white female"),
+xlab = "Height(cm)",
+col = c("orange", 'red'),
+border = "brown",
+notch = TRUE)
+```
+
+```{r}
+library(dplyr)
+
+sample.data %>% group_by(my.gender) %>% summarize(n=n())
+
+sample.data %>% group_by(my.gender) %>% summarise(
+  height = mean(na.omit(height)),
+  head.height = mean(na.omit(head.height))
+  )
+```
+```{r multivariate_analysis}
+pairs(sample.data[3:7])
+sample.data.pca <- prcomp(na.omit(sample.data[3:16]))
+summary(sample.data.pca)
+screeplot(sample.data.pca, type='lines')
+```
+# ```{r}
+# #v2.df <-v2.df[,c(1,2,3:7,20:49)]
+# sample.df <- v2.df[v2.df$my.gender !='o'& v2.df$my.ethnicity=='a'|v2.df$my.ethnicity=='w',]
+# sample.df
+# ```
+
 
 ## Project Research Question
 
 Have you formulated one primary research question and possibly 2-3 subquestions.  Or maybe 2-3 primary questions?
 
-Q:Are the proportions differ between male and female.
+Q: Are there significant differences between male and female body measurements and proportions?
 
 subq1: Does grouping by ethnicity affects on the proportions between male and female? (only looking into Asian and white/ others are not included due to small sample size)
 
-subq2: 
+subq2: what other covariates
 
 The project was initially intended to be an exploration of the original data (distances), the computed proportions (as a function of head height), and its relationship to correlations.  However, you now have some experience with basic clustering techniques, so you could try to use them as well.  I would say **focus** on the key research question and don't deviate too far afield into clustering techniques that you don't report on "exploratory findings" that inform your research question.
 

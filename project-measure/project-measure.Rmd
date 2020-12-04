@@ -37,7 +37,6 @@ date: "`r format(Sys.time(), '%B %d, %Y')`"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
 ```{r,appendix-setup,message=FALSE}
 library(devtools);       # required for source_url
 path.humanVerseWSU = "https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/"
@@ -46,305 +45,266 @@ source_url( paste0(path.humanVerseWSU,"master/humanVerseWSU/R/functions-datafram
 source_url( paste0(path.humanVerseWSU,"master/humanVerseWSU/R/functions-EDA.R") );
 ```
 
-Below is the code to load the data and prepare it for analysis.
 
 ```{r,appendix-secret,message=FALSE}
 path.project = "C:/_git_/WSU_STATS419_FALL2020/project-measure/";
-path.to.secret = "C:/Users/13608/Dropbox/WSU-419/Fall 2020/__student_access__/_SECRET_/";
+path.to.secret = "C:/Users/13608/Dropbox/WSU-419/Fall 2020/__student_access__/_SECRET_/"
+
 measure = utils::read.csv( paste0(path.to.secret, "measure-students.txt"), header=TRUE, quote="", sep="|");
-getOne = c("hand.length", "hand.width", "hand.elbow", "elbow.armpit", "arm.reach", "foot.length", "floor.kneepit", "floor.hip", "floor.armpit");
-n.rows = dim(measure)[1];
-
-
-for(one in getOne)
-  {
-  measure[one] = NA;
-  }
-  
-for(i in 1:n.rows)
-  {  
-  measure.row = measure[i,];
-  for(one in getOne)
-    {
-    nidx = getIndexOfDataFrameColumns(measure, one);
-    
-    myleft = paste0(one,".left");
-      lidx = getIndexOfDataFrameColumns(measure.row, myleft);
-    myright = paste0(one,".right");
-      ridx = getIndexOfDataFrameColumns(measure.row, myright);
-    
-      print(paste0(
-                  "left: ",myleft," --> ",lidx,
-                  " right: ",myright," --> ",ridx
-                  )
-            );
-      
-      row.m = mean(
-            c(as.numeric(unlist(measure.row[lidx])),
-            as.numeric(unlist(measure.row[ridx]))),
-            na.rm=TRUE);
-      
-    measure[i,nidx] =  row.m;
-    }
-}
-
-
-
-#path.github = "https://raw.githubusercontent.com/this-IS-YOUR-PATH-TO-GITHUB/";
-#source_url( paste0(path.github,"master/functions/functions-project-measure.R") );
-
-# this is your function
-# put in the same "units"
-# merge left/right
-# build proportion data
-# and so on ... 
-#measure.df = prepareMeasureData(measure);
-```
-
-
-```{r}
-nrow = nrow(measure);
-ncol = ncol(measure);
-myUnits = tolower(measure$units);
-myUnits[myUnits=="inches"] = "in";
-myUnits[myUnits=="inch"] = "in";
-myUnits[myUnits=="\"in\""] = "in";
-measure$my.units = myUnits;
-myEthnicity = tolower(measure$ethnicity);
-myEthnicity[myEthnicity=="white"] = "w";
-myEthnicity[myEthnicity=="caucasian"] = "w";
-myEthnicity[myEthnicity=="caucasain"] = "w";
-myEthnicity[myEthnicity=="\"caucasian\""] = "w";
-myEthnicity[myEthnicity=="anglo"] = "w";
-myEthnicity[myEthnicity=="white non-hispanic"] = "w";
-myEthnicity[myEthnicity=="black"] = "b";
-myEthnicity[myEthnicity=="african american"] = "b";
-myEthnicity[myEthnicity=="hispanic"] = "h";
-myEthnicity[myEthnicity=="japanese"] = "j";
-myEthnicity[myEthnicity=="filipino"] = "f";
-myEthnicity[myEthnicity=="native american"] = "nat";
-myEthnicity[myEthnicity=="latin american"] = "l";
-myEthnicity[myEthnicity=="latino"] = "l";
-myEthnicity[myEthnicity=="\"asian/latino\""] = "al";
-myEthnicity[myEthnicity=="white-filipino"] = "wf";
-myEthnicity[myEthnicity=="asain"] = "a";
-myEthnicity[myEthnicity=="asian"] = "a";
-myEthnicity[myEthnicity=="\"asian\""] = "a";
-myEthnicity[myEthnicity=="chinese"] = "c";
-myEthnicity[myEthnicity=="laotian"] = "lao";
-myEthnicity[myEthnicity=="caucasian/asian"] = "ca";
-myEthnicity[myEthnicity=="white italian"] = "wi";
-myEthnicity[myEthnicity=="japanese italian"] = "ji";
-myEthnicity[myEthnicity=="pacific islander"] = "pi";
-myEthnicity[myEthnicity=="korean"] = "k";
-myEthnicity[myEthnicity=="indian"] = "i";
-measure$my.ethnicity = myEthnicity;
-myGender = tolower(measure$gender);
-myGender[myGender=="female"] = "f";
-myGender[myGender=="male"] = "m";
-myGender[myGender=="\"male\""] = "m";
-myGender[myGender=="\"female\""] = "f";
-myGender[myGender=="non-binary"] = "o";
-measure$my.gender = myGender;
-
-measure$new.units = "cm";
 ```
 
 
 ```{r covert_unit}
-skip = c("minutes", "age", "quality");
-## converting everything to cm
-for(r in 1:nrow)
-  {
-  row = measure[r,];
-  mynames = names(row);
-  if(row$my.units == "in")
-    {
-    for(c in 1:ncol)
-      {
-      myname = mynames[c];
-      if(!is.element(myname, skip))
-        {
-        myval = unlist(row[c]);
-        print(paste0("r: ",r, " c: ", c," ... old: ",myval, "  ", is.numeric(myval), "   "));
-        if(is.numeric(myval))
-          {
-          newval = myval * 2.54; # 2.54 cm = 1 in
-          measure[r,c] = newval;
-  print(paste0(" --> ",newval));
-          }
-        }
-      }
-    }
-  }
+
+# source functions-project-measure.R from my github repository
+path.github = "https://raw.githubusercontent.com/minju-lee92/WSU_STATS419_FALL2020/"
+source_url( paste0(path.github,"master/functions/functions-project-measure.R") )
+
+# covert inches to cm
+measureAscm <-convert.inchestocm(measure)
 ```
 
-```{r save_RDS}
-measure.short = measure[,c(1,2,4:6,17,24,27:50)];
-myNames = gsub(".NA","", colnames(measure.short), fixed=TRUE);
-colnames(measure.short) = myNames;
-colnames(measure.short)[11] = "eye.color"
 
+#### Data collapsing
 
+Some people have data for a person's "left" and "right" side of the body. The function merge.left.right() takes measurement from the left or right, if one is NA it returns the other. If they both are available, it returns the mean.
+
+```{r data_collapsing}
+# build merged left/right value cols
+getOne = c("hand.length", "hand.width", "hand.elbow", "elbow.armpit", "arm.reach", "foot.length", "floor.kneepit", "floor.hip", "floor.armpit")
+merged.df <-merge.left.right(measureAscm, getOne)
 ```
+
+#### Data cleaning
+```{r data_cleaning}
+# remove NAs, duplicates, create categorical variables... etc 
+cleaned.df = prepareMeasureData(merged.df)
+```
+
+#### Data creation
+There may be a few data features you may want to create.  I have the "arm span" and information about the "armpits" which would enable you to compute the internal "chest width" (from armpit to armpit).  There may be other data you can create in a similar fashion.
+
+#### Data proportions
+
+It is very likely that for each measure row, you would want to create "scaled variables to that person's height", also known as a proportion.
+
+Alternatively, you could scale everything to a person's head height.
+
+Alternatively, you could review lots of different proportions.  I suggested at one point that the foot-size and the "upper arm" (elbow-pit to arm-pit) are the same size (some basic Pythagorean theorem could get you there or close).
+
+There are lots of possibilities, all depends on your interests.  
+
+- Some say the unit of length of a "one foot" that we now decompose into 12 inches was a function of the actual length of the King's foot in England, and would change when a new King was crowned.  
+
+- Another measure of length, the "cubit" is derived from the Latin word for "elbow"
+
+- Galileo Galilei, the famous Italian polymath, literally sold his body parts when he died (quite the entrepreneur).  He had extremely long fingers.  In the museum in Firenze, they have on display a few of the fingers recovered.  Yes, I have seen them <https://www.museogalileo.it/it/>.  Most people miss this museum because they are too busy admiring David's proportions at the nearby Academia Gallery <https://en.wikipedia.org/wiki/David_(Michelangelo)>.
 
 ```{r}
-saveRDS(measure,"measure.rds");
-measure.short = measure[,c(1,2,4:6,17,24,27:50)];
-myNames = gsub(".NA","", colnames(measure.short), fixed=TRUE);
-colnames(measure.short) = myNames;
-colnames(measure.short)[11] = "eye.color";
-measure.df = removeDuplicatesFromDataFrameAllColumns(measure.short);
+# create scaled variables using height
+colnum = c(3:7,20:28)
+new.colname = c("height/height", "head.height/height", "head.c/height", "arm.span/height", "floor.navel/height","hand.length/height","hand.width.height","hand.elbow/height","elbow.armpit/height","arm.reach/height","foot.length/height","floor.kneepit/height", "floor.hip/height", "floor.armpit/height")
 
-measure.df
-saveRDS(measure.df,"measure.df.rds");
-# 411f8b5c9500b7cc928c93dd1a0006b7
-# 7e6e6a69493f1d54a74ecdd4058ebadf 81a9f3915f64dc6edd329b89bea87d5e 182.88000
-# 	9eb3d5323b1a3c511c3b8c8038727737  "ee33e909372d935d190f4fcb2a92d542"  10.75000
+v1.df =build.scale.variables(cleaned.df, colnum, new.colname, cleaned.df$height)
 
+#create scaled variables using head.height
+colnum2 = c(3:7,20:28)
+new.colname2 = c("height/head.height", "head.height/head.height", "head.c/head.height", "arm.span/head.height", "floor.navel/head.height","hand.length/head.height","hand.width/head.height","hand.elbow/head.height","elbow.armpit/head.height","arm.reach/head.height","foot.length/head.height","floor.kneepit/head.height", "floor.hip/head.height", "floor.armpit/head.height")
+
+v2.df =build.scale.variables(v1.df, colnum2, new.colname2, v1.df$head.height)
+v2.df
 ```
 
-
-```{r}
-final.df = measure.df;
-final.df = subsetDataFrame(final.df, "data_collector", "!=", "411f8b5c9500b7cc928c93dd1a0006b7");
-final.df = subsetDataFrame(final.df, "person_id", "!=", "81a9f3915f64dc6edd329b89bea87d5e");
-final.df = subsetDataFrame(final.df, "person_id", "!=", "\"ee33e909372d935d190f4fcb2a92d542\"");
-
-myEye = tolower(final.df$eye);
-myEye[myEye == "both"] = "b";
-myEye[myEye == "\"both\""] = "b";
-myEye[myEye == "equal"] = "b";
-myEye[myEye == "right"] = "r";
-myEye[myEye == "\"right\""] = "r";
-myEye[myEye == "left"] = "l";
-myEye[myEye == "\"left\""] = "r";
-myEye[myEye == "brown"] = NA;
-final.df$my.eye = factor(myEye);
-myWriting = tolower(final.df$writing);
-myWriting[myWriting == "right"] = "r";
-myWriting[myWriting == "\"right\""] = "r";
-myWriting[myWriting == "left"] = "l";
-myWriting[myWriting == "both"] = "b";
-final.df$my.writing = factor(myWriting);
-mySwinging = tolower(final.df$swinging);
-mySwinging[mySwinging == "right"] = "r";
-mySwinging[mySwinging == "rigth"] = "r";
-mySwinging[mySwinging == "\"right\""] = "r";
-mySwinging[mySwinging == "left"] = "l";
-mySwinging[mySwinging == "let"] = "l";
-mySwinging[mySwinging == "leftt"] = "l";
-mySwinging[mySwinging == "both"] = "b";
-final.df$my.swinging = factor(mySwinging);
-myEyeColor = tolower(final.df$eye.color);
-myEyeColor[myEyeColor == "brown"] = "br";
-myEyeColor[myEyeColor == "\"brown\""] = "br";
-myEyeColor[myEyeColor == "blue"] = "bl";
-myEyeColor[myEyeColor == "\"blue\""] = "bl";
-myEyeColor[myEyeColor == "green"] = "gr";
-myEyeColor[myEyeColor == "hazel"] = "ha";
-myEyeColor[myEyeColor == "grey"] = "g";
-myEyeColor[myEyeColor == "blue-green"] = "bl-gr";
-myEyeColor[myEyeColor == "blue/green"] = "bl-gr";
-myEyeColor[myEyeColor == "blue-grey"] = "bl-g";
-myEyeColor[myEyeColor == "grey-green"] = "gr-g";
-myEyeColor[myEyeColor == "black"] = "b";
-myEyeColor[myEyeColor == "left"] = NA;
-final.df$my.eye.color = factor(myEyeColor);
-final.df$my.gender = factor(final.df$my.gender);
-final.df$my.ethnicity = factor(final.df$my.ethnicity);
-# measure.nic = subsetDataFrame(measure.short, "data_collector", "==", "0185c7c2eed9d48197953305a817c8b1");
-# measure.nic2 = subsetDataFrame(measure.df, "data_collector", "==", "0185c7c2eed9d48197953305a817c8b1");
-# 411f8b5c9500b7cc928c93dd1a0006b7
-final.df$person_id = trimMe( gsub('"',"",final.df$person_id,fixed=TRUE) );
-saveRDS(final.df,"final.measure.rds");
-	utils::write.table(final.df, file="final.measure.txt", quote=FALSE, col.names=TRUE, row.names=FALSE, sep="|");
-
-summary(final.df)
-
+```{r data_selection}
+# height, head.height, arm.span, floor.hip, foot.length, hand.length
+sample.data <- v2.df[,c(1:4, 6 ,13,20,25,27 ,29:31, 36,37,39,41, 46,48)]
+# age over 18
+sample.data <- sample.data[sample.data$age >=18,]
+summary(sample.data)
+# getting rid of outliers.
+sample.data <- sample.data[sample.data$arm.span>100&sample.data$hand.length<50&sample.data$floor.hip>50,]
+boxplot(sample.data[,c(3:5,7:9)])$out
+sample.data <- sample.data[-which(is.na(sample.data$data_collector)), ]
+sample.data
 ```
-```{r correlation}
-measure.cor <-cor(na.omit(final.df[,c(3:7,13,19:27)]))
+
+```{r corr}
+sample.cor <- cor(na.omit(sample.data[,c(3:5,7:9)]))
 library(corrgram)
-corPlot(measure.cor)
+corPlot(sample.cor)
+```
+
+```{r,setup-test-correlation,message=FALSE}
+path.project = "C:/_git_/WSU_STATS419_FALL2020/project-measure/";
+path.tables = paste0(path.project,"tables/");
+  createDirRecursive(path.tables);
 ```
 
 
-
-```{r feature engineering}
-# Create head to height proportion of each individual
-head.over.height <- final.df$head.height/final.df$height
-final.df["head.over.height"]<-head.over.height
-# Create head to foot length proportion of each individual
-
-# Create arm.reach to height proportion of each individual
-height.over.armreach <- final.df$height/final.df$arm.reach
-final.df["height.over.armreach"]<-height.over.armreach
-
-# Create floor to hip length to height proportion of each individual
-leg.over.height <- final.df$floor.hip/final.df$height
-final.df["leg.over.height"]<-leg.over.height
-
-# Create floor to hip length to floor to knee-pit proportion of each individual
-
-# Create foot length to hand length proportion of each individual
-
+```{r,test-correlation,message=FALSE}
+file.correlation = paste0(path.tables,"correlation-table.tex");
+myData = as.matrix(sample.data[,c(3:5,7:9)]);  # numeric values only, only what will appear in table
+# https://www.overleaf.com/read/srzhrcryjpwn
+# keepaspectratio of include graphics 
+# could scale \input if still too big ...
+# https://tex.stackexchange.com/questions/13460/scalebox-knowing-how-much-it-scales#13487
+buildLatexCorrelationTable(myData, 
+  rotateTable = TRUE,
+  width.table = 0.80, # best for given data ... 0.95 when rotateTable = FALSE
+                      # 0.60 when rotateTable = TRUE
+  myCaption = "Descriptive Statistics and Correlation Analysis",
+  myFile = file.correlation,
+  myNames = colnames(myData),
+  showOnes = "right")
+Sys.sleep(2); # in case Knit-PDF doesn't like that I just created the file...
 ```
+
+\newpage
+
+\input{tables/correlation-table} 
+
+\newpage
+
 
 I want to explore possible relationships between ethnicity and measurements, and between gender and measurements.
 I can possibly compare by race instead of ethnicity.
 Difference between child and adults, female and male...
 
-```{r boxplots}
-# boxlop
-height.m <- final.df$height[final.df$my.gender == 'm']
-height.f <- final.df$height[final.df$my.gender == 'f']
+```{r box_plots}
 
-boxplot(height.m, height.f,
+height.m <- sample.data$height[sample.data$my.gender == 'm']
+height.f <- sample.data$height[sample.data$my.gender == 'f']
+head.height.m <- sample.data$head.height[sample.data$my.gender == 'm']
+head.height.f <- sample.data$head.height[sample.data$my.gender == 'f']
+arm.span.m <- sample.data$arm.span[sample.data$my.gender == 'm']
+arm.span.f <- sample.data$arm.span[sample.data$my.gender == 'f']
+floor.hip.m <- sample.data$floor.hip[sample.data$my.gender == 'm']
+floor.hip.f <- sample.data$floor.hip[sample.data$my.gender == 'f']
+hand.length.m <- sample.data$hand.length[sample.data$my.gender == 'm']
+hand.length.f <- sample.data$hand.length[sample.data$my.gender == 'f']
+foot.length.m <- sample.data$foot.length[sample.data$my.gender == 'm']
+foot.length.f <- sample.data$foot.length[sample.data$my.gender == 'f']
+
+
+boxplot(height.m, height.f, arm.span.m, arm.span.f, floor.hip.m, floor.hip.f, 
+main = "Body measurements boxplot by gender",
+at=c(1,2,4,5,7,8),
+xlab = "male vs female",
+ylab = "unit(cm)",
+names=c("height", "height", "armspan", "armspan", "leg", "leg"),
+col = c("orange", 'red'),
+border = "brown",
+notch = TRUE)
+
+boxplot(head.height.m, head.height.f,hand.length.m, hand.length.f, foot.length.m, foot.length.f,
+main = "Body measurements boxplot by gender",
+at=c(1,2,4,5,7,8),
+xlab = "unit(cm)",
+col = c("orange", 'red'),
+border = "brown",
+notch = TRUE)
+
+
+# boxplot(height.m, height.f,
+# main = "Boxplot of height comparision by gender",
+# names=c("male", "female"),
+# xlab = "Height(cm)",
+# col = c("orange", 'red'),
+# border = "brown",
+# notch = TRUE)
+
+##############################
+# boxplot(height~my.ethnicity,
+# data = sample.data,
+# main = "Boxplot of height comparision by ethnicity",
+# xlab = "Height(cm)",
+# col = "orange",
+# border = "brown",
+# notch = TRUE)
+
+#############################
+filtered.measure <-sample.data[sample.data$my.ethnicity=='a' | sample.data$my.ethnicity=='w',]
+filtered.measure$my.ethnicity <-factor(filtered.measure$my.ethnicity)
+
+boxplot(height~my.ethnicity,
+data = filtered.measure,
+main = "Boxplot of height comparison by ethnicity",
+names=c("asian","white"),
+xlab = "Height(cm)",
+col = "orange",
+border = "brown",
+notch = TRUE)
+
+boxplot(floor.hip~my.ethnicity,
+data = filtered.measure,
+main = "Boxplot of leg length comparision by ethnicity",
+names=c("asian","white"),
+xlab = "Height(cm)",
+col = "orange",
+border = "brown",
+notch = TRUE)
+
+a.height.m <- filtered.measure$height[filtered.measure$my.gender == 'm' & filtered.measure$my.ethnicity =='a']
+a.height.f <- filtered.measure$height[filtered.measure$my.gender == 'f'& filtered.measure$my.ethnicity =='a']
+w.height.m <- filtered.measure$height[filtered.measure$my.gender == 'm'& filtered.measure$my.ethnicity =='w']
+w.height.f <- filtered.measure$height[filtered.measure$my.gender == 'f'& filtered.measure$my.ethnicity =='w']
+
+boxplot(a.height.m, a.height.f, w.height.m, w.height.f,
 main = "Boxplot of height comparision by gender",
-names=c("male", "female"),
+at=c(1,2,4,5),
+names=c("asian male", "asian female", "white male", "white female"),
 xlab = "Height(cm)",
 col = c("orange", 'red'),
 border = "brown",
 notch = TRUE)
 
-##############################
-boxplot(height~my.ethnicity,
-data = final.df,
-main = "Boxplot of height comparision by ethnicity",
-xlab = "Height(cm)",
-col = "orange",
-border = "brown",
-notch = TRUE)
+a.height.m <- filtered.measure$height[filtered.measure$my.gender == 'm' & filtered.measure$my.ethnicity =='a']
+a.height.f <- filtered.measure$height[filtered.measure$my.gender == 'f'& filtered.measure$my.ethnicity =='a']
+w.height.m <- filtered.measure$height[filtered.measure$my.gender == 'm'& filtered.measure$my.ethnicity =='w']
+w.height.f <- filtered.measure$height[filtered.measure$my.gender == 'f'& filtered.measure$my.ethnicity =='w']
 
-#############################
-boxplot(floor.navel~my.ethnicity,
-data = final.df,
-main = "Boxplot of floor to navel comparision by ethnicity",
-xlab = "Height(cm)",
-col = "orange",
+a.armspan.m <- filtered.measure$arm.span[filtered.measure$my.gender == 'm' & filtered.measure$my.ethnicity =='a']
+a.armspan.f <- filtered.measure$arm.span[filtered.measure$my.gender == 'f'& filtered.measure$my.ethnicity =='a']
+w.armspan.m <- filtered.measure$arm.span[filtered.measure$my.gender == 'm'& filtered.measure$my.ethnicity =='w']
+w.armspan.f <- filtered.measure$arm.span[filtered.measure$my.gender == 'f'& filtered.measure$my.ethnicity =='w']
+
+a.leg.m <- filtered.measure$floor.hip[filtered.measure$my.gender == 'm' & filtered.measure$my.ethnicity =='a']
+a.leg.f <- filtered.measure$floor.hip[filtered.measure$my.gender == 'f'& filtered.measure$my.ethnicity =='a']
+w.leg.m <- filtered.measure$floor.hip[filtered.measure$my.gender == 'm'& filtered.measure$my.ethnicity =='w']
+w.leg.f <- filtered.measure$floor.hip[filtered.measure$my.gender == 'f'& filtered.measure$my.ethnicity =='w']
+
+boxplot(a.height.m, w.height.m, a.leg.m, w.leg.m, a.armspan.m , w.armspan.m,
+main = "Body measurement comparison between asian male and white male",
+at=c(1,2,4,5,7,8),
+names=c("A.height","W.height","A.leg","W.leg","A.armspan","W.armspan"),
+xlab = "asian male vs white male",
+ylab ="unit(cm)",
+col = c("orange", 'red'),
 border = "brown",
 notch = TRUE)
 ```
 
-```{r distributions}
-age.mean <- mean(final.df$age)
-age.sd <- sd(final.df$age)
 
-hist(final.df$age, xlab='age', col='orange', border='brown', probability = TRUE)
-curve(dnorm(x, mean=age.mean, sd=age.sd), add=TRUE, col='red')
 
-hist(final.df$height, xlab='height', col='orange', border='brown', probability = TRUE)
-curve(dnorm(x, mean=mean(final.df$height), sd=sd(final.df$height)), add=TRUE, col='red')
+```{r gg_boxplots}
+library(ggplot2)
 
-hist(final.df$head.height, xlab='head height', col='orange', border='brown', probability = TRUE)
-curve(dnorm(x, mean=mean(final.df$head.height), sd=sd(final.df$head.height)), add=TRUE, col='red')
+ggplot(filtered.measure, aes(x=my.ethnicity, y=height, fill =my.gender)) +
+  geom_boxplot(fill = "chocolate", notch = TRUE)+facet_wrap(~ my.gender)
+```
+```{r proportions}
+filtered.measure
+ggplot(filtered.measure, aes(x=my.gender, y= floor.hip/height)) +
+  geom_boxplot(fill = "chocolate", notch = TRUE)
 
-hist(final.df$floor.hip, xlab='leg length', col='orange', border='brown', probability = TRUE)
-curve(dnorm(x, mean=mean(final.df$floor.hip), sd=sd(final.df$floor.hip)), add=TRUE, col='red')
+ggplot(filtered.measure, aes(x=my.gender, y= arm.span/height)) +
+  geom_boxplot(fill = "chocolate", notch = TRUE)
 
-hist(final.df$arm.reach, xlab='arm reach', col='orange', border='brown', probability = TRUE)
+ggplot(filtered.measure, aes(x=my.gender, y= foot.length/height)) +
+  geom_boxplot(fill = "chocolate", notch = TRUE)
 
-hist(final.df$foot.length, xlab='foot length', col='orange', border='brown', probability = TRUE)
+
+ggplot(filtered.measure, aes(x=my.gender, y= head.height/height)) +
+  geom_boxplot(fill = "chocolate", notch = TRUE)
 ```
 
