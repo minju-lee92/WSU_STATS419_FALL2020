@@ -23,3 +23,7 @@ git push -u origin master
 
 git remote set-url origin
 git@github.com:minju-lee92/WSU_STATS419_FALL2020.git
+
+## Useful webpage when workin with gitbash
+https://www.geeksforgeeks.org/working-on-git-bash/
+  
