@@ -1,0 +1,13 @@
+---
+title: "Untitled"
+author: "Minju Lee"
+date: "12/14/2020"
+output:
+  pdf_document: default
+  html_document: default
+---
+\newpage
+
+\input{will.table} 
+
+\newpage

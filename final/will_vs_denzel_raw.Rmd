@@ -1,0 +1,367 @@
+---
+title: "Will vs Denzel"
+output: html_notebook
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r,appendix-setup,message=FALSE, echo=FALSE}
+library(devtools);       # required for source_url
+install_github("MonteShaffer/imdb/imdb");
+#detach(package:imdb);
+library(imdb);
+packageVersion("imdb")
+
+library(humanVerseWSU);
+
+path.github = "https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/master/";
+
+
+include.me = paste0(path.github, "misc/functions-nlp.R");
+source_url( include.me );
+include.me = paste0(path.github, "misc/functions-nlp-str.R");
+source_url( include.me );
+include.me = paste0(path.github, "misc/functions-nlp-stack.R");
+source_url( include.me );
+include.me = paste0(path.github, "misc/functions-nlp-pos.R");
+source_url( include.me );
+include.me = paste0(path.github, "humanVerseWSU/R/functions-encryption.R");
+source_url( include.me );
+###### UPDATES TO dataframe subset function ######
+# inflation adjustments for NA ... and improvements on subsetting
+include.me = paste0(path.github, "humanVerseWSU/R/functions-dataframe.R");
+source_url( include.me );
+include.me = paste0(path.github, "humanVerseWSU/R/functions-inflation.R");
+source_url( include.me );
+
+# path to project
+path.project = "C:/_git_/WSU_STATS419_FALL2020/final/";
+
+```
+
+```{r, libraries}
+library(dplyr)
+library(ggplot2)
+library(gridExtra)
+library(Hmisc)
+library(knitr)
+library(tidyr)
+```
+
+
+```{r load_data, echo=FALSE}
+imdb::loadDataIMDB();
+names(imdb.data);
+```
+
+```{r get_movies}
+will.nmid = "nm0000226";
+will.movies = IMDB.getMoviesForPerson(will.nmid);
+
+denzel.nmid = "nm0000243";
+denzel.movies = IMDB.getMoviesForPerson(denzel.nmid);
+```
+
+```{r will_and_denzel_bio}
+will.info = IMDB.getPersonInfo(will.nmid);
+denzel.info = IMDB.getPersonInfo(denzel.nmid);
+
+will.info
+denzel.info
+```
+
+
+```{r get_popular_50}
+#POPULAR MOVIES FROM 1980 THROUGH 2020
+popular50 = subsetDataFrame(imdb.data$movies$popular50, "year", ">=", 1980)
+popular50 = subsetDataFrame(popular50, "year", "<=", 2020)
+dim(popular50)
+```
+
+```{r popular_50_detail, echo=FALSE}
+popular50.detail = merge(popular50, imdb.data$movies.df$info, by="ttid")
+popular50.detail
+```
+
+```{r build_features, echo=FALSE}
+# we could rank on other columns ...
+
+loadInflationData();
+
+#change it to millions
+popular50.detail$budget.millions = as.numeric(popular50.detail$budget)/1000000
+popular50.detail$usa.opening.millions = as.numeric(popular50.detail$usa.opening)/1000000
+popular50.detail$usa.gross.millions = as.numeric(popular50.detail$usa.gross)/1000000
+popular50.detail$world.gross.millions = as.numeric(popular50.detail$world.gross)/1000000
+popular50.detail$international.gross.millions = popular50.detail$world.gross.millions - popular50.detail$usa.gross.millions
+popular50.detail$usa.profit.millions = popular50.detail$usa.gross.millions - popular50.detail$budget.millions
+popular50.detail$world.profit.millions = popular50.detail$world.gross.millions - popular50.detail$budget.millions
+popular50.detail$international.profit.millions = popular50.detail$world.profit.millions - popular50.detail$usa.profit.millions
+
+popular50.detail
+```
+
+```{r adjust_inflation, echo=FALSE}
+#adjest for inflation to year 2000
+
+popular50.detail = standardizeDollarsInDataFrame(popular50.detail, 2000, "budget.millions", "year", "budget.millions2000");
+popular50.detail = standardizeDollarsInDataFrame(popular50.detail, 2000, "usa.opening.millions", "year", "usa.opening.millions2000");
+popular50.detail = standardizeDollarsInDataFrame(popular50.detail, 2000, "usa.gross.millions", "year", "usa.gross.millions2000");
+popular50.detail = standardizeDollarsInDataFrame(popular50.detail, 2000, "world.gross.millions", "year", "world.gross.millions2000");
+popular50.detail = standardizeDollarsInDataFrame(popular50.detail, 2000, "international.gross.millions", "year", "international.gross.millions2000");
+popular50.detail = standardizeDollarsInDataFrame(popular50.detail, 2000, "usa.profit.millions", "year", "usa.profit.millions2000");
+popular50.detail = standardizeDollarsInDataFrame(popular50.detail, 2000, "world.profit.millions", "year", "world.profit.millions2000");
+popular50.detail = standardizeDollarsInDataFrame(popular50.detail, 2000, "international.profit.millions", "year", "international.profit.millions2000");
+
+# popular50.detail = format(standardizeDollarsInDataFrame(popular50.detail, 2000, "budget.millions", "year", "budget.millions2000"),scientific=FALSE);
+# popular50.detail = format(standardizeDollarsInDataFrame(popular50.detail, 2000, "usa.opening.millions", "year", "usa.opening.millions2000"),scientific=FALSE);
+# popular50.detail = format(standardizeDollarsInDataFrame(popular50.detail, 2000, "usa.gross.millions", "year", "usa.gross.millions2000"),scientific=FALSE);
+# popular50.detail = format(standardizeDollarsInDataFrame(popular50.detail, 2000, "world.gross.millions", "year", "world.gross.millions2000"),scientific=FALSE);
+# popular50.detail = format(standardizeDollarsInDataFrame(popular50.detail, 2000, "usa.profit.millions", "year", "usa.profit.millions2000"),scientific=FALSE);
+# popular50.detail = format(standardizeDollarsInDataFrame(popular50.detail, 2000, "world.profit.millions", "year", "world.profit.millions2000"),scientific=FALSE);
+# popular50.detail = format(standardizeDollarsInDataFrame(popular50.detail, 2000, "international.profit.millions", "year", "international.profit.millions2000"),scientific=FALSE);
+
+popular50.detail
+```
+
+
+```{r create_rank, echo=FALSE}
+#create ranks for money
+
+popular50.detail = sortDataFrameByNumericColumns(popular50.detail, "budget.millions2000", "DESC");  ## NA's go to end ...
+popular50.detail$rank.budget = 1:nrow(popular50.detail);
+
+
+popular50.detail = sortDataFrameByNumericColumns(popular50.detail, "usa.opening.millions2000", "DESC");
+popular50.detail$rank.usa.opening = 1:nrow(popular50.detail);
+
+
+popular50.detail = sortDataFrameByNumericColumns(popular50.detail, "usa.gross.millions2000", "DESC");
+popular50.detail$rank.usa.gross = 1:nrow(popular50.detail);
+
+popular50.detail = sortDataFrameByNumericColumns(popular50.detail, "world.gross.millions2000", "DESC");
+popular50.detail$rank.world.gross = 1:nrow(popular50.detail);
+
+popular50.detail = sortDataFrameByNumericColumns(popular50.detail, "international.gross.millions2000", "DESC");
+popular50.detail$rank.international.gross = 1:nrow(popular50.detail);
+
+popular50.detail = sortDataFrameByNumericColumns(popular50.detail, "usa.profit.millions2000", "DESC");
+popular50.detail$rank.usa.profit = 1:nrow(popular50.detail);
+
+popular50.detail = sortDataFrameByNumericColumns(popular50.detail, "world.profit.millions2000", "DESC");
+popular50.detail$rank.world.profit = 1:nrow(popular50.detail);
+
+popular50.detail = sortDataFrameByNumericColumns(popular50.detail, "international.profit.millions2000", "DESC");
+popular50.detail$rank.international.profit = 1:nrow(popular50.detail);
+
+popular50.detail
+```
+
+```{r will_denzel_popular50, echo=FALSE}
+# will.popular = merge(will.movies, popular50.detail, by="ttid")
+# will.popular = select(will.popular, -year.y)
+# colnames(will.popular)[4]="year"
+# 
+# denzel.popular = merge(denzel.movies, popular50.detail, by="ttid")
+# denzel.popular = select(denzel.popular, -year.y)
+# colnames(denzel.popular)[4]="year"
+# 
+# will.popular<- will.popular[with(will.popular, order(year)), ]
+# will.popular
+# denzel.popular<- denzel.popular[with(denzel.popular, order(year)), ]
+# denzel.popular
+# 
+```
+
+
+```{r bigger_pond, echo=FALSE}
+#POPULAR MOVIES FROM 1980 THROUGH 2019
+pond = subsetDataFrame(popular50.detail, "year", ">=", 1980)
+pond = subsetDataFrame(popular50.detail, "year", "<", 2020)
+pond
+
+# denzel and will poppular movies between 1980 through 2019  
+
+will.popular = merge(will.movies, pond, by="ttid")
+will.popular = select(will.popular, -year.y)
+colnames(will.popular)[4]="year"
+
+denzel.popular = merge(denzel.movies, pond, by="ttid")
+denzel.popular = select(denzel.popular, -year.y)
+colnames(denzel.popular)[4]="year"
+
+will.popular<- will.popular[with(will.popular, order(year)), ]
+will.popular
+denzel.popular<- denzel.popular[with(denzel.popular, order(year)), ]
+denzel.popular
+
+
+```
+
+```{r summary_comparison}
+
+```
+
+```{r}
+will.n = nrow(will.movies);
+will.movies.r = replaceFactorColumnWithIndicatorVariables(will.movies, "genre", "genre", use.boolean=FALSE);
+# colSums(will.cast.info.r[,11:34]);
+will.genre.p = sort(colSums(will.movies.r[,7:24])/will.n, decreasing = TRUE);  # proportion by movie
+will.genre.p
+
+denzel.n = nrow(denzel.movies);
+denzel.movies.r = replaceFactorColumnWithIndicatorVariables(denzel.movies, "genre", "genre", use.boolean=FALSE);
+# colSums(will.cast.info.r[,11:34]);
+denzel.genre.p = sort(colSums(denzel.movies.r[,7:22])/denzel.n, decreasing = TRUE);  # proportion by movie
+denzel.genre.p
+
+```
+
+```{r}
+
+# 
+# g <-ggplot(sub.data.long, aes(x=as.factor(ttid))) +
+#   geom_bar(aes(fill=as.factor(type)), width = 0.5)+
+#   theme(axis.text.x = element_text(angle = 65, vjust = 0.6)) 
+# g
+```
+
+```{r box_plots, echo=FALSE}
+#png(file="graphs/box_plot_comp.png")
+
+par(mar=c(5,9,2,1))
+boxplot(will.popular$rank.usa.opening, denzel.popular$rank.usa.opening, will.popular$rank.usa.gross, denzel.popular$rank.usa.gross, will.popular$rank.international.gross, denzel.popular$rank.international.gross, will.popular$rank.usa.profit, denzel.popular$rank.usa.profit, will.popular$rank.international.profit, denzel.popular$rank.international.profit,
+main = "Rank comparison in popular50 list",
+at=c(1,2,4,5,7,8,10,11,13,14),
+xlab = "rank",
+names = c("will.usa.opening","denzen.usa.opening","will.usa.gross","denzel.usa.gross","will.int.gross","denzel.int.gross","will.usa.profit","denzel.usa.profit","will.int.profit","denzel.int.profit"),
+col = c("orange", 'red'),
+las=2,
+ylim = c(0,2000),
+border = "brown",
+horizontal = TRUE,
+notch = TRUE)
+legend(x=3,y=2000,c("will","denzel"),cex=.8,col=c("orange","red"),lty = 1)
+#dev.off()
+
+
+will.denzel.merge = rbind.data.frame(will.popular, denzel.popular)
+will.denzel.merge
+
+#summary(will.popular$votes)
+
+print("Denzel")
+summary(denzel.popular[,c(41:48)])
+print("---------------------------------------------------------------------------------------------")
+print("Will")
+summary(will.popular[,c(41:48)])
+
+```
+
+```{r}
+library(tidyverse)
+library(ggpubr)
+library(rstatix)
+will.denzel.merge$nmid <- as.factor(will.denzel.merge$nmid)
+will.denzel.merge
+
+c1 = will.denzel.merge %>%
+       t_test(ratings ~ nmid, paired = FALSE, alternative = "less", detailed = TRUE) %>% add_significance()
+
+c2 = will.denzel.merge %>% 
+       t_test(votes ~ nmid, paired = FALSE, alternative = "greater", detailed = TRUE) %>% add_significance()
+
+c3 = will.denzel.merge %>% 
+       t_test(budget.millions2000 ~ nmid, paired = FALSE, alternative = "greater", detailed = TRUE) %>% add_significance()
+c4 = will.denzel.merge %>% 
+       t_test(usa.profit.millions2000 ~ nmid, paired = FALSE, alternative = "greater", detailed = TRUE) %>% add_significance()
+c5 = will.denzel.merge %>% 
+       t_test(international.profit.millions2000 ~ nmid, paired = FALSE, alternative = "greater", detailed = TRUE) %>% add_significance()
+
+table_sig = rbind(c1,c2,c3,c4,c5)
+table_sig = table_sig[,-c(1:3)]
+colnames(table_sig)[colnames(table_sig) == ".y."] <- "Variable"
+table_sig$group1[table_sig$group1=="nm0000226"] = "Will Smith"
+table_sig$group2[table_sig$group2=="nm0000243"] = "Denzel Washigton"
+table_sig.sm = table_sig[,c(1:8,11:13)]
+table_sig.sm
+
+#print(xtable(table_sig.sm,"latex"), file="tables/t_test.tex")
+```
+
+```{r}
+sub.data = will.denzel.merge[,c(1:2,41:46,48)]
+colnames(sub.data)=c("ttid","nmid","budget","usa.opening","usa.gross","world.gross","int.gross","usa.profit","int.profit")
+sub.data$budget = -sub.data$budget
+sub.data
+
+sub.data.long = gather(sub.data, key = type,
+                       value = millions2000, -c(ttid,nmid), na.rm = FALSE)
+sub.data.long
+sub.data.long2=sub.data.long[sub.data.long$type=="budget"|sub.data.long$type=="usa.gross"|sub.data.long$type=="int.gross",]
+sub.data.long2
+
+sub.data.long3=sub.data.long[sub.data.long$type=="budget"|sub.data.long$type=="world.gross",]
+
+x <-"ttid"
+y <- "millions2000"
+filler <- "type"
+    p1 <-ggplot()
+ p1+ geom_bar(data=sub.data.long2, aes_string(x=x,y=y, fill =filler),stat="identity")+
+   facet_wrap(vars(as.factor(nmid)), strip.position = "bottom", scales = "free_x",  nrow=1)+
+   theme(panel.spacing = unit(0, "lines"),
+         strip.background = element_blank(),
+         axis.line = element_line(colour = "grey"),
+         panel.grid.major.y =element_line(colour = "grey"),
+         strip.placement = "outside",
+         axis.text.x = element_text(angle = 90, hjust = 1),
+         panel.background = element_rect(fill = 'white', colour = 'white')
+         )
+     p2 <-ggplot()
+ p2+ geom_bar(data=sub.data.long3, aes_string(x=x,y=y, fill =filler),stat="identity")+
+   facet_wrap(vars(as.factor(nmid)), strip.position = "bottom", scales = "free_x",  nrow=1)+
+   theme(panel.spacing = unit(0, "lines"),
+         strip.background = element_blank(),
+         axis.line = element_line(colour = "grey"),
+         panel.grid.major.y =element_line(colour = "grey"),
+         strip.placement = "outside",
+         axis.text.x = element_text(angle = 90, hjust = 1),
+         panel.background = element_rect(fill = 'white', colour = 'white')
+         )
+```
+
+
+
+
+
+```{r will_vs_denzel_table}
+library(xtable)
+library(table1)
+
+will.table = will.popular[,c(3,5,4,9,11,14)]
+will.table = will.table[with(will.table,order(rank)),]
+
+denzel.table = denzel.popular[,c(3,5,4,9,11,14)]
+denzel.table = denzel.table[with(denzel.table,order(rank)),]
+
+#print(xtable(will.table, type = "latex"), file = "tables/will.table.tex")
+#print(xtable(denzel.table, type = "latex"), file = "tables/denzel.table.tex")
+
+# label(will.denzel.merge$ratings) <- "ratings"
+# label(will.denzel.merge$votes) <- "votes"
+# label(will.denzel.merge$rank.popular) <- "rank.popular"
+# table1(~ratings + votes + rank.popular | nmid, data = will.denzel.merge)
+
+# library(kableExtra)
+#webshot::install_phantomjs(force = TRUE)
+# df <- will.popular[,c(9,11,41:48)]
+# d <- summary(df)
+# d %>%
+#   kbl(format="latex",caption = "Descriptive analyse of Will Smith popular 50",booktabs = TRUE) %>%
+#   kable_classic(full_width = T, html_font = "Cambria")
+# 
+# print(xtable(d,"latex"), file="tables/test.tex")
+
+```

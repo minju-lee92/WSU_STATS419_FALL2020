@@ -1,0 +1,136 @@
+---
+output:
+  pdf_document:
+    keep_tex: true
+    fig_caption: true
+    toc: true
+    toc_depth: 3 
+    number_sections: true
+    citation_package: natbib
+    latex_engine: pdflatex
+    template: ./../latex-templates/report.tex
+  html_document:
+    
+    df_print: paged
+title: "Will vs Denzel"
+subtitle: "Who is better?"
+author: 
+- name: "Minju Lee"
+  affiliation: "Washington State University"
+keywords: |
+    boxplots; descriptive statistics; pooled t-test;
+abstract: |
+  The goal of this paper is to decide which actor is better based on various metrics. The focus of the study is the popularity and the monetary comparison between two actors. The methods I have used in this study are descriptive statistics and inferential statistics. The analysis shows a significant difference between the two actors. \vspace{0.25in}
+  
+  \noindent The paper explores the revenue and profit of the movies for each actor domestically and internationally. It uses multiple boxplot comparisons to give comprehensive visualization of monetary comparison between the actors. Research moves onto popularity comparison, where various metrics were compared in their mean values using inferential statistics.  \vspace{0.25in}
+  
+  \noindent The analysis shows a significant difference between the two actors’ monetary comparison. However, popularity comparison could improve its evaluation by possibly selecting more features from the IMDB dataset.\vspace{0.25in}
+sectionnumberdepth: 3
+columnsReferences: 2
+titleTOC:  "TABLE OF CONTENTS"
+bibliography: ./../biblio/master.bib
+bibliostyle: ./../biblio/ormsv080.bst
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.show = 'hide', results = 'hide' )
+```
+
+\section{Introduction}
+\label{sec:intro}
+
+\noindent 
+Will Smith was born on September 25th in 1968. He started his acting career in 1990 in the TV series ‘The Fresh Prince of Bel-Air’. He has gained success as a recording artist as well s a producer in films. Denzel Washington was born on December of 28th in 1954. He first started in the theater while working in the student drama production. His debut was in the TV series called “Carbon Copy” in 1981. He works as an actor, film producer, director, and also a screenwriter. Will Smith has earned 4 Golden Globe Awards and 2 Academy Award nominations and several Grammy Awards. On the other hand, Denzel Washinton has received 2 Golden Globe Awards, 2 Academy Awards, and as well as a Tony Award.\vspace{0.25in} 
+\noindent 
+As we can see, they are both well-known actors with many Awards. It is not so easy to distinguish who is better than the other. Asking a question on who is a better actor is inherently subjective, it is an arbitrary measure. There will be no right or wrong, in the end, it is just an opinion. The goal of this paper is to come up with the metrics to compare these actors objectively rather than subjectively. The data was scraped from the IMDb website. The research takes fish in the pond approach. It compares movies of each actor from the popular 50 movies of each year from 1980 to 2019. Will was in 19 movies and Denzel was in 19 movies. There was a total of 1,998 movies in this popular 50 movie list.In order to compare monetarily variables, I have adjusted all the dollar values to the year 2000. \vspace{0.25in} 
+
+\begin{figure}[!ht]
+	\hrule
+	\caption{ \textbf{One Graphic: Will vs Denzel} }
+	\begin{center}
+	    \scalebox{1.00}{	\includegraphics[trim = 0 0 0 0,clip,width=0.65\textwidth]{graphs/box_plot_comp.png} }
+	\end{center}
+	\label{fig:boxplot}
+	\hrule
+\end{figure}
+
+\newpage
+
+\noindent Figure \ref{fig:boxplot} The one graphic visualizes the ranking distribution of each actor in the pond. The pond has 1,998 movies. Right off the bat, we can see both actors rank above average. The average rank will be about 1000. These two actors are both popular fish in the pond. We can also see that Will Smith outranks Denzel Washington in every monetary metrics, this could be affected by many things. Can genres of movies be correlated to revenue? Wills' majority movie genres are comedy(41.4%), drama(39.6%), action(27.0%), and adventure(14.4%). The majority of Denzels' movie genres are drama(70.5%), crime(34.4%), action(29.5%), and thriller(21.3%). According to the the-numbers.com(Statista,2020), adventure genre makes the highest box office revenue in North America, followed by action, drama, and comedy. \vspace{0.25in} 
+
+
+
+\section{Research Question:Monetary and popularity comparison between Will and Denzel}
+\label{sec:rq}
+
+
+\subsection{Who is better in terms of revenue/profit?}
+\label{sec:rq2}
+
+\noindent Figure \ref{fig:boxplot} shows Will dominates Denzel in revenue and profit domestically and internationally. One interesting thing to see is that despite Wills’ clear dominance of U.S gross and U.S profit distribution overlaps quite a bit. Wills' monetary success in movies vary more in the U.S than internationally. Will might be popular globally more than Denzel. The Table\ref{t.test} is a result of pooled t-test on some of the variables between Will and Denzel. The null hypothesis was set as Will smith has a higher mean than Denzel Washington. The Variables of comparison were ratings, votes, budget, profit in the U.S, and profit outside of the U.S. I have used a significance level of 0.05. All of the results except the rating variable shows the p-values smaller than 0.05. Thus, we cannot reject our null hypothesis.\vspace{0.25in}  
+
+\subsection{Who is better in terms of popularity?}
+\label{sec:rq2}
+
+\noindent Popularity can be measured from the ratings, votes, and the popular rank. The \ref{Table1} and \ref{Table2} shows summary statistics of popularity for each of actors in popular 50 movies. Let’s compare average ratings, the average number of votes, and the average popular rank. Denzel has an average rating of 7.3, an average number of 214792 votes, and an average popular rank of 24. Will has an average rating of 6.7, an average number of 335646 votes, and an average popular rank of 27. Will and Denzel both are at star-meter rank 500. However, will has gone of 67, whereas Denzel has gone done 64 in his star-meter. Traffic to the IMDB actor profile directly affects the star-meter of each actor/actresses. Denzel has a better average rating about 9% higher than Will. Denzel also has a slightly high ranking than Will on the popular movie list. However, Will receives about 120000 more votes on average and had growing foot traffic to his actor page.\vspace{0.25in} 
+
+
+
+\subsection{Summary Statistics of Data}
+\label{sec:data-summary}
+
+
+\input{tables/denzel.table}
+\input{tables/will.table}
+ 
+
+\newpage
+
+\subsection{Inferential analysis}
+\label{sec:inference}
+
+\input{tables/t_test}
+ 
+
+\section{Key Findings}
+\label{sec:findings}
+
+\noindent Through analysis, some of the key differences were found. The popular movies of Will Smith generated more cash on average than Denzel Washington. Wills’ Opening week revenues were about 209% of Denzels' opening week revenue, U.S gross was 193% of Denzels' movies, world gross was 253% of Denzels' movies, international gross was 337% of Denzels' movies, U.S profit was 274% of Denzels' movies, world profit was 307% of Denzels' movies, and international profit was 352% Denzels' movies. The popular movies of Wills' make about 2 to 3 times more of Denzels`.
+Will smith particularly outperforms outside of the U.S compared to Denzel.\vspace{0.25in} 
+
+\noindent Popularity comparison tells us that Denzel has about 9% higher ratings than Will. However, Will has about 56% more votes than Denzel. Also, the star-meter tells Denzel has been losing web traffic to his actor page whereas Will has been gaining more web traffic to his actor page.\vspace{0.25in} 
+
+
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+\noindent After comparing all the metrics, I found out Will Smiths’ movies generate much more profits and the fact that he has a strong international gross makes it hard to beat. Bringing money into the U.S is even better for the economy than domestic transactions. Besides that, Wills' movies make 2 to 3 times more revenue than Denzels. He is a clear winner for the first battle. For popularity comparison, I have used ratings, the number of votes, popular rank, and the star-meter. Here, Denzel had better metrics on his ratings than Will. The pooled-t-test result on rating metric tells us, indeed Wills’ true average ratings will be lower than Denzels’. However, Will’s average number of votes were significantly higher, and the pooled-t-test verifies that. Well, so far they were tied. Therefore, I have decided to use the star-metric delta values to decide the final winner for the popular comparison. Looking at the star-metric delta value, Will has an increasing delta value of 67 and Denzel has a decreasing delta value of 64. According to the IMDB website, star-meters can tell you about public awareness and/or interest in the actor. This could mean Will has high public influence lately. Thus, I have chosen Will as the winner for the popularly metric.\vspace{0.25in} 
+
+\noindent In conclusion, Will Smith scored higher on both monetary metrics and popularity metrics. The 
+metrics for popularity comparison could improve on its feature selection. Unfortunately, Denzel has lost this battle. Keep in mind, this does not represent beyond each actors’ monetary and popularity success. This does not mean Denzel is a bad actor nor his movies terrible. I certainly don’t judge one’s ability to act by their monetary success nor public popularity. Maybe, this could be the next research question for continuing discussion. 
+\vspace{0.25in}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
