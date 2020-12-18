@@ -2565,45 +2565,6 @@ window.onload = function() {
   PagedTableDoc.initAll();
 };
 </script>
-<style type="text/css">
-a.anchor-section {margin-left: 10px; visibility: hidden; color: inherit;}
-a.anchor-section::before {content: '#';}
-.hasAnchor:hover a.anchor-section {visibility: visible;}
-</style>
-<script>// Anchor sections v1.0 written by Atsushi Yasumoto on Oct 3rd, 2020.
-document.addEventListener('DOMContentLoaded', function() {
-  // Do nothing if AnchorJS is used
-  if (typeof window.anchors === 'object' && anchors.hasOwnProperty('hasAnchorJSLink')) {
-    return;
-  }
-
-  const h = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-
-  // Do nothing if sections are already anchored
-  if (Array.from(h).some(x => x.classList.contains('hasAnchor'))) {
-    return null;
-  }
-
-  // Use section id when pandoc runs with --section-divs
-  const section_id = function(x) {
-    return ((x.classList.contains('section') || (x.tagName === 'SECTION'))
-            ? x.id : '');
-  };
-
-  // Add anchors
-  h.forEach(function(x) {
-    const id = x.id || section_id(x.parentElement);
-    if (id === '') {
-      return null;
-    }
-    let anchor = document.createElement('a');
-    anchor.href = '#' + id;
-    anchor.classList = ['anchor-section'];
-    x.classList.add('hasAnchor');
-    x.appendChild(anchor);
-  });
-});
-</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -2612,7 +2573,7 @@ document.addEventListener('DOMContentLoaded', function() {
   div.column{display: inline-block; vertical-align: top; width: 50%;}
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
-    </style>
+      </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -2886,8 +2847,8 @@ div.tocify {
 <pre class="r"><code>library(devtools);
 path.github = &quot;https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/master/&quot;;
 source_url ( paste0( path.github, &quot;humanVerseWSU/R/functions-file.R&quot; ) );</code></pre>
-<pre><code>## SHA-1 hash of file is 091aefe67c59f7dc1644c268fdd0b0a183c525ef</code></pre>
-<pre class="r"><code># C:\Users\13608\Dropbox\WSU-419\Fall 2020\__student_access__\_SECRET_\
+<pre><code>## SHA-1 hash of file is 4db75db31c3c8f8309f49c186b82a0d3de83faa6</code></pre>
+<pre class="r"><code># C:\Users\Alexander Nevsky\Dropbox\WSU-419\Fall 2020\__student_access__\_SECRET_\
 # paste your file-path above (on Windows)
 # highlight, and copy, then run the next line of code in a console.
 # path.to.secret = convertDirectoryWin.toR();
@@ -2895,7 +2856,7 @@ source_url ( paste0( path.github, &quot;humanVerseWSU/R/functions-file.R&quot; )
 # https://stackoverflow.com/questions/64476043/
 # https://stackoverflow.com/questions/1189759/
 
-path.to.secret = &quot;C:/Users/13608/Dropbox/WSU-419/Fall 2020/__student_access__/_SECRET_/&quot;;
+path.to.secret = &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/_SECRET_/&quot;;
 
 measure = utils::read.csv( paste0(path.to.secret, &quot;measure-students.txt&quot;), header=TRUE, quote=&quot;&quot;, sep=&quot;|&quot;);
 
@@ -3153,7 +3114,7 @@ my.matrix;</code></pre>
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();

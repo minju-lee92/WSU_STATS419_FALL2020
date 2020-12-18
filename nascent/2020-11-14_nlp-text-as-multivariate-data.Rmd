@@ -25,7 +25,7 @@ source_url( include.me );
 
 
 
-path.to.nascent = "C:/Users/13608/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/";
+path.to.nascent = "C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/";
 
 folder.nlp = "nlp/";
 path.to.nlp = paste0(path.to.nascent, folder.nlp);

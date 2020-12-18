@@ -167,7 +167,7 @@ About 45% of the participants are aged between 20 and 30.
 See table \ref{table:male-correlation} and \ref{table:female-correlation}
 \newpage
 
-\input{tables/male-correlation-table}  
+\input{tables/will.table}  
 
 \input{tables/female-correlation-table} 
 

@@ -2565,6 +2565,45 @@ window.onload = function() {
   PagedTableDoc.initAll();
 };
 </script>
+<style type="text/css">
+a.anchor-section {margin-left: 10px; visibility: hidden; color: inherit;}
+a.anchor-section::before {content: '#';}
+.hasAnchor:hover a.anchor-section {visibility: visible;}
+</style>
+<script>// Anchor sections v1.0 written by Atsushi Yasumoto on Oct 3rd, 2020.
+document.addEventListener('DOMContentLoaded', function() {
+  // Do nothing if AnchorJS is used
+  if (typeof window.anchors === 'object' && anchors.hasOwnProperty('hasAnchorJSLink')) {
+    return;
+  }
+
+  const h = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+
+  // Do nothing if sections are already anchored
+  if (Array.from(h).some(x => x.classList.contains('hasAnchor'))) {
+    return null;
+  }
+
+  // Use section id when pandoc runs with --section-divs
+  const section_id = function(x) {
+    return ((x.classList.contains('section') || (x.tagName === 'SECTION'))
+            ? x.id : '');
+  };
+
+  // Add anchors
+  h.forEach(function(x) {
+    const id = x.id || section_id(x.parentElement);
+    if (id === '') {
+      return null;
+    }
+    let anchor = document.createElement('a');
+    anchor.href = '#' + id;
+    anchor.classList = ['anchor-section'];
+    x.classList.add('hasAnchor');
+    x.appendChild(anchor);
+  });
+});
+</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -2573,7 +2612,7 @@ window.onload = function() {
   div.column{display: inline-block; vertical-align: top; width: 50%;}
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
-      </style>
+    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -2814,7 +2853,7 @@ path.github = &quot;https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU
 
 include.me = paste0(path.github, &quot;misc/functions-nlp.R&quot;);
 source_url( include.me );</code></pre>
-<pre><code>## SHA-1 hash of file is 18f0cb7daf3bc635e17f518e92bfaaacaf41627a</code></pre>
+<pre><code>## SHA-1 hash of file is 704afa69d52215d315cb5f59cdc020b0bbfd0b13</code></pre>
 <pre><code>## Loading required package: NLP</code></pre>
 <pre><code>## Warning: package &#39;SentimentAnalysis&#39; was built under R version 4.0.3</code></pre>
 <pre><code>## 
@@ -2824,17 +2863,23 @@ source_url( include.me );</code></pre>
 ##     write</code></pre>
 <pre class="r"><code>include.me = paste0(path.github, &quot;misc/functions-nlp-str.R&quot;);
 source_url( include.me );</code></pre>
-<pre><code>## SHA-1 hash of file is 452d43555214215002241b6377a716d76a2506c5</code></pre>
+<pre><code>## SHA-1 hash of file is 6bdb234fa84eea995969dc29d6ff2a78f3982131</code></pre>
 <pre class="r"><code>include.me = paste0(path.github, &quot;misc/functions-nlp-stack.R&quot;);
 source_url( include.me );</code></pre>
-<pre><code>## SHA-1 hash of file is ca2407cdcb26b24781b86beb9d312dd3c2e95ec0</code></pre>
+<pre><code>## SHA-1 hash of file is 034efbce0405954198545f8798e119b77a4809c9</code></pre>
 <pre class="r"><code>include.me = paste0(path.github, &quot;misc/functions-nlp-pos.R&quot;);
 source_url( include.me );</code></pre>
-<pre><code>## SHA-1 hash of file is bca9c225a483dbfd08200ba2a100eb7b67252967</code></pre>
+<pre><code>## SHA-1 hash of file is d8c8cf01c8ead1b6d4228891aa52bac77084a6e7</code></pre>
 <pre><code>## Warning: package &#39;openNLP&#39; was built under R version 4.0.3</code></pre>
 <pre class="r"><code>include.me = paste0(path.github, &quot;humanVerseWSU/R/functions-encryption.R&quot;);
 source_url( include.me );</code></pre>
-<pre><code>## SHA-1 hash of file is bb54547500147dcb77047053bbf5c4bd153ffc38</code></pre>
+<pre><code>## SHA-1 hash of file is da71dde620bed33db055778b752eefb476f7bf6b</code></pre>
+<pre class="r"><code>include.me = paste0(path.github, &quot;humanVerseWSU/R/functions-dataframe.R&quot;);
+source_url( include.me );</code></pre>
+<pre><code>## SHA-1 hash of file is 1149cbf3e865f692b50d4d1983e6364dc56ce62d</code></pre>
+<pre class="r"><code>include.me = paste0(path.github, &quot;humanVerseWSU/R/functions-str.R&quot;);
+source_url( include.me );</code></pre>
+<pre><code>## SHA-1 hash of file is 5f57d466d946285783f15bb3b4d97ca48a951d0b</code></pre>
 <pre class="r"><code>path.to.nascent = &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/&quot;;
 
 folder.nlp = &quot;nlp/&quot;;
@@ -3230,7 +3275,7 @@ df.grimm = parseGutenberg.GRIMM(path.to.grimm,
                         my.local.path = path.to.gutenberg);</code></pre>
 <pre><code>## [1] &quot;grabHTML() ... from cache ... C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/fairytales.txt&quot;
 ## [1] &quot;grabHTML() ... from cache ... C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/fairytales.html&quot;
-## [1] &quot;Time elapsed: 0.01&quot;</code></pre>
+## [1] &quot;Time elapsed: 0&quot;</code></pre>
 <pre class="r"><code>df.grimm;</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
@@ -3284,7 +3329,7 @@ PP = countPersonalPronouns(my.words);
 head(PP);</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["person"],"name":[1],"type":["chr"],"align":["left"]},{"label":["number"],"name":[2],"type":["chr"],"align":["left"]},{"label":["word"],"name":[3],"type":["chr"],"align":["left"]},{"label":["count"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"first","2":"singular","3":"i","4":"21","_rn_":"subject-1"},{"1":"first","2":"singular","3":"me","4":"5","_rn_":"object-1"},{"1":"first","2":"singular","3":"my","4":"5","_rn_":"determiner-1"},{"1":"first","2":"singular","3":"mine","4":"0","_rn_":"independent-1"},{"1":"first","2":"singular","3":"myself","4":"1","_rn_":"reflexive-1"},{"1":"first","2":"plural","3":"we","4":"29","_rn_":"subject-2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["person"],"name":[1],"type":["chr"],"align":["left"]},{"label":["number"],"name":[2],"type":["chr"],"align":["left"]},{"label":["word"],"name":[3],"type":["chr"],"align":["left"]},{"label":["count"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"first","2":"singular","3":"i","4":"21","_rn_":"1"},{"1":"first","2":"singular","3":"me","4":"5","_rn_":"2"},{"1":"first","2":"singular","3":"my","4":"5","_rn_":"3"},{"1":"first","2":"singular","3":"mine","4":"0","_rn_":"4"},{"1":"first","2":"singular","3":"myself","4":"1","_rn_":"5"},{"1":"first","2":"plural","3":"we","4":"29","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -3373,7 +3418,7 @@ one = prepareOneStory(df.grimm, path.to.grimm,
                           my.stopwords = stop.snowball
                           );</code></pre>
 <pre><code>## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/HANSEL.AND.GRETEL-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... HANSEL.AND.GRETEL ... [--TOTAL--] in 0.32 secs&quot;</code></pre>
+## [1] &quot;story: ... HANSEL.AND.GRETEL ... [--TOTAL--] in 0.12 secs&quot;</code></pre>
 <pre class="r"><code>#names(one$general);
 #names(one$sentences);</code></pre>
 </div>
@@ -3410,197 +3455,197 @@ for(i in 1:nt)
   }</code></pre>
 <pre><code>## [1] &quot;[1 of 63] --&gt; THE BROTHERS GRIMM FAIRY TALES&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.BROTHERS.GRIMM.FAIRY.TALES-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.BROTHERS.GRIMM.FAIRY.TALES ... [--TOTAL--] in 0.03 secs&quot;
+## [1] &quot;story: ... THE.BROTHERS.GRIMM.FAIRY.TALES ... [--TOTAL--] in 0.01 secs&quot;
 ## [1] &quot;[2 of 63] --&gt; THE GOLDEN BIRD&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.GOLDEN.BIRD-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.GOLDEN.BIRD ... [--TOTAL--] in 0.18 secs&quot;
+## [1] &quot;story: ... THE.GOLDEN.BIRD ... [--TOTAL--] in 0.04 secs&quot;
 ## [1] &quot;[3 of 63] --&gt; HANS IN LUCK&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/HANS.IN.LUCK-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... HANS.IN.LUCK ... [--TOTAL--] in 0.35 secs&quot;
+## [1] &quot;story: ... HANS.IN.LUCK ... [--TOTAL--] in 0.05 secs&quot;
 ## [1] &quot;[4 of 63] --&gt; JORINDA AND JORINDEL&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/JORINDA.AND.JORINDEL-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... JORINDA.AND.JORINDEL ... [--TOTAL--] in 0.1 secs&quot;
+## [1] &quot;story: ... JORINDA.AND.JORINDEL ... [--TOTAL--] in 0.03 secs&quot;
 ## [1] &quot;[5 of 63] --&gt; THE TRAVELLING MUSICIANS&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.TRAVELLING.MUSICIANS-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.TRAVELLING.MUSICIANS ... [--TOTAL--] in 0.12 secs&quot;
+## [1] &quot;story: ... THE.TRAVELLING.MUSICIANS ... [--TOTAL--] in 0.03 secs&quot;
 ## [1] &quot;[6 of 63] --&gt; OLD SULTAN&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/OLD.SULTAN-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... OLD.SULTAN ... [--TOTAL--] in 0.08 secs&quot;
+## [1] &quot;story: ... OLD.SULTAN ... [--TOTAL--] in 0.02 secs&quot;
 ## [1] &quot;[7 of 63] --&gt; THE STRAW, THE COAL, AND THE BEAN&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.STRAW.THE.COAL.AND.THE.BEAN-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.STRAW.THE.COAL.AND.THE.BEAN ... [--TOTAL--] in 0.04 secs&quot;
+## [1] &quot;story: ... THE.STRAW.THE.COAL.AND.THE.BEAN ... [--TOTAL--] in 0.01 secs&quot;
 ## [1] &quot;[8 of 63] --&gt; BRIAR ROSE&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/BRIAR.ROSE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... BRIAR.ROSE ... [--TOTAL--] in 0.09 secs&quot;
+## [1] &quot;story: ... BRIAR.ROSE ... [--TOTAL--] in 0.03 secs&quot;
 ## [1] &quot;[9 of 63] --&gt; THE DOG AND THE SPARROW&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.DOG.AND.THE.SPARROW-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.DOG.AND.THE.SPARROW ... [--TOTAL--] in 0.09 secs&quot;
+## [1] &quot;story: ... THE.DOG.AND.THE.SPARROW ... [--TOTAL--] in 0.03 secs&quot;
 ## [1] &quot;[10 of 63] --&gt; THE TWELVE DANCING PRINCESSES&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.TWELVE.DANCING.PRINCESSES-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.TWELVE.DANCING.PRINCESSES ... [--TOTAL--] in 0.09 secs&quot;
+## [1] &quot;story: ... THE.TWELVE.DANCING.PRINCESSES ... [--TOTAL--] in 0.03 secs&quot;
 ## [1] &quot;[11 of 63] --&gt; THE FISHERMAN AND HIS WIFE&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.FISHERMAN.AND.HIS.WIFE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.FISHERMAN.AND.HIS.WIFE ... [--TOTAL--] in 0.29 secs&quot;
+## [1] &quot;story: ... THE.FISHERMAN.AND.HIS.WIFE ... [--TOTAL--] in 0.05 secs&quot;
 ## [1] &quot;[12 of 63] --&gt; THE WILLOW-WREN AND THE BEAR&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.WILLOW.WREN.AND.THE.BEAR-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.WILLOW.WREN.AND.THE.BEAR ... [--TOTAL--] in 0.05 secs&quot;
+## [1] &quot;story: ... THE.WILLOW.WREN.AND.THE.BEAR ... [--TOTAL--] in 0.02 secs&quot;
 ## [1] &quot;[13 of 63] --&gt; THE FROG-PRINCE&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.FROG.PRINCE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.FROG.PRINCE ... [--TOTAL--] in 0.04 secs&quot;
+## [1] &quot;story: ... THE.FROG.PRINCE ... [--TOTAL--] in 0.03 secs&quot;
 ## [1] &quot;[14 of 63] --&gt; CAT AND MOUSE IN PARTNERSHIP&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/CAT.AND.MOUSE.IN.PARTNERSHIP-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... CAT.AND.MOUSE.IN.PARTNERSHIP ... [--TOTAL--] in 0.07 secs&quot;
+## [1] &quot;story: ... CAT.AND.MOUSE.IN.PARTNERSHIP ... [--TOTAL--] in 0.05 secs&quot;
 ## [1] &quot;[15 of 63] --&gt; THE GOOSE-GIRL&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.GOOSE.GIRL-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.GOOSE.GIRL ... [--TOTAL--] in 0.13 secs&quot;
+## [1] &quot;story: ... THE.GOOSE.GIRL ... [--TOTAL--] in 0.04 secs&quot;
 ## [1] &quot;[16 of 63] --&gt; THE ADVENTURES OF CHANTICLEER AND PARTLET&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.ADVENTURES.OF.CHANTICLEER.AND.PARTLET-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.ADVENTURES.OF.CHANTICLEER.AND.PARTLET ... [--TOTAL--] in 0.12 secs&quot;
+## [1] &quot;story: ... THE.ADVENTURES.OF.CHANTICLEER.AND.PARTLET ... [--TOTAL--] in 0.03 secs&quot;
 ## [1] &quot;[17 of 63] --&gt; RAPUNZEL&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/RAPUNZEL-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... RAPUNZEL ... [--TOTAL--] in 0.09 secs&quot;
+## [1] &quot;story: ... RAPUNZEL ... [--TOTAL--] in 0.03 secs&quot;
 ## [1] &quot;[18 of 63] --&gt; FUNDEVOGEL&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/FUNDEVOGEL-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... FUNDEVOGEL ... [--TOTAL--] in 0.06 secs&quot;
+## [1] &quot;story: ... FUNDEVOGEL ... [--TOTAL--] in 0.02 secs&quot;
 ## [1] &quot;[19 of 63] --&gt; THE VALIANT LITTLE TAILOR&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.VALIANT.LITTLE.TAILOR-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.VALIANT.LITTLE.TAILOR ... [--TOTAL--] in 0.4 secs&quot;
+## [1] &quot;story: ... THE.VALIANT.LITTLE.TAILOR ... [--TOTAL--] in 0.06 secs&quot;
 ## [1] &quot;[20 of 63] --&gt; HANSEL AND GRETEL&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/HANSEL.AND.GRETEL-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... HANSEL.AND.GRETEL ... [--TOTAL--] in 0.18 secs&quot;
+## [1] &quot;story: ... HANSEL.AND.GRETEL ... [--TOTAL--] in 0.05 secs&quot;
 ## [1] &quot;[21 of 63] --&gt; THE MOUSE, THE BIRD, AND THE SAUSAGE&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.MOUSE.THE.BIRD.AND.THE.SAUSAGE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.MOUSE.THE.BIRD.AND.THE.SAUSAGE ... [--TOTAL--] in 0.04 secs&quot;
+## [1] &quot;story: ... THE.MOUSE.THE.BIRD.AND.THE.SAUSAGE ... [--TOTAL--] in 0.02 secs&quot;
 ## [1] &quot;[22 of 63] --&gt; MOTHER HOLLE&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/MOTHER.HOLLE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... MOTHER.HOLLE ... [--TOTAL--] in 0.09 secs&quot;
+## [1] &quot;story: ... MOTHER.HOLLE ... [--TOTAL--] in 0.03 secs&quot;
 ## [1] &quot;[23 of 63] --&gt; LITTLE RED-CAP [LITTLE RED RIDING HOOD]&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/LITTLE.RED.CAP.[LITTLE.RED.RIDING.HOOD]-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... LITTLE.RED.CAP.[LITTLE.RED.RIDING.HOOD] ... [--TOTAL--] in 0.08 secs&quot;
+## [1] &quot;story: ... LITTLE.RED.CAP.[LITTLE.RED.RIDING.HOOD] ... [--TOTAL--] in 0.03 secs&quot;
 ## [1] &quot;[24 of 63] --&gt; THE ROBBER BRIDEGROOM&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.ROBBER.BRIDEGROOM-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.ROBBER.BRIDEGROOM ... [--TOTAL--] in 0.09 secs&quot;
+## [1] &quot;story: ... THE.ROBBER.BRIDEGROOM ... [--TOTAL--] in 0.03 secs&quot;
 ## [1] &quot;[25 of 63] --&gt; TOM THUMB&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/TOM.THUMB-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... TOM.THUMB ... [--TOTAL--] in 0.17 secs&quot;
+## [1] &quot;story: ... TOM.THUMB ... [--TOTAL--] in 0.05 secs&quot;
 ## [1] &quot;[26 of 63] --&gt; RUMPELSTILTSKIN&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/RUMPELSTILTSKIN-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... RUMPELSTILTSKIN ... [--TOTAL--] in 0.07 secs&quot;
+## [1] &quot;story: ... RUMPELSTILTSKIN ... [--TOTAL--] in 0.02 secs&quot;
 ## [1] &quot;[27 of 63] --&gt; CLEVER GRETEL&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/CLEVER.GRETEL-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... CLEVER.GRETEL ... [--TOTAL--] in 0.05 secs&quot;
+## [1] &quot;story: ... CLEVER.GRETEL ... [--TOTAL--] in 0.02 secs&quot;
 ## [1] &quot;[28 of 63] --&gt; THE OLD MAN AND HIS GRANDSON&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.OLD.MAN.AND.HIS.GRANDSON-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.OLD.MAN.AND.HIS.GRANDSON ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;story: ... THE.OLD.MAN.AND.HIS.GRANDSON ... [--TOTAL--] in 0.01 secs&quot;
 ## [1] &quot;[29 of 63] --&gt; THE LITTLE PEASANT&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.LITTLE.PEASANT-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.LITTLE.PEASANT ... [--TOTAL--] in 0.12 secs&quot;
+## [1] &quot;story: ... THE.LITTLE.PEASANT ... [--TOTAL--] in 0.04 secs&quot;
 ## [1] &quot;[30 of 63] --&gt; FREDERICK AND CATHERINE&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/FREDERICK.AND.CATHERINE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... FREDERICK.AND.CATHERINE ... [--TOTAL--] in 0.1 secs&quot;
+## [1] &quot;story: ... FREDERICK.AND.CATHERINE ... [--TOTAL--] in 0.04 secs&quot;
 ## [1] &quot;[31 of 63] --&gt; SWEETHEART ROLAND&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/SWEETHEART.ROLAND-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... SWEETHEART.ROLAND ... [--TOTAL--] in 0.09 secs&quot;
+## [1] &quot;story: ... SWEETHEART.ROLAND ... [--TOTAL--] in 0.03 secs&quot;
 ## [1] &quot;[32 of 63] --&gt; SNOWDROP&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/SNOWDROP-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... SNOWDROP ... [--TOTAL--] in 0.11 secs&quot;
+## [1] &quot;story: ... SNOWDROP ... [--TOTAL--] in 0.04 secs&quot;
 ## [1] &quot;[33 of 63] --&gt; THE PINK&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.PINK-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.PINK ... [--TOTAL--] in 0.08 secs&quot;
+## [1] &quot;story: ... THE.PINK ... [--TOTAL--] in 0.03 secs&quot;
 ## [1] &quot;[34 of 63] --&gt; CLEVER ELSIE&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/CLEVER.ELSIE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... CLEVER.ELSIE ... [--TOTAL--] in 0.06 secs&quot;
+## [1] &quot;story: ... CLEVER.ELSIE ... [--TOTAL--] in 0.05 secs&quot;
 ## [1] &quot;[35 of 63] --&gt; THE MISER IN THE BUSH&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.MISER.IN.THE.BUSH-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.MISER.IN.THE.BUSH ... [--TOTAL--] in 0.06 secs&quot;
+## [1] &quot;story: ... THE.MISER.IN.THE.BUSH ... [--TOTAL--] in 0.02 secs&quot;
 ## [1] &quot;[36 of 63] --&gt; ASHPUTTEL&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/ASHPUTTEL-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... ASHPUTTEL ... [--TOTAL--] in 0.13 secs&quot;
+## [1] &quot;story: ... ASHPUTTEL ... [--TOTAL--] in 0.04 secs&quot;
 ## [1] &quot;[37 of 63] --&gt; THE WHITE SNAKE&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.WHITE.SNAKE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.WHITE.SNAKE ... [--TOTAL--] in 0.2 secs&quot;
+## [1] &quot;story: ... THE.WHITE.SNAKE ... [--TOTAL--] in 0.03 secs&quot;
 ## [1] &quot;[38 of 63] --&gt; THE WOLF AND THE SEVEN LITTLE KIDS&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.WOLF.AND.THE.SEVEN.LITTLE.KIDS-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.WOLF.AND.THE.SEVEN.LITTLE.KIDS ... [--TOTAL--] in 0.07 secs&quot;
+## [1] &quot;story: ... THE.WOLF.AND.THE.SEVEN.LITTLE.KIDS ... [--TOTAL--] in 0.02 secs&quot;
 ## [1] &quot;[39 of 63] --&gt; THE QUEEN BEE&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.QUEEN.BEE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.QUEEN.BEE ... [--TOTAL--] in 0.05 secs&quot;
+## [1] &quot;story: ... THE.QUEEN.BEE ... [--TOTAL--] in 0.02 secs&quot;
 ## [1] &quot;[40 of 63] --&gt; THE ELVES AND THE SHOEMAKER&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.ELVES.AND.THE.SHOEMAKER-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.ELVES.AND.THE.SHOEMAKER ... [--TOTAL--] in 0.04 secs&quot;
+## [1] &quot;story: ... THE.ELVES.AND.THE.SHOEMAKER ... [--TOTAL--] in 0.02 secs&quot;
 ## [1] &quot;[41 of 63] --&gt; THE JUNIPER-TREE&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.JUNIPER.TREE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.JUNIPER.TREE ... [--TOTAL--] in 0.13 secs&quot;
+## [1] &quot;story: ... THE.JUNIPER.TREE ... [--TOTAL--] in 0.05 secs&quot;
 ## [1] &quot;[42 of 63] --&gt; THE TURNIP&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.TURNIP-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.TURNIP ... [--TOTAL--] in 0.07 secs&quot;
+## [1] &quot;story: ... THE.TURNIP ... [--TOTAL--] in 0.02 secs&quot;
 ## [1] &quot;[43 of 63] --&gt; CLEVER HANS&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/CLEVER.HANS-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... CLEVER.HANS ... [--TOTAL--] in 0.06 secs&quot;
+## [1] &quot;story: ... CLEVER.HANS ... [--TOTAL--] in 0.02 secs&quot;
 ## [1] &quot;[44 of 63] --&gt; THE THREE LANGUAGES&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.THREE.LANGUAGES-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.THREE.LANGUAGES ... [--TOTAL--] in 0.04 secs&quot;
+## [1] &quot;story: ... THE.THREE.LANGUAGES ... [--TOTAL--] in 0.02 secs&quot;
 ## [1] &quot;[45 of 63] --&gt; THE FOX AND THE CAT&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.FOX.AND.THE.CAT-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.FOX.AND.THE.CAT ... [--TOTAL--] in 0.03 secs&quot;
+## [1] &quot;story: ... THE.FOX.AND.THE.CAT ... [--TOTAL--] in 0.01 secs&quot;
 ## [1] &quot;[46 of 63] --&gt; THE FOUR CLEVER BROTHERS&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.FOUR.CLEVER.BROTHERS-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.FOUR.CLEVER.BROTHERS ... [--TOTAL--] in 0.08 secs&quot;
+## [1] &quot;story: ... THE.FOUR.CLEVER.BROTHERS ... [--TOTAL--] in 0.03 secs&quot;
 ## [1] &quot;[47 of 63] --&gt; LILY AND THE LION&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/LILY.AND.THE.LION-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... LILY.AND.THE.LION ... [--TOTAL--] in 0.1 secs&quot;
+## [1] &quot;story: ... LILY.AND.THE.LION ... [--TOTAL--] in 0.04 secs&quot;
 ## [1] &quot;[48 of 63] --&gt; THE FOX AND THE HORSE&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.FOX.AND.THE.HORSE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.FOX.AND.THE.HORSE ... [--TOTAL--] in 0.03 secs&quot;
+## [1] &quot;story: ... THE.FOX.AND.THE.HORSE ... [--TOTAL--] in 0.02 secs&quot;
 ## [1] &quot;[49 of 63] --&gt; THE BLUE LIGHT&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.BLUE.LIGHT-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.BLUE.LIGHT ... [--TOTAL--] in 0.12 secs&quot;
+## [1] &quot;story: ... THE.BLUE.LIGHT ... [--TOTAL--] in 0.04 secs&quot;
 ## [1] &quot;[50 of 63] --&gt; THE RAVEN&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.RAVEN-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.RAVEN ... [--TOTAL--] in 0.16 secs&quot;
+## [1] &quot;story: ... THE.RAVEN ... [--TOTAL--] in 0.04 secs&quot;
 ## [1] &quot;[51 of 63] --&gt; THE GOLDEN GOOSE&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.GOLDEN.GOOSE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.GOLDEN.GOOSE ... [--TOTAL--] in 0.1 secs&quot;
+## [1] &quot;story: ... THE.GOLDEN.GOOSE ... [--TOTAL--] in 0.03 secs&quot;
 ## [1] &quot;[52 of 63] --&gt; THE WATER OF LIFE&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.WATER.OF.LIFE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.WATER.OF.LIFE ... [--TOTAL--] in 0.15 secs&quot;
+## [1] &quot;story: ... THE.WATER.OF.LIFE ... [--TOTAL--] in 0.04 secs&quot;
 ## [1] &quot;[53 of 63] --&gt; THE TWELVE HUNTSMEN&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.TWELVE.HUNTSMEN-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.TWELVE.HUNTSMEN ... [--TOTAL--] in 0.21 secs&quot;
+## [1] &quot;story: ... THE.TWELVE.HUNTSMEN ... [--TOTAL--] in 0.03 secs&quot;
 ## [1] &quot;[54 of 63] --&gt; THE KING OF THE GOLDEN MOUNTAIN&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.KING.OF.THE.GOLDEN.MOUNTAIN-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.KING.OF.THE.GOLDEN.MOUNTAIN ... [--TOTAL--] in 0.12 secs&quot;
+## [1] &quot;story: ... THE.KING.OF.THE.GOLDEN.MOUNTAIN ... [--TOTAL--] in 0.04 secs&quot;
 ## [1] &quot;[55 of 63] --&gt; DOCTOR KNOWALL&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/DOCTOR.KNOWALL-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... DOCTOR.KNOWALL ... [--TOTAL--] in 0.04 secs&quot;
+## [1] &quot;story: ... DOCTOR.KNOWALL ... [--TOTAL--] in 0.02 secs&quot;
 ## [1] &quot;[56 of 63] --&gt; THE SEVEN RAVENS&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.SEVEN.RAVENS-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.SEVEN.RAVENS ... [--TOTAL--] in 0.06 secs&quot;
+## [1] &quot;story: ... THE.SEVEN.RAVENS ... [--TOTAL--] in 0.02 secs&quot;
 ## [1] &quot;[57 of 63] --&gt; THE WEDDING OF MRS FOX&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.WEDDING.OF.MRS.FOX-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.WEDDING.OF.MRS.FOX ... [--TOTAL--] in 0.07 secs&quot;
+## [1] &quot;story: ... THE.WEDDING.OF.MRS.FOX ... [--TOTAL--] in 0.02 secs&quot;
 ## [1] &quot;[58 of 63] --&gt; THE SALAD&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.SALAD-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.SALAD ... [--TOTAL--] in 0.18 secs&quot;
+## [1] &quot;story: ... THE.SALAD ... [--TOTAL--] in 0.06 secs&quot;
 ## [1] &quot;[59 of 63] --&gt; THE STORY OF THE YOUTH WHO WENT FORTH TO LEARN WHAT FEAR WAS&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.STORY.OF.THE.YOUTH.WHO.WENT.FORTH.TO.LEARN.WHAT.FEAR.WAS-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.STORY.OF.THE.YOUTH.WHO.WENT.FORTH.TO.LEARN.WHAT.FEAR.WAS ... [--TOTAL--] in 0.33 secs&quot;
+## [1] &quot;story: ... THE.STORY.OF.THE.YOUTH.WHO.WENT.FORTH.TO.LEARN.WHAT.FEAR.WAS ... [--TOTAL--] in 0.07 secs&quot;
 ## [1] &quot;[60 of 63] --&gt; KING GRISLY-BEARD&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/KING.GRISLY.BEARD-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... KING.GRISLY.BEARD ... [--TOTAL--] in 0.1 secs&quot;
+## [1] &quot;story: ... KING.GRISLY.BEARD ... [--TOTAL--] in 0.04 secs&quot;
 ## [1] &quot;[61 of 63] --&gt; IRON HANS&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/IRON.HANS-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... IRON.HANS ... [--TOTAL--] in 0.22 secs&quot;
+## [1] &quot;story: ... IRON.HANS ... [--TOTAL--] in 0.07 secs&quot;
 ## [1] &quot;[62 of 63] --&gt; CAT-SKIN&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/CAT.SKIN-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... CAT.SKIN ... [--TOTAL--] in 0.18 secs&quot;
+## [1] &quot;story: ... CAT.SKIN ... [--TOTAL--] in 0.04 secs&quot;
 ## [1] &quot;[63 of 63] --&gt; SNOW-WHITE AND ROSE-RED&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/SNOW.WHITE.AND.ROSE.RED-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... SNOW.WHITE.AND.ROSE.RED ... [--TOTAL--] in 0.23 secs&quot;</code></pre>
+## [1] &quot;story: ... SNOW.WHITE.AND.ROSE.RED ... [--TOTAL--] in 0.05 secs&quot;</code></pre>
 <pre class="r"><code>timer.end = as.numeric(Sys.time());
 elapsed = round( (timer.end - timer.start), 2);
   print(paste0(&quot;[-- EVERYTHING --] in &quot;,elapsed,&quot; secs&quot;));</code></pre>
-<pre><code>## [1] &quot;[-- EVERYTHING --] in 7.23 secs&quot;</code></pre>
+<pre><code>## [1] &quot;[-- EVERYTHING --] in 2.11 secs&quot;</code></pre>
 </div>
 <div id="minimal-code-for-rgui" class="section level4" number="2.1.2.5">
 <h4 number="2.1.2.5"><span class="header-section-number">2.1.2.5</span> minimal code for Rgui</h4>
@@ -3614,19 +3659,19 @@ path.github = &quot;https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU
 
 include.me = paste0(path.github, &quot;misc/functions-nlp.R&quot;);
 source_url( include.me );</code></pre>
-<pre><code>## SHA-1 hash of file is 18f0cb7daf3bc635e17f518e92bfaaacaf41627a</code></pre>
+<pre><code>## SHA-1 hash of file is 704afa69d52215d315cb5f59cdc020b0bbfd0b13</code></pre>
 <pre class="r"><code>include.me = paste0(path.github, &quot;misc/functions-nlp-str.R&quot;);
 source_url( include.me );</code></pre>
-<pre><code>## SHA-1 hash of file is 452d43555214215002241b6377a716d76a2506c5</code></pre>
+<pre><code>## SHA-1 hash of file is 6bdb234fa84eea995969dc29d6ff2a78f3982131</code></pre>
 <pre class="r"><code>include.me = paste0(path.github, &quot;misc/functions-nlp-stack.R&quot;);
 source_url( include.me );</code></pre>
-<pre><code>## SHA-1 hash of file is ca2407cdcb26b24781b86beb9d312dd3c2e95ec0</code></pre>
+<pre><code>## SHA-1 hash of file is 034efbce0405954198545f8798e119b77a4809c9</code></pre>
 <pre class="r"><code>include.me = paste0(path.github, &quot;misc/functions-nlp-pos.R&quot;);
 source_url( include.me );</code></pre>
-<pre><code>## SHA-1 hash of file is bca9c225a483dbfd08200ba2a100eb7b67252967</code></pre>
+<pre><code>## SHA-1 hash of file is d8c8cf01c8ead1b6d4228891aa52bac77084a6e7</code></pre>
 <pre class="r"><code>include.me = paste0(path.github, &quot;humanVerseWSU/R/functions-encryption.R&quot;);
 source_url( include.me );</code></pre>
-<pre><code>## SHA-1 hash of file is bb54547500147dcb77047053bbf5c4bd153ffc38</code></pre>
+<pre><code>## SHA-1 hash of file is da71dde620bed33db055778b752eefb476f7bf6b</code></pre>
 <pre class="r"><code>path.to.nascent = &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/&quot;;
 
 folder.nlp = &quot;nlp/&quot;;
@@ -3657,7 +3702,7 @@ df.grimm = parseGutenberg.GRIMM(path.to.grimm,
                         my.local.path = path.to.gutenberg);</code></pre>
 <pre><code>## [1] &quot;grabHTML() ... from cache ... C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/fairytales.txt&quot;
 ## [1] &quot;grabHTML() ... from cache ... C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/fairytales.html&quot;
-## [1] &quot;Time elapsed: 0.02&quot;</code></pre>
+## [1] &quot;Time elapsed: 0&quot;</code></pre>
 <pre class="r"><code># df.grimm;
 
 ########## load stopwords ##########
@@ -3690,199 +3735,199 @@ for(i in 1:nt)
                           my.stopwords = stop.snowball
                           );
   }</code></pre>
-<pre><code>## [1] &quot;[1 of 63] --&gt; THE WILLOW-WREN AND THE BEAR&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.WILLOW.WREN.AND.THE.BEAR-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.WILLOW.WREN.AND.THE.BEAR ... [--TOTAL--] in 0.07 secs&quot;
-## [1] &quot;[2 of 63] --&gt; MOTHER HOLLE&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/MOTHER.HOLLE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... MOTHER.HOLLE ... [--TOTAL--] in 0.09 secs&quot;
-## [1] &quot;[3 of 63] --&gt; THE TWELVE DANCING PRINCESSES&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.TWELVE.DANCING.PRINCESSES-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.TWELVE.DANCING.PRINCESSES ... [--TOTAL--] in 0.1 secs&quot;
-## [1] &quot;[4 of 63] --&gt; BRIAR ROSE&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/BRIAR.ROSE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... BRIAR.ROSE ... [--TOTAL--] in 0.09 secs&quot;
-## [1] &quot;[5 of 63] --&gt; THE JUNIPER-TREE&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.JUNIPER.TREE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.JUNIPER.TREE ... [--TOTAL--] in 0.17 secs&quot;
-## [1] &quot;[6 of 63] --&gt; THE ADVENTURES OF CHANTICLEER AND PARTLET&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.ADVENTURES.OF.CHANTICLEER.AND.PARTLET-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.ADVENTURES.OF.CHANTICLEER.AND.PARTLET ... [--TOTAL--] in 0.1 secs&quot;
-## [1] &quot;[7 of 63] --&gt; RAPUNZEL&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/RAPUNZEL-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... RAPUNZEL ... [--TOTAL--] in 0.11 secs&quot;
-## [1] &quot;[8 of 63] --&gt; THE WOLF AND THE SEVEN LITTLE KIDS&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.WOLF.AND.THE.SEVEN.LITTLE.KIDS-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.WOLF.AND.THE.SEVEN.LITTLE.KIDS ... [--TOTAL--] in 0.1 secs&quot;
-## [1] &quot;[9 of 63] --&gt; THE BLUE LIGHT&quot;
+<pre><code>## [1] &quot;[1 of 63] --&gt; THE STORY OF THE YOUTH WHO WENT FORTH TO LEARN WHAT FEAR WAS&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.STORY.OF.THE.YOUTH.WHO.WENT.FORTH.TO.LEARN.WHAT.FEAR.WAS-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.STORY.OF.THE.YOUTH.WHO.WENT.FORTH.TO.LEARN.WHAT.FEAR.WAS ... [--TOTAL--] in 0.06 secs&quot;
+## [1] &quot;[2 of 63] --&gt; RUMPELSTILTSKIN&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/RUMPELSTILTSKIN-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... RUMPELSTILTSKIN ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[3 of 63] --&gt; THE KING OF THE GOLDEN MOUNTAIN&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.KING.OF.THE.GOLDEN.MOUNTAIN-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.KING.OF.THE.GOLDEN.MOUNTAIN ... [--TOTAL--] in 0.04 secs&quot;
+## [1] &quot;[4 of 63] --&gt; THE TURNIP&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.TURNIP-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.TURNIP ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[5 of 63] --&gt; THE BLUE LIGHT&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.BLUE.LIGHT-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.BLUE.LIGHT ... [--TOTAL--] in 0.16 secs&quot;
+## [1] &quot;story: ... THE.BLUE.LIGHT ... [--TOTAL--] in 0.03 secs&quot;
+## [1] &quot;[6 of 63] --&gt; LILY AND THE LION&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/LILY.AND.THE.LION-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... LILY.AND.THE.LION ... [--TOTAL--] in 0.03 secs&quot;
+## [1] &quot;[7 of 63] --&gt; SNOW-WHITE AND ROSE-RED&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/SNOW.WHITE.AND.ROSE.RED-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... SNOW.WHITE.AND.ROSE.RED ... [--TOTAL--] in 0.04 secs&quot;
+## [1] &quot;[8 of 63] --&gt; JORINDA AND JORINDEL&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/JORINDA.AND.JORINDEL-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... JORINDA.AND.JORINDEL ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[9 of 63] --&gt; CAT-SKIN&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/CAT.SKIN-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... CAT.SKIN ... [--TOTAL--] in 0.03 secs&quot;
 ## [1] &quot;[10 of 63] --&gt; THE MOUSE, THE BIRD, AND THE SAUSAGE&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.MOUSE.THE.BIRD.AND.THE.SAUSAGE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.MOUSE.THE.BIRD.AND.THE.SAUSAGE ... [--TOTAL--] in 0.07 secs&quot;
-## [1] &quot;[11 of 63] --&gt; THE RAVEN&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.RAVEN-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.RAVEN ... [--TOTAL--] in 0.18 secs&quot;
-## [1] &quot;[12 of 63] --&gt; THE TURNIP&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.TURNIP-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.TURNIP ... [--TOTAL--] in 0.09 secs&quot;
-## [1] &quot;[13 of 63] --&gt; IRON HANS&quot;
+## [1] &quot;story: ... THE.MOUSE.THE.BIRD.AND.THE.SAUSAGE ... [--TOTAL--] in 0.01 secs&quot;
+## [1] &quot;[11 of 63] --&gt; SNOWDROP&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/SNOWDROP-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... SNOWDROP ... [--TOTAL--] in 0.04 secs&quot;
+## [1] &quot;[12 of 63] --&gt; THE VALIANT LITTLE TAILOR&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.VALIANT.LITTLE.TAILOR-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.VALIANT.LITTLE.TAILOR ... [--TOTAL--] in 0.06 secs&quot;
+## [1] &quot;[13 of 63] --&gt; THE JUNIPER-TREE&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.JUNIPER.TREE-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.JUNIPER.TREE ... [--TOTAL--] in 0.07 secs&quot;
+## [1] &quot;[14 of 63] --&gt; IRON HANS&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/IRON.HANS-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... IRON.HANS ... [--TOTAL--] in 0.22 secs&quot;
-## [1] &quot;[14 of 63] --&gt; THE GOLDEN BIRD&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.GOLDEN.BIRD-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.GOLDEN.BIRD ... [--TOTAL--] in 0.15 secs&quot;
-## [1] &quot;[15 of 63] --&gt; THE STRAW, THE COAL, AND THE BEAN&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.STRAW.THE.COAL.AND.THE.BEAN-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.STRAW.THE.COAL.AND.THE.BEAN ... [--TOTAL--] in 0.05 secs&quot;
-## [1] &quot;[16 of 63] --&gt; THE FOX AND THE CAT&quot;
+## [1] &quot;story: ... IRON.HANS ... [--TOTAL--] in 0.06 secs&quot;
+## [1] &quot;[15 of 63] --&gt; THE FOX AND THE CAT&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.FOX.AND.THE.CAT-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.FOX.AND.THE.CAT ... [--TOTAL--] in 0.02 secs&quot;
-## [1] &quot;[17 of 63] --&gt; THE QUEEN BEE&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.QUEEN.BEE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.QUEEN.BEE ... [--TOTAL--] in 0.22 secs&quot;
-## [1] &quot;[18 of 63] --&gt; THE FROG-PRINCE&quot;
+## [1] &quot;story: ... THE.FOX.AND.THE.CAT ... [--TOTAL--] in 0.01 secs&quot;
+## [1] &quot;[16 of 63] --&gt; THE LITTLE PEASANT&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.LITTLE.PEASANT-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.LITTLE.PEASANT ... [--TOTAL--] in 0.04 secs&quot;
+## [1] &quot;[17 of 63] --&gt; THE THREE LANGUAGES&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.THREE.LANGUAGES-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.THREE.LANGUAGES ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[18 of 63] --&gt; THE MISER IN THE BUSH&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.MISER.IN.THE.BUSH-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.MISER.IN.THE.BUSH ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[19 of 63] --&gt; THE FROG-PRINCE&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.FROG.PRINCE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.FROG.PRINCE ... [--TOTAL--] in 0.09 secs&quot;
-## [1] &quot;[19 of 63] --&gt; THE ROBBER BRIDEGROOM&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.ROBBER.BRIDEGROOM-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.ROBBER.BRIDEGROOM ... [--TOTAL--] in 0.11 secs&quot;
-## [1] &quot;[20 of 63] --&gt; THE WEDDING OF MRS FOX&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.WEDDING.OF.MRS.FOX-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.WEDDING.OF.MRS.FOX ... [--TOTAL--] in 0.06 secs&quot;
-## [1] &quot;[21 of 63] --&gt; THE SEVEN RAVENS&quot;
+## [1] &quot;story: ... THE.FROG.PRINCE ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[20 of 63] --&gt; THE SEVEN RAVENS&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.SEVEN.RAVENS-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.SEVEN.RAVENS ... [--TOTAL--] in 0.06 secs&quot;
-## [1] &quot;[22 of 63] --&gt; RUMPELSTILTSKIN&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/RUMPELSTILTSKIN-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... RUMPELSTILTSKIN ... [--TOTAL--] in 0.07 secs&quot;
-## [1] &quot;[23 of 63] --&gt; THE TRAVELLING MUSICIANS&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.TRAVELLING.MUSICIANS-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.TRAVELLING.MUSICIANS ... [--TOTAL--] in 0.11 secs&quot;
-## [1] &quot;[24 of 63] --&gt; THE FISHERMAN AND HIS WIFE&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.FISHERMAN.AND.HIS.WIFE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.FISHERMAN.AND.HIS.WIFE ... [--TOTAL--] in 0.16 secs&quot;
-## [1] &quot;[25 of 63] --&gt; SNOW-WHITE AND ROSE-RED&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/SNOW.WHITE.AND.ROSE.RED-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... SNOW.WHITE.AND.ROSE.RED ... [--TOTAL--] in 0.18 secs&quot;
-## [1] &quot;[26 of 63] --&gt; FREDERICK AND CATHERINE&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/FREDERICK.AND.CATHERINE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... FREDERICK.AND.CATHERINE ... [--TOTAL--] in 0.14 secs&quot;
-## [1] &quot;[27 of 63] --&gt; CLEVER GRETEL&quot;
+## [1] &quot;story: ... THE.SEVEN.RAVENS ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[21 of 63] --&gt; THE DOG AND THE SPARROW&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.DOG.AND.THE.SPARROW-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.DOG.AND.THE.SPARROW ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[22 of 63] --&gt; CLEVER GRETEL&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/CLEVER.GRETEL-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... CLEVER.GRETEL ... [--TOTAL--] in 0.08 secs&quot;
+## [1] &quot;story: ... CLEVER.GRETEL ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[23 of 63] --&gt; FREDERICK AND CATHERINE&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/FREDERICK.AND.CATHERINE-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... FREDERICK.AND.CATHERINE ... [--TOTAL--] in 0.03 secs&quot;
+## [1] &quot;[24 of 63] --&gt; THE WHITE SNAKE&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.WHITE.SNAKE-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.WHITE.SNAKE ... [--TOTAL--] in 0.03 secs&quot;
+## [1] &quot;[25 of 63] --&gt; THE TWELVE DANCING PRINCESSES&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.TWELVE.DANCING.PRINCESSES-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.TWELVE.DANCING.PRINCESSES ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[26 of 63] --&gt; THE ROBBER BRIDEGROOM&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.ROBBER.BRIDEGROOM-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.ROBBER.BRIDEGROOM ... [--TOTAL--] in 0.03 secs&quot;
+## [1] &quot;[27 of 63] --&gt; THE ELVES AND THE SHOEMAKER&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.ELVES.AND.THE.SHOEMAKER-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.ELVES.AND.THE.SHOEMAKER ... [--TOTAL--] in 0.01 secs&quot;
 ## [1] &quot;[28 of 63] --&gt; LITTLE RED-CAP [LITTLE RED RIDING HOOD]&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/LITTLE.RED.CAP.[LITTLE.RED.RIDING.HOOD]-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... LITTLE.RED.CAP.[LITTLE.RED.RIDING.HOOD] ... [--TOTAL--] in 0.1 secs&quot;
-## [1] &quot;[29 of 63] --&gt; THE BROTHERS GRIMM FAIRY TALES&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.BROTHERS.GRIMM.FAIRY.TALES-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.BROTHERS.GRIMM.FAIRY.TALES ... [--TOTAL--] in 0.03 secs&quot;
-## [1] &quot;[30 of 63] --&gt; CAT AND MOUSE IN PARTNERSHIP&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/CAT.AND.MOUSE.IN.PARTNERSHIP-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... CAT.AND.MOUSE.IN.PARTNERSHIP ... [--TOTAL--] in 0.08 secs&quot;
-## [1] &quot;[31 of 63] --&gt; THE WATER OF LIFE&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.WATER.OF.LIFE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.WATER.OF.LIFE ... [--TOTAL--] in 0.15 secs&quot;
-## [1] &quot;[32 of 63] --&gt; THE GOOSE-GIRL&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.GOOSE.GIRL-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.GOOSE.GIRL ... [--TOTAL--] in 0.14 secs&quot;
-## [1] &quot;[33 of 63] --&gt; THE FOX AND THE HORSE&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.FOX.AND.THE.HORSE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.FOX.AND.THE.HORSE ... [--TOTAL--] in 0.04 secs&quot;
-## [1] &quot;[34 of 63] --&gt; THE LITTLE PEASANT&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.LITTLE.PEASANT-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.LITTLE.PEASANT ... [--TOTAL--] in 0.17 secs&quot;
-## [1] &quot;[35 of 63] --&gt; THE OLD MAN AND HIS GRANDSON&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.OLD.MAN.AND.HIS.GRANDSON-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.OLD.MAN.AND.HIS.GRANDSON ... [--TOTAL--] in 0.04 secs&quot;
-## [1] &quot;[36 of 63] --&gt; TOM THUMB&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/TOM.THUMB-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... TOM.THUMB ... [--TOTAL--] in 0.2 secs&quot;
-## [1] &quot;[37 of 63] --&gt; THE PINK&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.PINK-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.PINK ... [--TOTAL--] in 0.12 secs&quot;
-## [1] &quot;[38 of 63] --&gt; THE SALAD&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.SALAD-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.SALAD ... [--TOTAL--] in 0.15 secs&quot;
-## [1] &quot;[39 of 63] --&gt; THE ELVES AND THE SHOEMAKER&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.ELVES.AND.THE.SHOEMAKER-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.ELVES.AND.THE.SHOEMAKER ... [--TOTAL--] in 0.05 secs&quot;
-## [1] &quot;[40 of 63] --&gt; LILY AND THE LION&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/LILY.AND.THE.LION-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... LILY.AND.THE.LION ... [--TOTAL--] in 0.12 secs&quot;
-## [1] &quot;[41 of 63] --&gt; THE MISER IN THE BUSH&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.MISER.IN.THE.BUSH-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.MISER.IN.THE.BUSH ... [--TOTAL--] in 0.07 secs&quot;
-## [1] &quot;[42 of 63] --&gt; ASHPUTTEL&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/ASHPUTTEL-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... ASHPUTTEL ... [--TOTAL--] in 0.15 secs&quot;
-## [1] &quot;[43 of 63] --&gt; THE TWELVE HUNTSMEN&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.TWELVE.HUNTSMEN-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.TWELVE.HUNTSMEN ... [--TOTAL--] in 0.09 secs&quot;
-## [1] &quot;[44 of 63] --&gt; JORINDA AND JORINDEL&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/JORINDA.AND.JORINDEL-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... JORINDA.AND.JORINDEL ... [--TOTAL--] in 0.11 secs&quot;
-## [1] &quot;[45 of 63] --&gt; THE STORY OF THE YOUTH WHO WENT FORTH TO LEARN WHAT FEAR WAS&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.STORY.OF.THE.YOUTH.WHO.WENT.FORTH.TO.LEARN.WHAT.FEAR.WAS-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.STORY.OF.THE.YOUTH.WHO.WENT.FORTH.TO.LEARN.WHAT.FEAR.WAS ... [--TOTAL--] in 0.29 secs&quot;
-## [1] &quot;[46 of 63] --&gt; THE DOG AND THE SPARROW&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.DOG.AND.THE.SPARROW-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.DOG.AND.THE.SPARROW ... [--TOTAL--] in 0.12 secs&quot;
-## [1] &quot;[47 of 63] --&gt; CLEVER ELSIE&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/CLEVER.ELSIE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... CLEVER.ELSIE ... [--TOTAL--] in 0.1 secs&quot;
-## [1] &quot;[48 of 63] --&gt; THE FOUR CLEVER BROTHERS&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.FOUR.CLEVER.BROTHERS-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.FOUR.CLEVER.BROTHERS ... [--TOTAL--] in 0.13 secs&quot;
-## [1] &quot;[49 of 63] --&gt; SNOWDROP&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/SNOWDROP-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... SNOWDROP ... [--TOTAL--] in 0.15 secs&quot;
-## [1] &quot;[50 of 63] --&gt; THE WHITE SNAKE&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.WHITE.SNAKE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.WHITE.SNAKE ... [--TOTAL--] in 0.11 secs&quot;
-## [1] &quot;[51 of 63] --&gt; FUNDEVOGEL&quot;
+## [1] &quot;story: ... LITTLE.RED.CAP.[LITTLE.RED.RIDING.HOOD] ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[29 of 63] --&gt; FUNDEVOGEL&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/FUNDEVOGEL-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... FUNDEVOGEL ... [--TOTAL--] in 0.27 secs&quot;
-## [1] &quot;[52 of 63] --&gt; HANSEL AND GRETEL&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/HANSEL.AND.GRETEL-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... HANSEL.AND.GRETEL ... [--TOTAL--] in 0.2 secs&quot;
-## [1] &quot;[53 of 63] --&gt; SWEETHEART ROLAND&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/SWEETHEART.ROLAND-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... SWEETHEART.ROLAND ... [--TOTAL--] in 0.09 secs&quot;
-## [1] &quot;[54 of 63] --&gt; THE VALIANT LITTLE TAILOR&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.VALIANT.LITTLE.TAILOR-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.VALIANT.LITTLE.TAILOR ... [--TOTAL--] in 0.15 secs&quot;
-## [1] &quot;[55 of 63] --&gt; THE KING OF THE GOLDEN MOUNTAIN&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.KING.OF.THE.GOLDEN.MOUNTAIN-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.KING.OF.THE.GOLDEN.MOUNTAIN ... [--TOTAL--] in 0.11 secs&quot;
-## [1] &quot;[56 of 63] --&gt; CAT-SKIN&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/CAT.SKIN-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... CAT.SKIN ... [--TOTAL--] in 0.1 secs&quot;
-## [1] &quot;[57 of 63] --&gt; HANS IN LUCK&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/HANS.IN.LUCK-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... HANS.IN.LUCK ... [--TOTAL--] in 0.18 secs&quot;
-## [1] &quot;[58 of 63] --&gt; CLEVER HANS&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/CLEVER.HANS-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... CLEVER.HANS ... [--TOTAL--] in 0.05 secs&quot;
-## [1] &quot;[59 of 63] --&gt; DOCTOR KNOWALL&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/DOCTOR.KNOWALL-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... DOCTOR.KNOWALL ... [--TOTAL--] in 0.05 secs&quot;
-## [1] &quot;[60 of 63] --&gt; THE THREE LANGUAGES&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.THREE.LANGUAGES-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.THREE.LANGUAGES ... [--TOTAL--] in 0.05 secs&quot;
-## [1] &quot;[61 of 63] --&gt; OLD SULTAN&quot;
-## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/OLD.SULTAN-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... OLD.SULTAN ... [--TOTAL--] in 0.05 secs&quot;
-## [1] &quot;[62 of 63] --&gt; THE GOLDEN GOOSE&quot;
+## [1] &quot;story: ... FUNDEVOGEL ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[30 of 63] --&gt; ASHPUTTEL&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/ASHPUTTEL-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... ASHPUTTEL ... [--TOTAL--] in 0.04 secs&quot;
+## [1] &quot;[31 of 63] --&gt; THE PINK&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.PINK-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.PINK ... [--TOTAL--] in 0.03 secs&quot;
+## [1] &quot;[32 of 63] --&gt; THE RAVEN&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.RAVEN-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.RAVEN ... [--TOTAL--] in 0.04 secs&quot;
+## [1] &quot;[33 of 63] --&gt; BRIAR ROSE&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/BRIAR.ROSE-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... BRIAR.ROSE ... [--TOTAL--] in 0.05 secs&quot;
+## [1] &quot;[34 of 63] --&gt; THE GOLDEN GOOSE&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.GOLDEN.GOOSE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.GOLDEN.GOOSE ... [--TOTAL--] in 0.06 secs&quot;
-## [1] &quot;[63 of 63] --&gt; KING GRISLY-BEARD&quot;
+## [1] &quot;story: ... THE.GOLDEN.GOOSE ... [--TOTAL--] in 0.03 secs&quot;
+## [1] &quot;[35 of 63] --&gt; THE TWELVE HUNTSMEN&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.TWELVE.HUNTSMEN-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.TWELVE.HUNTSMEN ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[36 of 63] --&gt; OLD SULTAN&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/OLD.SULTAN-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... OLD.SULTAN ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[37 of 63] --&gt; THE WEDDING OF MRS FOX&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.WEDDING.OF.MRS.FOX-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.WEDDING.OF.MRS.FOX ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[38 of 63] --&gt; THE FISHERMAN AND HIS WIFE&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.FISHERMAN.AND.HIS.WIFE-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.FISHERMAN.AND.HIS.WIFE ... [--TOTAL--] in 0.04 secs&quot;
+## [1] &quot;[39 of 63] --&gt; THE GOLDEN BIRD&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.GOLDEN.BIRD-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.GOLDEN.BIRD ... [--TOTAL--] in 0.04 secs&quot;
+## [1] &quot;[40 of 63] --&gt; THE FOUR CLEVER BROTHERS&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.FOUR.CLEVER.BROTHERS-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.FOUR.CLEVER.BROTHERS ... [--TOTAL--] in 0.03 secs&quot;
+## [1] &quot;[41 of 63] --&gt; THE WOLF AND THE SEVEN LITTLE KIDS&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.WOLF.AND.THE.SEVEN.LITTLE.KIDS-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.WOLF.AND.THE.SEVEN.LITTLE.KIDS ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[42 of 63] --&gt; CLEVER ELSIE&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/CLEVER.ELSIE-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... CLEVER.ELSIE ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[43 of 63] --&gt; THE GOOSE-GIRL&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.GOOSE.GIRL-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.GOOSE.GIRL ... [--TOTAL--] in 0.03 secs&quot;
+## [1] &quot;[44 of 63] --&gt; THE OLD MAN AND HIS GRANDSON&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.OLD.MAN.AND.HIS.GRANDSON-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.OLD.MAN.AND.HIS.GRANDSON ... [--TOTAL--] in 0.01 secs&quot;
+## [1] &quot;[45 of 63] --&gt; THE SALAD&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.SALAD-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.SALAD ... [--TOTAL--] in 0.03 secs&quot;
+## [1] &quot;[46 of 63] --&gt; HANSEL AND GRETEL&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/HANSEL.AND.GRETEL-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... HANSEL.AND.GRETEL ... [--TOTAL--] in 0.05 secs&quot;
+## [1] &quot;[47 of 63] --&gt; MOTHER HOLLE&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/MOTHER.HOLLE-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... MOTHER.HOLLE ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[48 of 63] --&gt; TOM THUMB&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/TOM.THUMB-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... TOM.THUMB ... [--TOTAL--] in 0.06 secs&quot;
+## [1] &quot;[49 of 63] --&gt; KING GRISLY-BEARD&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/KING.GRISLY.BEARD-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... KING.GRISLY.BEARD ... [--TOTAL--] in 0.07 secs&quot;</code></pre>
+## [1] &quot;story: ... KING.GRISLY.BEARD ... [--TOTAL--] in 0.03 secs&quot;
+## [1] &quot;[50 of 63] --&gt; HANS IN LUCK&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/HANS.IN.LUCK-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... HANS.IN.LUCK ... [--TOTAL--] in 0.04 secs&quot;
+## [1] &quot;[51 of 63] --&gt; THE WATER OF LIFE&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.WATER.OF.LIFE-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.WATER.OF.LIFE ... [--TOTAL--] in 0.04 secs&quot;
+## [1] &quot;[52 of 63] --&gt; THE FOX AND THE HORSE&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.FOX.AND.THE.HORSE-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.FOX.AND.THE.HORSE ... [--TOTAL--] in 0.01 secs&quot;
+## [1] &quot;[53 of 63] --&gt; THE STRAW, THE COAL, AND THE BEAN&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.STRAW.THE.COAL.AND.THE.BEAN-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.STRAW.THE.COAL.AND.THE.BEAN ... [--TOTAL--] in 0.01 secs&quot;
+## [1] &quot;[54 of 63] --&gt; THE BROTHERS GRIMM FAIRY TALES&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.BROTHERS.GRIMM.FAIRY.TALES-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.BROTHERS.GRIMM.FAIRY.TALES ... [--TOTAL--] in 0 secs&quot;
+## [1] &quot;[55 of 63] --&gt; SWEETHEART ROLAND&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/SWEETHEART.ROLAND-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... SWEETHEART.ROLAND ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[56 of 63] --&gt; DOCTOR KNOWALL&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/DOCTOR.KNOWALL-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... DOCTOR.KNOWALL ... [--TOTAL--] in 0.01 secs&quot;
+## [1] &quot;[57 of 63] --&gt; CLEVER HANS&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/CLEVER.HANS-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... CLEVER.HANS ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[58 of 63] --&gt; THE QUEEN BEE&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.QUEEN.BEE-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.QUEEN.BEE ... [--TOTAL--] in 0.01 secs&quot;
+## [1] &quot;[59 of 63] --&gt; CAT AND MOUSE IN PARTNERSHIP&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/CAT.AND.MOUSE.IN.PARTNERSHIP-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... CAT.AND.MOUSE.IN.PARTNERSHIP ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[60 of 63] --&gt; THE ADVENTURES OF CHANTICLEER AND PARTLET&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.ADVENTURES.OF.CHANTICLEER.AND.PARTLET-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.ADVENTURES.OF.CHANTICLEER.AND.PARTLET ... [--TOTAL--] in 0.03 secs&quot;
+## [1] &quot;[61 of 63] --&gt; RAPUNZEL&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/RAPUNZEL-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... RAPUNZEL ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[62 of 63] --&gt; THE WILLOW-WREN AND THE BEAR&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.WILLOW.WREN.AND.THE.BEAR-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.WILLOW.WREN.AND.THE.BEAR ... [--TOTAL--] in 0.02 secs&quot;
+## [1] &quot;[63 of 63] --&gt; THE TRAVELLING MUSICIANS&quot;
+## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.TRAVELLING.MUSICIANS-6043f89979332674fc7969bd9af02e59.rds&quot;
+## [1] &quot;story: ... THE.TRAVELLING.MUSICIANS ... [--TOTAL--] in 0.02 secs&quot;</code></pre>
 <pre class="r"><code>timer.end = as.numeric(Sys.time());
 elapsed = round( (timer.end - timer.start), 2);
   print(paste0(&quot;[-- EVERYTHING --] in &quot;,elapsed,&quot; secs&quot;));</code></pre>
-<pre><code>## [1] &quot;[-- EVERYTHING --] in 7.25 secs&quot;</code></pre>
+<pre><code>## [1] &quot;[-- EVERYTHING --] in 1.78 secs&quot;</code></pre>
 <pre class="r"><code># once we have the stories cached, we can move onto the next step
 # we have to manipulate data often, </code></pre>
 </div>
@@ -3897,11 +3942,11 @@ elapsed = round( (timer.end - timer.start), 2);
                           my.stopwords = stop.snowball
                           );</code></pre>
 <pre><code>## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/HANSEL.AND.GRETEL-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... HANSEL.AND.GRETEL ... [--TOTAL--] in 0.16 secs&quot;</code></pre>
+## [1] &quot;story: ... HANSEL.AND.GRETEL ... [--TOTAL--] in 0.05 secs&quot;</code></pre>
 <pre class="r"><code>my.df;</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["my.idx"],"name":[1],"type":["int"],"align":["right"]},{"label":["title"],"name":[2],"type":["chr"],"align":["left"]},{"label":["count.sentences"],"name":[3],"type":["int"],"align":["right"]},{"label":["count.words"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["count.lower"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["count.upper"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["count.ucfirst"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["FRE"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["FKGL"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["syllables"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["words"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["FRE.N"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["FKGL.N"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["P.per"],"name":[14],"type":["int"],"align":["right"]},{"label":["P.semi"],"name":[15],"type":["int"],"align":["right"]},{"label":["P.colon"],"name":[16],"type":["int"],"align":["right"]},{"label":["P.comma"],"name":[17],"type":["int"],"align":["right"]},{"label":["P.quest"],"name":[18],"type":["int"],"align":["right"]},{"label":["P.exclam"],"name":[19],"type":["int"],"align":["right"]},{"label":["P.left"],"name":[20],"type":["int"],"align":["right"]},{"label":["P.right"],"name":[21],"type":["int"],"align":["right"]},{"label":["P.apost"],"name":[22],"type":["int"],"align":["right"]},{"label":["PP.ALL"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["PP.first"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["PP.second"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["PP.third"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["PP.singular"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["PP.plural"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["GENDER.ALL"],"name":[29],"type":["dbl"],"align":["right"]},{"label":["GENDER.male"],"name":[30],"type":["dbl"],"align":["right"]},{"label":["GENDER.female"],"name":[31],"type":["dbl"],"align":["right"]},{"label":["GENDER.singular"],"name":[32],"type":["dbl"],"align":["right"]},{"label":["GENDER.plural"],"name":[33],"type":["dbl"],"align":["right"]},{"label":["S.POS"],"name":[34],"type":["dbl"],"align":["right"]},{"label":["S.NEG"],"name":[35],"type":["dbl"],"align":["right"]}],"data":[{"1":"20","2":"HANSEL AND GRETEL","3":"119","4":"2945","5":"2700","6":"24","7":"221","8":"NA","9":"NA","10":"NA","11":"2945","12":"NA","13":"NA","14":"117","15":"12","16":"31","17":"302","18":"12","19":"15","20":"69","21":"80","22":"11","23":"506","24":"78","25":"112","26":"316","27":"316","28":"190","29":"154","30":"73","31":"81","32":"150","33":"4","34":"0.484127","35":"0.515873"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["my.idx"],"name":[1],"type":["int"],"align":["right"]},{"label":["title"],"name":[2],"type":["chr"],"align":["left"]},{"label":["count.sentences"],"name":[3],"type":["int"],"align":["right"]},{"label":["count.words"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["count.lower"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["count.upper"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["count.ucfirst"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["FRE"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["FKGL"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["syllables"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["words"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["FRE.N"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["FKGL.N"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["P.per"],"name":[14],"type":["int"],"align":["right"]},{"label":["P.semi"],"name":[15],"type":["int"],"align":["right"]},{"label":["P.colon"],"name":[16],"type":["int"],"align":["right"]},{"label":["P.comma"],"name":[17],"type":["int"],"align":["right"]},{"label":["P.quest"],"name":[18],"type":["int"],"align":["right"]},{"label":["P.exclam"],"name":[19],"type":["int"],"align":["right"]},{"label":["P.left"],"name":[20],"type":["int"],"align":["right"]},{"label":["P.right"],"name":[21],"type":["int"],"align":["right"]},{"label":["P.apost"],"name":[22],"type":["int"],"align":["right"]},{"label":["PP.ALL"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["PP.first"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["PP.second"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["PP.third"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["PP.singular"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["PP.plural"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["GENDER.ALL"],"name":[29],"type":["dbl"],"align":["right"]},{"label":["GENDER.male"],"name":[30],"type":["dbl"],"align":["right"]},{"label":["GENDER.female"],"name":[31],"type":["dbl"],"align":["right"]},{"label":["GENDER.singular"],"name":[32],"type":["dbl"],"align":["right"]},{"label":["GENDER.plural"],"name":[33],"type":["dbl"],"align":["right"]},{"label":["S.POS"],"name":[34],"type":["dbl"],"align":["right"]},{"label":["S.NEG"],"name":[35],"type":["dbl"],"align":["right"]}],"data":[{"1":"20","2":"HANSEL AND GRETEL","3":"119","4":"2945","5":"2700","6":"24","7":"221","8":"75.51495","9":"8.979672","10":"3682","11":"2945","12":"75.94434","13":"8.814686","14":"117","15":"12","16":"31","17":"302","18":"12","19":"15","20":"69","21":"80","22":"11","23":"506","24":"78","25":"112","26":"316","27":"316","28":"190","29":"154","30":"73","31":"81","32":"150","33":"4","34":"0.484127","35":"0.515873"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <pre class="r"><code>my.df = summarizeGeneral(which=20:22, 
@@ -3909,15 +3954,15 @@ elapsed = round( (timer.end - timer.start), 2);
                           my.stopwords = stop.snowball
                           );</code></pre>
 <pre><code>## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/HANSEL.AND.GRETEL-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... HANSEL.AND.GRETEL ... [--TOTAL--] in 0.17 secs&quot;
+## [1] &quot;story: ... HANSEL.AND.GRETEL ... [--TOTAL--] in 0.05 secs&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/THE.MOUSE.THE.BIRD.AND.THE.SAUSAGE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... THE.MOUSE.THE.BIRD.AND.THE.SAUSAGE ... [--TOTAL--] in 0.05 secs&quot;
+## [1] &quot;story: ... THE.MOUSE.THE.BIRD.AND.THE.SAUSAGE ... [--TOTAL--] in 0.01 secs&quot;
 ## [1] &quot;C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/nlp/_data_/gutenberg/2591/MOTHER.HOLLE-6043f89979332674fc7969bd9af02e59.rds&quot;
-## [1] &quot;story: ... MOTHER.HOLLE ... [--TOTAL--] in 0.07 secs&quot;</code></pre>
+## [1] &quot;story: ... MOTHER.HOLLE ... [--TOTAL--] in 0.02 secs&quot;</code></pre>
 <pre class="r"><code>my.df;</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["my.idx"],"name":[1],"type":["int"],"align":["right"]},{"label":["title"],"name":[2],"type":["chr"],"align":["left"]},{"label":["count.sentences"],"name":[3],"type":["int"],"align":["right"]},{"label":["count.words"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["count.lower"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["count.upper"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["count.ucfirst"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["FRE"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["FKGL"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["syllables"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["words"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["FRE.N"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["FKGL.N"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["P.per"],"name":[14],"type":["int"],"align":["right"]},{"label":["P.semi"],"name":[15],"type":["int"],"align":["right"]},{"label":["P.colon"],"name":[16],"type":["int"],"align":["right"]},{"label":["P.comma"],"name":[17],"type":["int"],"align":["right"]},{"label":["P.quest"],"name":[18],"type":["int"],"align":["right"]},{"label":["P.exclam"],"name":[19],"type":["int"],"align":["right"]},{"label":["P.left"],"name":[20],"type":["int"],"align":["right"]},{"label":["P.right"],"name":[21],"type":["int"],"align":["right"]},{"label":["P.apost"],"name":[22],"type":["int"],"align":["right"]},{"label":["PP.ALL"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["PP.first"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["PP.second"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["PP.third"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["PP.singular"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["PP.plural"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["GENDER.ALL"],"name":[29],"type":["dbl"],"align":["right"]},{"label":["GENDER.male"],"name":[30],"type":["dbl"],"align":["right"]},{"label":["GENDER.female"],"name":[31],"type":["dbl"],"align":["right"]},{"label":["GENDER.singular"],"name":[32],"type":["dbl"],"align":["right"]},{"label":["GENDER.plural"],"name":[33],"type":["dbl"],"align":["right"]},{"label":["S.POS"],"name":[34],"type":["dbl"],"align":["right"]},{"label":["S.NEG"],"name":[35],"type":["dbl"],"align":["right"]}],"data":[{"1":"20","2":"HANSEL AND GRETEL","3":"119","4":"2945","5":"2700","6":"24","7":"221","8":"NA","9":"NA","10":"NA","11":"2945","12":"NA","13":"NA","14":"117","15":"12","16":"31","17":"302","18":"12","19":"15","20":"69","21":"80","22":"11","23":"506","24":"78","25":"112","26":"316","27":"316","28":"190","29":"154","30":"73","31":"81","32":"150","33":"4","34":"0.484127","35":"0.515873"},{"1":"21","2":"THE MOUSE, THE BIRD, AND THE SAUSAGE","3":"24","4":"706","5":"682","6":"0","7":"24","8":"68.79053","9":"11.290086","10":"892","11":"706","12":"70.08870","13":"10.791282","14":"23","15":"5","16":"2","17":"67","18":"2","19":"1","20":"1","21":"2","22":"1","23":"72","24":"0","25":"0","26":"72","27":"58","28":"14","29":"32","30":"26","31":"6","32":"32","33":"0","34":"0.480000","35":"0.520000"},{"1":"22","2":"MOTHER HOLLE","3":"48","4":"1276","5":"1186","6":"13","7":"77","8":"73.46253","9":"9.757333","10":"1596","11":"1276","12":"74.03662","13":"9.536748","14":"47","15":"14","16":"4","17":"110","18":"3","19":"5","20":"17","21":"24","22":"7","23":"295","24":"37","25":"71","26":"187","27":"246","28":"49","29":"156","30":"0","31":"156","32":"152","33":"4","34":"0.560166","35":"0.439834"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["my.idx"],"name":[1],"type":["int"],"align":["right"]},{"label":["title"],"name":[2],"type":["chr"],"align":["left"]},{"label":["count.sentences"],"name":[3],"type":["int"],"align":["right"]},{"label":["count.words"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["count.lower"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["count.upper"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["count.ucfirst"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["FRE"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["FKGL"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["syllables"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["words"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["FRE.N"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["FKGL.N"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["P.per"],"name":[14],"type":["int"],"align":["right"]},{"label":["P.semi"],"name":[15],"type":["int"],"align":["right"]},{"label":["P.colon"],"name":[16],"type":["int"],"align":["right"]},{"label":["P.comma"],"name":[17],"type":["int"],"align":["right"]},{"label":["P.quest"],"name":[18],"type":["int"],"align":["right"]},{"label":["P.exclam"],"name":[19],"type":["int"],"align":["right"]},{"label":["P.left"],"name":[20],"type":["int"],"align":["right"]},{"label":["P.right"],"name":[21],"type":["int"],"align":["right"]},{"label":["P.apost"],"name":[22],"type":["int"],"align":["right"]},{"label":["PP.ALL"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["PP.first"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["PP.second"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["PP.third"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["PP.singular"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["PP.plural"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["GENDER.ALL"],"name":[29],"type":["dbl"],"align":["right"]},{"label":["GENDER.male"],"name":[30],"type":["dbl"],"align":["right"]},{"label":["GENDER.female"],"name":[31],"type":["dbl"],"align":["right"]},{"label":["GENDER.singular"],"name":[32],"type":["dbl"],"align":["right"]},{"label":["GENDER.plural"],"name":[33],"type":["dbl"],"align":["right"]},{"label":["S.POS"],"name":[34],"type":["dbl"],"align":["right"]},{"label":["S.NEG"],"name":[35],"type":["dbl"],"align":["right"]}],"data":[{"1":"20","2":"HANSEL AND GRETEL","3":"119","4":"2945","5":"2700","6":"24","7":"221","8":"75.51495","9":"8.979672","10":"3682","11":"2945","12":"75.94434","13":"8.814686","14":"117","15":"12","16":"31","17":"302","18":"12","19":"15","20":"69","21":"80","22":"11","23":"506","24":"78","25":"112","26":"316","27":"316","28":"190","29":"154","30":"73","31":"81","32":"150","33":"4","34":"0.484127","35":"0.515873"},{"1":"21","2":"THE MOUSE, THE BIRD, AND THE SAUSAGE","3":"24","4":"706","5":"682","6":"0","7":"24","8":"68.79053","9":"11.290086","10":"892","11":"706","12":"70.08870","13":"10.791282","14":"23","15":"5","16":"2","17":"67","18":"2","19":"1","20":"1","21":"2","22":"1","23":"72","24":"0","25":"0","26":"72","27":"58","28":"14","29":"32","30":"26","31":"6","32":"32","33":"0","34":"0.480000","35":"0.520000"},{"1":"22","2":"MOTHER HOLLE","3":"48","4":"1276","5":"1186","6":"13","7":"77","8":"73.46253","9":"9.757333","10":"1596","11":"1276","12":"74.03662","13":"9.536748","14":"47","15":"14","16":"4","17":"110","18":"3","19":"5","20":"17","21":"24","22":"7","23":"295","24":"37","25":"71","26":"187","27":"246","28":"49","29":"156","30":"0","31":"156","32":"152","33":"4","34":"0.560166","35":"0.439834"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -3939,7 +3984,7 @@ elapsed = round( (timer.end - timer.start), 2);
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();

@@ -1,5 +1,5 @@
 ---
-title: 'R Notebook: Workspace Audit for [monte_shaffer]'
+title: 'R Notebook: Workspace Audit for [Minju Lee]'
 output:
   html_document:
     df_print: paged
@@ -56,23 +56,23 @@ You should place this file in your github local path for this course, in a subfo
 
 ## Set your WSU id and location of your github USERNAME/REPO
 ```{r}
-wsu.id = "monte_shaffer"; # change this to yours.
-github.repository = "MonteShaffer/WSU_STATS419_FALL2020";
+wsu.id = "11638071"; # change this to yours.
+github.repository = "minju-lee92/WSU_STATS419_FALL2020";
 # be sure to change the notebook title at the top of this document to be "you" based on your wsu.id
 ```
 
 ### Code Frequency on GitHub
 Browse to <https://github.com/MonteShaffer/WSU_STATS419_FALL2020/graphs/code-frequency> where you replace my repository name with yours.  Screenshot and include the graphic in this folder, named "github-code-frequency.png".
 
-<IMG src='github-code-frequency.png' style="border: 2px black solid;" />
-<div>**Source: <a href="https://github.com/MonteShaffer/WSU_STATS419_FALL2020/graphs/code-frequency">GitHub</a>**</div>
+<IMG src='workspaceAudit.images/github-code-frequency.png' style="border: 2px black solid;" />
+<div>**Source: <a href="https://github.com/minju-lee92/WSU_STATS419_FALL2020/graphs/code-frequency">GitHub</a>**</div>
 
 
 ### Commit Frequency on GitHub
 Browse to <https://github.com/MonteShaffer/WSU_STATS419_FALL2020/graphs/commit-activity> where you replace my repository name with yours.  Screenshot and include the graphic in this folder, named "github-commits.png". 
 
-<IMG src='github-commits.png' style="border: 2px black solid;" />
-<div>**Source: <a href="https://github.com/MonteShaffer/WSU_STATS419_FALL2020/graphs/commit-activity">GitHub</a>**</div>
+<IMG src='workspaceAudit.images/github-commits.png' style="border: 2px black solid;" />
+<div>**Source: <a href="https://github.com/minju-lee92/WSU_STATS419_FALL2020/graphs/commit-activity">GitHub</a>**</div>
 
 
 ## General Workspace Environment Data
@@ -111,14 +111,14 @@ my.object$local.files = list.files(path.to.git.local,recursive = TRUE);
 ### Dropbox
 Using your file-explorer, browse to your "Dropbox" folder on your computer, enter the "__student_access__" folder for this course, and take a screenshot.  Place in this folder "final/dropbox.png" ...
 
-<IMG src='dropbox.png' style="border: 2px black solid;" />
+<IMG src='workspaceAudit.images/dropbox.png' style="border: 2px black solid;" />
 <div>**Source: LOCAL COMPUTER**</div>
 
 ### Git tool
 
 Take a screenshot of your gitbash tool (or if you use Github Desktop, that will do).  Be certain the screenshot is referencing your repository for this course. Place in this folder "final/git.png" ...
 
-<IMG src='git.png' style="border: 2px black solid;" />
+<IMG src='workspaceAudit.images/git.png' style="border: 2px black solid;" />
 <div>**Source: LOCAL COMPUTER**</div>
 
 ### Git History
@@ -276,7 +276,6 @@ This audit is worth 50 points.  Based on your activity in the workspace, self-as
 Be certain to review the graphs and include self-reflective commentary on your work habits: day of week, hour of day, and so on.
 
 <pre style="font-weight: bold; font-family: monospace; white-space: pre-wrap; background-color: #717171; border: 2px solid #981e32;">
--- WRITE SOMETHING HERE --
-
-I deserve XX/50 points because ...
+  I have installed GitHub and sandbox at the beginning of the semester. I have been pushing it to GitHub about five times each month on average, and I have committed a total of 27 times to my remote repository. I tend to update my repository on Fridays and Mondays between 1 to 2 in the afternoon. I have updated my local sandbox frequently to catch up with the changes in the course. However, I could improve further on my workspace organization skills. Throughout the class, I have learned and familiarize myself with using Git GUI and Git Bash, which was new to me. I can say that I am confident at using GitHub, and I prefer it more than other repositories such as GitLab.  
+	In conclusion, I want to point out that although my workspace practice wasn't perfect, I have put in the time to make sure to keep my workspace updated and as organized as possible. I have definitely improved on my workspace practice compare to the beginning of this semester. Therefore, I would give the full 50 points on the workspace audit. 
 </pre>

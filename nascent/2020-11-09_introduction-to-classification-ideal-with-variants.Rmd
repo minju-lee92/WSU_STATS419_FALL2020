@@ -142,7 +142,7 @@ From those, we will try to "test" some eigenvector approaches using the first "1
 #### Scan Directories to Get File Names
 ```{r}
 
-path.to.nascent = "C:/Users/13608/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/";
+path.to.nascent = "C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/unit_02_confirmatory_data_analysis/nascent/";
 
 
 folder.mnist = "mnist-png/";

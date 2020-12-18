@@ -68,7 +68,7 @@ library(devtools);
 path.github = "https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/master/";
 source_url ( paste0( path.github, "humanVerseWSU/R/functions-file.R" ) );
 
-# C:\Users\13608\Dropbox\WSU-419\Fall 2020\__student_access__\_SECRET_\
+# C:\Users\Alexander Nevsky\Dropbox\WSU-419\Fall 2020\__student_access__\_SECRET_\
 # paste your file-path above (on Windows)
 # highlight, and copy, then run the next line of code in a console.
 # path.to.secret = convertDirectoryWin.toR();
@@ -76,7 +76,7 @@ source_url ( paste0( path.github, "humanVerseWSU/R/functions-file.R" ) );
 # https://stackoverflow.com/questions/64476043/
 # https://stackoverflow.com/questions/1189759/
 
-path.to.secret = "C:/Users/13608/Dropbox/WSU-419/Fall 2020/__student_access__/_SECRET_/";
+path.to.secret = "C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/_SECRET_/";
 
 measure = utils::read.csv( paste0(path.to.secret, "measure-students.txt"), header=TRUE, quote="", sep="|");
 
